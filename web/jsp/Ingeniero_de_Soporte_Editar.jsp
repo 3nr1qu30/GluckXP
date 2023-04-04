@@ -12,14 +12,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/forms_edit.css" rel="stylesheet" type="text/css"/>
         <title>Ingeniero de Soporte</title>
     </head>
-    
-         <%
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String fechaHoraReporte = dtf.format(LocalDateTime.now()); 
-        %>
 
     <body>
         <h1>Hello World!</h1>
