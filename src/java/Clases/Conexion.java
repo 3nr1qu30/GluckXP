@@ -66,4 +66,8 @@ public class Conexion {
            System.err.println("Error al cerrar la conexion" + e); 
         }
     }
+    
+      public Connection getConnection() {
+        return cnn;
+    }
 }
