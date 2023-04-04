@@ -1,89 +1,58 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="Clases.Conexion"%>
 <%@page import="java.util.List"%>
-<%@page import="Clases.Asistente"%>
 <%@page import="java.sql.*" %>
-<%
-    // Establecer conexión a la base de datos
-    String url = "jdbc:mysql://25.69.42.78:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City";
-    String user = "GluckyXp";
-    String password = "Sardipondi69";
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-    
-    
-    try {
-        Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection(url, user, password);
-        statement = connection.createStatement();
-        
-        // Ejecutar query
-        String sql = "SELECT id_usuario FROM usuario JOIN tipoUsuario " +
-                     "ON usuario.id_tipo_usuario = tipoUsuario.id_tipo_usuario " +
-                     "WHERE tipoUsuario.nombre_tipo_usuario = 'Gerente de Soporte'";
-        resultSet = statement.executeQuery(sql);
-        
-        // Generar opciones para el select
-        String options = "";
-        while (resultSet.next()) {
-            options += "<option value='" + resultSet.getString("id_usuario") + "'>" + resultSet.getString("id_usuario") + "</option>";
-        }
-        
-        // Pasar las opciones al select
-        request.setAttribute("options", options);
-    } catch (ClassNotFoundException | SQLException ex) {
-        ex.printStackTrace();
-    } finally {
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (statement != null) {
-            try {
-                statement.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-%>
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Agregar reporte</title>
-</head>
-<body>
-    <h1>Agregar reporte</h1>
-    <form action="${pageContext.request.contextPath}/agregar" method="POST">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agregar reporte</title>
+        <link href="../css/estiloAsistente.css" rel="stylesheet" type="text/css"/>y
+
+    </head>
+    <body>
+
+        <h1>Asistente</h1>
+
+        <div class="table-container">
+            <h2 align="center">Reportes creados</h2>
+            <table class="reportes-table">
+                <tr bgcolor="skyblue">
+                    <th colspan="9">Reportes de Asistente</th>
+                </tr>
+                <tr bgcolor="skyblue">
+                    <th>id_reporte</th>
+                    <th>id_usuario_solicitante</th>
+                    <th>id_usuario_manipula_reporte</th>
+                    <th>id_usuario_asignado_tarea</th>
+                    <th>id_estatus</th>
+                    <th>descripcion_reporte</th>
+                    <th>solucion_reporte</th>
+                    <th>fecha_hora_reporte</th>
+                </tr>
+                <%  
+                    Conexion sql = new Conexion();
+                    String query = "select * from reporte where id_estatus = 1";
+                    ResultSet rs = sql.consultar(query);
+                    while (rs.next()) {%>
+                <tr>
+                    <td><%=rs.getString(1)%></td>
+                    <td><%=rs.getString(2)%></td>
+                    <td><%=rs.getString(3)%></td>
+                    <td><%=rs.getString(4)%></td>
+                    <td><%=rs.getInt(5)%></td>
+                    <td><%=rs.getString(6)%></td>
+                    <td><%=rs.getString(7)%></td>
+                    <td><%=rs.getString(8)%></td>
+                </tr>
+                <% }
+                    rs.close();
+                %>
+            </table>
+        </div>
             
-        <label for="nombre">Descripción del reporte:</label>
-        <input type="text" name="descripcion" id="descripcion" required><br>
-                
-        <label for="descripcion">Id de usuario solicitante:</label>
-        <textarea id="usuario" name="usuario" minlength="18" maxlength="18" required></textarea><br>
-        
-        <%-- Mostrar ids de gerentes de soporte en un select --%>
-        <label for="gerentesSoporte">Gerentes de soporte:</label>
-        <select name="gerentesSoporte" id="gerentesSoporte">
-            <%= request.getAttribute("options") %>
-        </select><br>
-         
-        <input type="submit" value="Agregar reporte">
-    </form>
-    <br>
-    
-    
-   
-</body>
+                <a href="AgregarReporteAsistente.jsp">Agregar Reporte</a> 
+    </body>
 </html>
