@@ -1,5 +1,4 @@
 <%@page import="org.apache.tomcat.dbcp.dbcp2.DriverManagerConnectionFactory"%>
-<%@page import="com.mysql.cj.xdevapi.Statement"%>
 <%@page import="Clases.Conexion"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
