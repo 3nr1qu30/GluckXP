@@ -41,6 +41,7 @@ public class ServletPublicarFAQ extends HttpServlet {
             pregunta=request.getParameter("PreguntaForm");
             respuesta=request.getParameter("SolucionForm");
             faq.PublicarFAQ(pregunta, respuesta, usuario);
+            response.sendRedirect("../jsp/PublicarFAQ.jsp");
         }
     }
 

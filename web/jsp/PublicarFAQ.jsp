@@ -1,4 +1,6 @@
-<%@page import="java.sql.*"%>        
+<%@page import="java.sql.*"%>
+<%@page import="Clases.FAQs"%>
+<%@page import="java.sql.ResultSet"%>
 <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();
@@ -9,10 +11,13 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/tablas_forms.css">
+        <link href="../css/alertify.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/default.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <title>Publicar FAQ's</title>
     </head>
     <body>
-        <h1>Publicar FAQ's</h1>
+        <h1 align="center">Publicar FAQ's <%=usuario%></h1>
         <form method="POST" action="ServletPublicarFAQ">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
@@ -25,6 +30,28 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         </div>
      
     </form>
+        <div class="container">
+        <h2 align="center">FAQ's publicadas</h2>
+        <table>
+      <thead>
+        <tr>
+          <th>Folio FAQ's</th>
+          <th>Pregunta</th>
+          <th>Respuesta</th>
+        </tr>
+        <%FAQs faq = new FAQs();
+        ResultSet rs = faq.VisualizarFAQ();
+        while(rs.next()){%>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%=rs.getInt(1)%></td>
+          <td><%=rs.getString(2)%></td>
+          <td><%=rs.getString(3)%></td>
+      </tbody>
+      <%}%>
+    </table> 
+        </div>
     </body>
 </html>
 <%} else{%>
@@ -35,6 +62,11 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
+        <script src="../css/alertify.min.js" type="text/javascript"></script>
+        <script>function validar_pregunta(){
+            
+        }</script>
     </body>
 </html>
+
 <%}%>

@@ -72,12 +72,17 @@ public class FAQs {
     public void setSql(Conexion sql) {
         this.sql = sql;
     }
-    public void PublicarFAQ (String pregunta,String respuesta,String id_editor){
+    public boolean PublicarFAQ (String pregunta,String respuesta,String id_editor){
         String query;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fechaHoraReporte = dtf.format(LocalDateTime.now());
         query = "insert into FAQs values(default,'"+pregunta+"','"+respuesta+"','"+id_editor+"','"+fechaHoraReporte+"')";
-        sql.ejecutar(query);
-        System.out.println("FAQ registrada");
+        boolean publicacion = sql.ejecutar(query);
+        return publicacion;
+    }
+    public ResultSet VisualizarFAQ(){
+        String query;
+        query = "select * from FAQs";
+        return sql.consultar(query);
     }
 }
