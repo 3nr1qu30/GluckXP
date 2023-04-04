@@ -1,4 +1,5 @@
-        <%session = request.getSession();
+<%@page import="java.sql.*"%>        
+<%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();
 if(nivel.equals("8") || nivel.equals("4")){%>
