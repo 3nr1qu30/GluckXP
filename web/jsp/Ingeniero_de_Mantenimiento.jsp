@@ -168,7 +168,7 @@ table td button.edit .boton:hover {
         <tr>
           <th>Folio del reporte</th>
           <th>Id del Usuario</th>
-          <th>Id del Gerente de soporte</th>
+          <th>Id del Gerente de mantenimiento</th>
           <th>Descripición del reporte</th>
           <th>Solución</th>
           <th>Estatus</th>
