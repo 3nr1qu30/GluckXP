@@ -4,8 +4,9 @@
     Author     : marco
 --%>
 
+<%@page import="Clases.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,7 +26,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
@@ -139,30 +140,39 @@ table td button.edit .boton:hover {
 </style>
 <body>
   <div class="container">
-    <h1>Formulario </h1>
+    <h1>Ingeniero de Mantenimiento </h1>
 
     <form>
       <div class="input-group">
-        <label for="usuario">Dato1:</label>
+        <label for="usuario">Id de Gerente de Mantenimiento</label>
         <input type="text" id="usuario" name="usuario">
       
      
-        <label for="descripcion">Dato2:</label>
+        <label for="descripcion">Solución</label>
         <input type="text" id="descripcion" name="descripcion">
         <button type="submit">Enviar</button>
         </div>
      
     </form>
 
-    <h1>Lista</h1>
-    <button class="boton">Accion</button>
+    <%
+        Conexion sql = new Conexion();
+        String query = "select * where from reporte = 3";
+        
+    %>
+    
+    <h1>Lista de Reportes</h1>
+    <button class="boton">Consultar</button>
     <table>
       <thead>
         <tr>
-          <th>DATO</th>
-          <th>DATO</th>
-          <th>Acción 1</th>
-          <th>Acción 2</th>
+          <th>Folio del reporte</th>
+          <th>Id del Usuario</th>
+          <th>Id del Gerente de soporte</th>
+          <th>Descripición del reporte</th>
+          <th>Solución</th>
+          <th>Estatus</th>
+          <th>Fecha y hora</th>
         </tr>
       </thead>
       <tbody>
