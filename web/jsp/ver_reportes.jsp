@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="model.Asistente"%>
+<%@page import="Clases.Asistente"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
