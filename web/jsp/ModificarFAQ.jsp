@@ -10,32 +10,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container">
-        <h2 align="center">FAQ's publicadas</h2>
-        <table>
-      <thead>
-        <tr>
-          <th>Folio FAQ's</th>
-          <th>Pregunta</th>
-          <th>Respuesta</th>
-          <th>id editor</th>
-          <th>fecha y hora de publicación</th>
-        </tr>
+        <h2 align="center">FAQ's Modificar FQA's</h2>
         <%FAQs faq = new FAQs();
         int id_FAQs = Integer.parseInt(request.getParameter("id_FAQs"));
         ResultSet rs = faq.VisualizarFAQEspecifica(id_FAQs);
         while(rs.next()){%>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%=rs.getInt(1)%></td>
-          <td><%=rs.getString(2)%></td>
-          <td><%=rs.getString(3)%></td>
-          <td><%=rs.getString(4)%></td>
-          <td><%=rs.getString(5)%></td>
-      </tbody>
-      <%}%>
-    </table> 
-    </div>
+        <form method="POST" action="ServletModificarFAQs?id_FAQs=<%=id_FAQs%>">
+      <div class="input-group">
+        <label for="pregunta">Pregunta</label>
+        <input type="text" id="usuario" name="PreguntaForm" value="<%=rs.getString(2)%>">
+        <label for="solucion">Solución</label>
+        <input type="text" id="descripcion" name="SolucionForm" value="<%=rs.getString(3)%>">
+        <button type="submit">Modificar</button>
+        </div>
+        <%}%>
+     
+    </form>
     </body>
 </html>

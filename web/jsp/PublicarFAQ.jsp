@@ -18,7 +18,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         <h1 align="center">Publicar FAQ's <%=usuario%></h1>
-        <form method="POST" action="ServletPublicarFAQ">
+     <form method="POST" action="ServletPublicarFAQ">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
         <input type="text" id="usuario" name="PreguntaForm">
@@ -30,6 +30,8 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         </div>
      
     </form>
+        <br><!-- comment -->
+        <br>
         <div class="container">
         <h2 align="center">FAQ's publicadas</h2>
         <table>
@@ -38,6 +40,9 @@ if(nivel.equals("8") || nivel.equals("4")){%>
           <th>Folio FAQ's</th>
           <th>Pregunta</th>
           <th>Respuesta</th>
+          <th>Visualizar</th>
+          <th>Modificar</th>
+          <th>Eliminar</th>
         </tr>
         <%FAQs faq = new FAQs();
         ResultSet rs = faq.VisualizarFAQ();
@@ -45,9 +50,12 @@ if(nivel.equals("8") || nivel.equals("4")){%>
       </thead>
       <tbody>
         <tr>
-          <td><%=rs.getInt(1)%></td>
+          <td><%=rs.getString(1)%></td>
           <td><%=rs.getString(2)%></td>
           <td><%=rs.getString(3)%></td>
+          <td><a href="VisualizarFAQ.jsp?id_FAQs=<%=rs.getString(1)%>"><button>Visualizar</button></a></td>
+          <td><a href="ModificarFAQ.jsp?id_FAQs=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
+          <td><a href="EliminarFAQs.jsp?id_FAQs=<%=rs.getString(1)%>"><button>Eliminar</button><a/></td>
       </tbody>
       <%}%>
     </table> 
