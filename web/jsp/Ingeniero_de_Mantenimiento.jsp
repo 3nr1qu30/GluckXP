@@ -4,9 +4,10 @@
     Author     : marco
 --%>
 
+<%@page import="org.apache.tomcat.dbcp.dbcp2.DriverManagerConnectionFactory"%>
 <%@page import="Clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,16 +19,9 @@
 <body>
     <h1>Ingeniero de Mantenimiento </h1>
 
-    <%
-        Conexion sql = new Conexion();
-        String query = "select * where from reporte = 3";
-        
-    %>
-    
     <h1>Lista de Reportes</h1>
-
-    <table>
-      <thead>
+    
+        <table>
         <tr>
           <th>Folio del reporte</th>
           <th>Usuario solicitante</th>
@@ -37,22 +31,39 @@
           <th>Descripción</th>
           <th>Solución</th>
           <th>Fecha y hora</th>
+          <th>Editar</th>
         </tr>
-      </thead>
-      <tbody>
+    
+    <%
+        Conexion sql = new Conexion();
+        String query = "select * from reporte where id_estatus = 4";
+        ResultSet rs = sql.consultar(query);
+        
+        while (rs.next()) {
+    %>
+    
         <tr>
-          <td>55</td>
-          <td>Descripción</td>
-          <td>a</td>
-          <td>a</td>
-          <td>a</td>
-          <td>a</td>
-          <td>a</td>
-          <td><button>Accion 2</button></td>
-      </tbody>
-    </table>
+            <th> <%=rs.getInt(1)%> </th>
+            <th> <%=rs.getString(2) %> </th>
+            <th> <%=rs.getString(3) %> </th>
+            <th> <%=rs.getString(4) %> </th>
+            <th> <%=rs.getInt(5) %> </th>
+            <th> <%=rs.getString(6) %> </th>
+            <th> <%=rs.getString(7) %> </th>
+            <th> <%=rs.getString(8) %> </th>
+            <th>
+                <button>Accion 2</button>
+            </th>
+        <tr>
+
   
-    <br><br>
+            <%
+                }
+                rs.close();
+            %>            
+       
+        </table>
+        <br><br>
     
     <button class="boton">Consultar</button>
         
