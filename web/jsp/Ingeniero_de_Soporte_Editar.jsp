@@ -17,9 +17,10 @@
     </head>
 
     <body>
-        <h1>Hello World!</h1>
+    
+        <br> <br>
         
-        <div class="container">
+    <div class="container">
     <h1>Ingeniero de Mantenimiento </h1>
 
     <form>
@@ -27,8 +28,37 @@
         <label for="usuario">Id de Gerente de Mantenimiento</label>
         <input type="text" id="usuario" name="usuario">
            
+        <br>
+        
         <label for="descripcion">Solución</label>
         <input type="text" id="descripcion" name="descripcion">
+        
+        <br>
+        
+        <label for="descripcion">Solución</label>
+        <input type="text" id="descripcion" name="descripcion">
+        
+      <br>
+        
+        <label for="descripcion">Solución</label>
+        <input type="text" id="descripcion" name="descripcion">
+        
+        <br>
+        
+        <label for="descripcion">Solución</label>
+        <input type="text" id="descripcion" name="descripcion">
+        
+        <br>
+        
+        <label for="descripcion">Solución</label>
+        <input type="text" id="descripcion" name="descripcion">
+        
+        <br>
+        
+        <label for="descripcion">Solución</label>
+        <input type="text" id="descripcion" name="descripcion">
+        
+        <br>
         
         <label for="estatus">Estatus</label>
         <select name="estatusM" id="estatus">
