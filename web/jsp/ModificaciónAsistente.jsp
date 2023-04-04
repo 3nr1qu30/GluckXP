@@ -28,40 +28,19 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     </head>
      <body>   
       <p align=center>Reportes enviados por asistente</p>
-      <form action="../jsp/Gerente_de_Soporte.jsp" method="post" name="altas">
-       <table  border=1 align=center>
-        <tr align=center bgcolor=#FFFFCC>
-         <td>Folio Reporte</td>
-         <td>Destinatario</td>
-         <td>Id Destinatario</td>
-         <td>Id Gerente de Soporte</td>
-         <td>Id asistente</td>
-         <td>Descripción</td>
-         <td>estatus</td>
-         <td>Fecha y Hora</td>
-        </tr>
+
    <%   
        int id_folio = Integer.parseInt(request.getParameter("id_folio"));
        Conexion sql = new Conexion();
-        String Query = "select * from reporte where id_reporte =  " +id_folio+ "";
+       String Query = "select * from reporte where id_reporte =  " +id_folio+ "";
        ResultSet rs = sql.consultar(Query);
+       EdicionAsist ea = new EdicionAsist();
+        int id_reporte = Integer.parseInt(request.getParameter("id_report"));
+        ea.ModAsist(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora);
        while(rs.next()){
    %>
    
-    <tr> 
-     <td><%=rs.getInt(1)%></td>
-     <td><select name='destinatario' id='destino' ><option value='' selected> Elige a quien enviar </option>
-     <option value="value1">Gerente de Mantenimiento</option>
-     <option value="value3">Ingeniero de Soporte</option>
-     </td>
-     <td><input type="text" name="iddestino" id="destino" value="<%=rs.getString(4)%>"></td>
-     <td><%out.println(usuario);%></td>
-     <td><%=rs.getString(2)%></td>
-     <td><%=rs.getString(6)%></td>
-     <td><input type="text" name="iddestino" id="destino" value="<%=rs.getInt(5)%>"></td>
-     <td><%out.println(fechaHoraReporte);%></td>
-     <td><input type="submit" value="Enviar" name="envia"></td>
-    </tr>
+
    
       <%
         }
