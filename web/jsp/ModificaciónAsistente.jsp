@@ -2,6 +2,7 @@
 <%@page import="com.mysql.cj.jdbc.Driver"%>
 <%@page import="com.mysql.cj.xdevapi.Statement"%>
 <%@page import="Clases.Conexion"%>
+<%@page import="Clases.EdicionAsist"%>
 <%@ page import="java.sql.*" %>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
