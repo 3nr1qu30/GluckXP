@@ -53,7 +53,7 @@ public class ServletLogin extends HttpServlet {
                     response.sendRedirect("../jsp/Ingeniero_de_Soporte.jsp");
                     break;
                 case 6:
-                    response.sendRedirect("../jsp/Gerente_de_Mantenimineto.jsp");
+                    response.sendRedirect("../jsp/Gerente_de_Mantenimiento.jsp");
                     break;
                 case 7:
                     response.sendRedirect("../jsp/Ingeniero_de_Mantenimineto.jsp");
