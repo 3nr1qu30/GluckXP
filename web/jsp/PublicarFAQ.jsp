@@ -12,7 +12,17 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/tablas_forms.css">
         <link href="../css/alertify.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/default.min.css" rel="stylesheet" type="text/css"/>
+        <l
+        <label for="solucion">Solución</label>
+        <input type="text" id="descripcion" name="SolucionForm">
+        <button type="submit">Publicar</button>
+        </div>
+     
+    </form>
+        <br><!-- comment -->
+        <br>
+        <div class="container">
+        <h2 align="center">FAQ's publicadas</h2>ink href="../css/default.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <title>Publicar FAQ's</title>
     </head>
@@ -24,16 +34,6 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         <input type="text" id="usuario" name="PreguntaForm">
       
      
-        <label for="solucion">Solución</label>
-        <input type="text" id="descripcion" name="SolucionForm">
-        <button type="submit">Publicar</button>
-        </div>
-     
-    </form>
-        <br><!-- comment -->
-        <br>
-        <div class="container">
-        <h2 align="center">FAQ's publicadas</h2>
         <table>
       <thead>
         <tr>
