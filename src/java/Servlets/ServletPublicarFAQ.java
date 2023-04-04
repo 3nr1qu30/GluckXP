@@ -4,6 +4,7 @@
  */
 package Servlets;
 
+import Clases.FAQs;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,7 +34,13 @@ public class ServletPublicarFAQ extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession(true);
+            String usuario,respuesta,pregunta;
+            FAQs faq = new FAQs();
+            HttpSession session = request.getSession();
+            usuario = session.getAttribute("usuario").toString();
+            pregunta=request.getParameter("PreguntaForm");
+            respuesta=request.getParameter("SolucionForm");
+            faq.PublicarFAQ(pregunta, respuesta, usuario);
         }
     }
 
