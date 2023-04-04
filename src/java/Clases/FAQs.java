@@ -78,6 +78,7 @@ public class FAQs {
         String fechaHoraReporte = dtf.format(LocalDateTime.now());
         query = "insert into FAQs values(default,'"+pregunta+"','"+respuesta+"','"+id_editor+"','"+fechaHoraReporte+"')";
         boolean publicacion = sql.ejecutar(query);
+        sql.desconectar();
         return publicacion;
     }
     public ResultSet VisualizarFAQ(){
@@ -85,4 +86,24 @@ public class FAQs {
         query = "select * from FAQs";
         return sql.consultar(query);
     }
+        public ResultSet VisualizarFAQEspecifica(int id_faq){
+        String query;
+        query = "select * from FAQs where id_FAQs = "+id_faq+"";
+        return sql.consultar(query);
+    }
+        public void ModificarFAQ(String pregunta,String respuesta,String id_editor, int id_FAQs){
+            String query;
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String fechaHoraReporte = dtf.format(LocalDateTime.now());
+            query = "update FAQs set pregunta ='"+pregunta+"',respuesta = '"+respuesta+"',id_editor='"+id_editor+"',fecha_y_hora_publicacion='"+fechaHoraReporte+"'"
+                    + "where id_FAQs = "+id_FAQs+"";
+            sql.modificar(query);
+            sql.desconectar();
+        }
+        public void EliminarFAQ(int id_FAQs){
+            String query;
+            query = "delete from FAQs where id_FAQs = "+id_FAQs+"";
+            sql.modificar(query);
+            sql.desconectar();
+        }
 }

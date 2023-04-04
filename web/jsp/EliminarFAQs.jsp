@@ -1,6 +1,5 @@
 <%@page import="java.sql.*"%>
 <%@page import="Clases.FAQs"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,8 +33,10 @@
           <td><%=rs.getString(4)%></td>
           <td><%=rs.getString(5)%></td>
       </tbody>
-      <%}%>
-    </table> 
+    </table>
+      <br>
+          <a href="ServletEliminarFAQ?id_FAQs=<%=rs.getString(1)%>"><button class="boton">Eliminar</button><a/>
+        <%}%>
     </div>
     </body>
 </html>

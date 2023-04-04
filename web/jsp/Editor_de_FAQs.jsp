@@ -11,11 +11,8 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         <title>Editor de FAQ's</title>
     </head>
     <body>
-        <a href="PublicarFAQ.jsp"><button class="boton">Publicar FAQ</button><a/>
-        <a href="VisualizarFAQ.jsp"><button class="boton">Visualizar FAQ</button><a/>
-        <a href="PublicarFAQ.jsp"><button class="boton">Modificar FAQ</button><a/>
-        <a href="PublicarFAQ.jsp"><button class="boton">Eliminar FAQ</button><a/>
-            <a href="PublicarFAQ.jsp"><button class="boton">Visualizar Reportes Cerrados</button><a/>
+        <a href="PublicarFAQ.jsp"><button class="boton">FAQ's</button><a/>
+        <a href="PublicarFAQ.jsp"><button class="boton">FAQ's con Reportes Cerrados</button><a/>
     </body>
 </html>
 <%} else{%>
