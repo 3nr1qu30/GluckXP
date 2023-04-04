@@ -113,6 +113,7 @@ table td button.edit .boton:hover {
 }
 
 .input-group{
+    width: 90%;
     background-color:rgb(255, 255, 255) ;
     padding: 20px;
     border-radius: 10px;
@@ -127,5 +128,5 @@ select{
   color: #555;
   font-size: 16px;
   padding: 5px 10px;
-  width: 100%;
+  width: 50%;
 }
