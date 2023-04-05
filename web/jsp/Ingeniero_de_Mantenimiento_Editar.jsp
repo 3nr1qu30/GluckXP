@@ -19,42 +19,43 @@
 
     <h1>Ingeniero de Mantenimiento </h1>
 
-        <%
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String fechaHoraReporte = dtf.format(LocalDateTime.now()); 
-        %>
     
     <form>
       <div class="input-group">
         <label for="usuario">Folio del reporte</label>
         <input type="text" id="reporte" name="usuario">
-           
+      </div>
+      <div class="input-group">     
         <label for="descripcion">Usuario que manipula el reporte</label>
         <input type="text" id="ingeniero" name="descripcion">
-        
+      </div>
+        <div class="input-group">
         <label for="descripcion">Usuario asignado a la tarea</label>
         <input type="text" id="gerente" name="descripcion">
-        
+      </div>
+      <div class="input-group">
         <label for="estatus">Estatus</label>
         <select name="estatusM" id="estatus">
         <option value="estatus0">Selecciona una opción</option>
         <option value="estatus1">En programación</option>
         <option value="estatus2">Programación terminada</option>
         </select>
-        
+      </div>
+      <div class="input-group">  
         <label for="descripcion">Descripción</label>
         <input type="text" id="descripcion" name="descripcion">
-        
+      </div>
+      <div class="input-group">
         <label for="descripcion">Solución</label>
         <input type="text" id="solucion" name="descripcion">
-        
+      </div>
+      <div<div class="input-group">
         <label for="descripcion">Fecha y hora</label>
         <input type="text" id="fechaHora" name="descripcion">
-        
+      </div> 
         <br><br>
       
         <button type="submit">Enviar</button>
-        </div>
      
     </form>
         
