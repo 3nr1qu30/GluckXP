@@ -115,17 +115,9 @@
 
 
   <div class="faq-container">
-    <div class="faq-item">
-      <div class="faq-question">
-        <h3>¿Cómo puedo registrarme en el sitio?</h3>
-        <div class="arrow"></div>
-      </div>
+
         <%FAQs faq = new FAQs();
         ResultSet rs = faq.VisualizarFAQ();%>
-      <div class="faq-answer">
-        <p>Para registrarte en nuestro sitio, simplemente ve a la página de registro y completa el formulario con tus datos personales. Luego, pulsa el botón de enviar y recibirás un correo de confirmación.</p>
-      </div>
-      </div>
         <%while(rs.next()){%>
         <div class="faq-item">
         <div class="faq-question">
