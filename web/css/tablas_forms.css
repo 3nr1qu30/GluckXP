@@ -68,7 +68,7 @@ form button:hover {
 
 table {
   margin-top: 20px;
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
 }
 
@@ -144,3 +144,16 @@ select{
   height: auto;
   object-fit: cover;
 }   
+
+.nose{
+    border: hidden;
+}
+
+.tablasinnada{
+    border: hidden;
+}
+
+.izquierda{
+    transform: translate(75px);
+}
+

@@ -16,13 +16,11 @@ if(nivel.equals("8") || nivel.equals("6")){%>
     </head>
     <body>
         <h1 align="center">Gerente de mantenimiento</h1>
+        <br>
         
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
         <table border="1" width="600" align="center">
-            <tr bgcolor="skyblue">
-                <th colspan="9">Mantenimiento de Usurio</th>
-            </tr>
             <tr bgcolor="skyblue">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -64,14 +62,12 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         %>
         
         </table>
+        <br>
+        <br>
         
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
         <table border="1" width="600" align="center">
-            <tr bgcolor="skyblue">
-                <th colspan="9">Mantenimiento de Usurio</th>
-            </tr>
-            <tr bgcolor="skyblue">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -98,11 +94,8 @@ if(nivel.equals("8") || nivel.equals("6")){%>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
                     <th>
-                            <a href="editar.jsp?cod=<%=rs.getString(1)%>">
-                            <img src="iconos/icon2.png" width="30" height="30"> ||
-                            </a>
-                            <a href="eliminar.jsp?cod=<%=rs.getString(1)%>">
-                            <img src="iconos/icon3.png" width="30" height="30">
+                            <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
+                            <img src="../imagenes/botonmodif.png" width="30" height="30"/>
                             </a>
                     </th>
             </tr>
@@ -112,14 +105,11 @@ if(nivel.equals("8") || nivel.equals("6")){%>
                 rs.close();
         %>
         </table>
-        
+        <br>
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
         <table border="1" width="600" align="center">
-            <tr bgcolor="skyblue">
-                <th colspan="9">Mantenimiento de Usurio</th>
-            </tr>
-            <tr bgcolor="skyblue">
+            <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -128,7 +118,6 @@ if(nivel.equals("8") || nivel.equals("6")){%>
                 <th>descripcion_reporte</th>
                 <th>solucion_reporte</th>
                 <th>fecha_hora_reporte</th>
-                <th>Modificar</th>
             </tr>
             <%
                 query = "select * from reporte where id_estatus = 4";
