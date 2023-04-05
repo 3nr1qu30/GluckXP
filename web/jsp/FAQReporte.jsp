@@ -12,6 +12,8 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/alertify.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/default.min.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -20,16 +22,42 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         int id_reporte = Integer.parseInt(request.getParameter("id_Reporte"));
         ResultSet rs = rpc.ConsultarReportesCerrados(id_reporte);
         while(rs.next()){%>
-        <form method="POST" action="ServletPublicarFAQ">
+        <form method="POST" action="ServletPublicarFAQ" name="FAQS" onsubmit="return validar_FAQ()">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
-        <input type="text" id="usuario" name="PreguntaForm" value="<%=rs.getString(6)%>">
+        <input type="text"  readonly="readonly" id="usuario" name="PreguntaForm" value="<%=rs.getString(6)%>" onkeypress="return validar_texto(event)">
         <label for="solucion">Solución</label>
-        <input type="text" id="descripcion" name="SolucionForm" value="<%=rs.getString(7)%>">
+        <input type="text" id="descripcion" name="SolucionForm" value="<%=rs.getString(7)%>" readonly="readonly" onkeypress="return validar_texto(event)">
         <button type="submit">Publicar</button>
         </div>
         <%}%>
-     
+     <script src="../css/alertify.min.js" type="text/javascript"></script>
+    <script>function validar_FAQ(){
+            pregunta = document.FAQS.PreguntaForm.value;
+            respuesta = document.FAQS.SolucionForm.value;
+            console.log(pregunta);
+            console.log(respuesta);
+            if(pregunta.length==0 || pregunta.length < 50){
+                alertify.alert("Error","Ingrese una pregunta con una extension de 50 o más caracteres").set('label','ok');
+                return false;
+            }else{
+                if(respuesta.length==0|| respuesta.length < 50){
+                    alertify.alert("Error","Ingrese una respuesta con una extension de 50 o más caracteres").set('label','ok');
+                    return false;
+                }else{
+                    alertify.success("FAQ registrada");
+                    return true;
+                    }
+                }
+            }
+            function validar_texto(){
+                teclas = e.keyCode;
+                teclado = String.fromCharCode(teclas);
+                if(teclado < 'A' || teclado > 'z' || teclado < 0 || teclado > 9 && teclado !=""){
+                    return false;
+                }
+            }
+        </script>
     </form>
     </body>
 </html>

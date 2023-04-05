@@ -18,12 +18,12 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         <h1 align="center">Publicar FAQ's <%=usuario%></h1>
-     <form method="POST" action="ServletPublicarFAQ">
+        <form method="POST" action="ServletPublicarFAQ" name="FAQS" onsubmit="return validar_FAQ()">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
-        <input type="text" id="usuario" name="PreguntaForm">
+        <input type="text" id="usuario" name="PreguntaForm" onkeypress="return validar_texto(event)">
         <label for="solucion">Solución</label>
-        <input type="text" id="descripcion" name="SolucionForm">
+        <input type="text" id="descripcion" name="SolucionForm" onkeypress="return validar_texto(event)">
         <button type="submit">Publicar</button>
         </div>
      
@@ -58,6 +58,33 @@ if(nivel.equals("8") || nivel.equals("4")){%>
       <%}%>
     </table> 
         </div>
+        <script src="../css/alertify.min.js" type="text/javascript"></script>
+    <script>function validar_FAQ(){
+            pregunta = document.FAQS.PreguntaForm.value;
+            respuesta = document.FAQS.SolucionForm.value;
+            console.log(pregunta);
+            console.log(respuesta);
+            if(pregunta.length==0 || pregunta.length < 50){
+                alertify.alert("Error","Ingrese una pregunta con una extension de 50 o más caracteres").set('label','ok');
+                return false;
+            }else{
+                if(respuesta.length==0|| respuesta.length < 50){
+                    alertify.alert("Error","Ingrese una respuesta con una extension de 50 o más caracteres").set('label','ok');
+                    return false;
+                }else{
+                    alertify.success("FAQ registrada");
+                    return true;
+                    }
+                }
+            }
+            function validar_texto(){
+                teclas = e.keyCode;
+                teclado = String.fromCharCode(teclas);
+                if(teclado < 'A' || teclado > 'z' || teclado < 0 || teclado > 9 && teclado !=""){
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
 <%} else{%>
@@ -68,10 +95,6 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
-        <script src="../css/alertify.min.js" type="text/javascript"></script>
-        <script>function validar_pregunta(){
-            
-        }</script>
     </body>
 </html>
 
