@@ -15,7 +15,7 @@ public class Conexion {
     public Conexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            cnn=DriverManager.getConnection("jdbc:mysql://25.4.71.201:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
+            cnn=DriverManager.getConnection("jdbc:mysql://25.69.42.78:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
         }catch  (ClassNotFoundException | SQLException e){
             System.err.println("Error al conectar " + e);
         }
