@@ -126,9 +126,14 @@ function mostrarOpciones() {
 
     if (valorEstatus === "6") {
         var option1 = document.createElement("option");
-        option1.value = "NEGR080905HDFGNBA7";
-        option1.text = "NEGR080905HDFGNBA7";
+        Conexion sql = new Conexion();
+        ResultSet usuario =sql.consultar("select * from usuario where id_tipo_usuario  =4");
+        while(usuario.next()){
+        var option1 = document.createElement("option");
+        option1.value = usuario.getString(1);
+        option1.text = usuario.getString(1);
         selectUsuario.add(option1);
+        }
 
     } else if (valorEstatus === "4") {
         var option1 = document.createElement("option");

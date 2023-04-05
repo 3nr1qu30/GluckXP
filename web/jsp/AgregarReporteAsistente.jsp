@@ -40,7 +40,7 @@ if(nivel.equals("8") || nivel.equals("3")){%>
          String GerenteSop = request.getParameter("GerenteSop");
          int id_estatus =1;
          String descripcion_reporte = request.getParameter("Desc");
-         String solucion_reporte = "Sin solución";
+         String solucion_reporte = "";
          
          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
          String fechaHoraReporte = dtf.format(LocalDateTime.now());
@@ -76,10 +76,17 @@ if(nivel.equals("8") || nivel.equals("3")){%>
         
          <form action="" onsubmit="return validarFormulario();" style="text-align: left">
              <label for="IdUsuario" class="izq" >Id de usuario que solicita</label>
-            <input type="text" id="IdUsuario" name="IdUsuario" minlenght="18" maxlength="18" required>
+            <input type="text" id="IdUsuario" name="IdUsuario"  maxlength="18" required>
             <label for="GerenteSop" class="izq">Identificador del gerente</label>
             <select name="GerenteSop" class="select">
-                <option value="NEGR080905HDFGNBA7">NEGR080905HDFGNBA7</option>
+                <%Conexion sql = new Conexion();
+                    String query = "select * from usuario where id_tipo_usuario = 4";
+                    ResultSet rs = sql.consultar(query);
+                while (rs.next()){%>
+                
+                <option value="<%=rs.getString(1)%>"><%=rs.getString(1)%></option>
+                
+                <%}%>
             </select>
             <label for="Desc" class="izq">Descripción</label>
             <input type="text" id="Desc" name="Desc">
@@ -114,7 +121,7 @@ function validarFormulario() {
     var descripcion = document.getElementById("Desc").value;
     var caracteresEspeciales = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g; // Expresión regular para caracteres especiales
     
-    if (idUsuario.length < 18 || idUsuario.length > 18) {
+    if ( idUsuario.length > 18) {
         alert("El Id de usuario debe tener exactamente 18 caracteres.");
         return false;
     }
@@ -122,8 +129,8 @@ function validarFormulario() {
         alert("El Id de usuario no puede contener caracteres especiales.");
         return false;
     }
-    if (descripcion.length < 50 || descripcion.length > 500) {
-        alert("La descripción debe tener entre 50 y 500 caracteres.");
+    if (descripcion.length < 15 || descripcion.length > 500) {
+        alert("La descripción debe tener entre 15 y 500 caracteres.");
         return false;
     }
     if (caracteresEspeciales.test(descripcion)) {
