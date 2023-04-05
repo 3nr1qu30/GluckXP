@@ -148,15 +148,6 @@ function mostrarOpciones() {
         option1.text = "SAVG050624HDFNSNA2";
         selectUsuario.add(option1);
 }
-
-function mostrarEstatus() {
-    var selectEstatus = document.getElementById("idestatus");
-    var selectUsuario = document.getElementById("idusuarioasig");
-    var valorUsuario = selectUsuario.value;
-
-    if (valorUsuario === "SAVG050624HDFNSNA2") {
-        selectEstatus.value = "8";
-    }
         
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");

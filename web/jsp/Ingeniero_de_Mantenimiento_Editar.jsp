@@ -79,7 +79,14 @@ function validarFormulario() {
                         </select>
                     </td>
                 </tr>
-
+                <tr>
+                    <td>Usuario al que se asigna la tarea
+                    <td>
+                        <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
+                            <option value="NEGR080905HDFGNBA7">SAVG050624HDFNSNA2</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr>
                     <td>Descripción</td>
                     <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
@@ -105,7 +112,7 @@ function validarFormulario() {
                     <div class="clasesita">
                     <tr align="center">
                         <th colspan="2" align="center" class="">
-                            <a href="Ingeniero_de_Soporte.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
+                            <a href="Ingeniero_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
                     </th>
                     </tr>
                     </div>
@@ -118,6 +125,7 @@ if (request.getParameter("btnGrabar") != null){
     int idreporte = Integer.parseInt(request.getParameter("idreporte"));
     String idusuariosoli = request.getParameter("solicitante");
     String idusuariomani = request.getParameter("manipulante");
+    String idusuarioasig = request.getParameter("idusuarioasig");
     int idestatus = Integer.parseInt(request.getParameter("idestatus"));
     String descripcionrep = request.getParameter("descripcionrep");
     String solucionrep = request.getParameter("solucionrep");
@@ -125,9 +133,9 @@ if (request.getParameter("btnGrabar") != null){
 
 
 
-    sta.executeUpdate("update reporte set id_usuario_solicitante='"+idusuariosoli+"', id_usuario_manipula_reporte='"+idusuariomani+"', id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
+    sta.executeUpdate("update reporte set id_usuario_solicitante='"+idusuariosoli+"', id_usuario_manipula_reporte='"+idusuariomani+"', id_usuario_asignado_tarea='"+idusuarioasig+"', id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
 
-    request.getRequestDispatcher("Ingeniero_de_Soporte.jsp").forward(request, response);
+    request.getRequestDispatcher("Ingeniero_de_Mantenimiento.jsp").forward(request, response);
 }
                 %>
     </body>
@@ -147,6 +155,8 @@ function mostrarOpciones() {
         option1.value = "SAVG050624HDFNSNA2";
         option1.text = "SAVG050624HDFNSNA2";
         selectUsuario.add(option1);
+
+    }
 }
 
 function mostrarEstatus() {
@@ -157,6 +167,7 @@ function mostrarEstatus() {
     if (valorUsuario === "SAVG050624HDFNSNA2") {
         selectEstatus.value = "5";
     }
+}
     
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");
