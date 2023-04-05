@@ -23,7 +23,7 @@
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
-                    cnx = DriverManager.getConnection ("jdbc:mysql://10.107.99.212:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
+                    cnx = DriverManager.getConnection ("jdbc:mysql://25.69.42.78:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
                     sta = cnx.createStatement();
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
                     
