@@ -25,7 +25,7 @@ if(nivel.equals("8") || nivel.equals("3")){%>
         
             <br>
             <a href="AgregarReporteAsistente.jsp" class="boton mi-enlace">Agregar Reporte</a> 
-             <a href="../index.html" class="boton rojo mi-enlace">Regresar a inicio</a>
+             <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
             <br><br>
             
             <div class="nota">
