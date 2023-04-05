@@ -55,6 +55,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         <script>function validar_pregunta(){
             
         }</script>
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 

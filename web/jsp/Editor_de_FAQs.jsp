@@ -13,6 +13,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     <body>
             <a href="PublicarFAQ.jsp"><button class="boton">FAQ's</button><a/>
             <a href="PublicarFAQsReporte.jsp"><button class="boton">FAQ's con Reportes Cerrados</button><a/>
+                <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 <%} else{%>
@@ -23,6 +24,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 <%}%>

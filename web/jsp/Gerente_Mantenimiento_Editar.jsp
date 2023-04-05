@@ -87,6 +87,8 @@
                     <tr align="center">
                         <th colspan="2" align="center" class="">
                             <a href="Gerente_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver a Reportes" class="boton izquierda" align="center"></a>
+                            <br>
+                            <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
                     </th>
                     </tr>
                     </table>

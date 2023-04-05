@@ -64,6 +64,8 @@
                 <a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
                 <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button>
                 </a>
+                <br>
+                <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
             </th>
         <tr>
   

@@ -3,7 +3,9 @@
     Created on : Apr 3, 2023, 9:58:45 PM
     Author     : Marco
 --%>
-
+    <%session = request.getSession();
+              String nivel = session.getAttribute("lvl").toString();
+              String usuario = session.getAttribute("usuario").toString();%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.*"%>
@@ -68,13 +70,12 @@ function validarFormulario() {
                 </tr>
                 <tr>
                     <td>Usuario manipulante</td>
-                    <td><input type="text" name="manipulante" value="NIBM050825HDFVRRA1" readonly="readonly"></td>
+                    <td><input type="text" name="manipulante" value="<%=usuario%>"readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td>Estatus</td>
                     <td>
                         <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
-                        <option value="2">En proceso</option>
                         <option value="8">Cerrado</option>
                         </select>
                     </td>
@@ -106,6 +107,8 @@ function validarFormulario() {
                     <tr align="center">
                         <th colspan="2" align="center" class="">
                             <a href="Ingeniero_de_Soporte.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
+                            <br>
+                            <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
                     </th>
                     </tr>
                     </div>

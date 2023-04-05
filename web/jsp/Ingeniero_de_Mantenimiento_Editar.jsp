@@ -11,6 +11,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+<%session = request.getSession();
+              String nivel = session.getAttribute("lvl").toString();
+              String usuario = session.getAttribute("usuario").toString();%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -68,14 +71,14 @@ function validarFormulario() {
                 </tr>
                 <tr>
                     <td>Usuario manipulante</td>
-                    <td><input type="text" name="manipulante" value="NIBM050825HDFVRRA1" readonly="readonly"></td>
+                    <td><input type="text" name="manipulante" value="<%=usuario%>" readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td>Estatus</td>
                     <td>
                         <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
                         <option value="4">En programación</option>
-                        <option value="6">Programacion finalizada</option>
+                        <option value="5">Programacion finalizada</option>
                         </select>
                     </td>
                 </tr>
@@ -113,6 +116,8 @@ function validarFormulario() {
                     <tr align="center">
                         <th colspan="2" align="center" class="">
                             <a href="Ingeniero_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
+                            <br>
+                            <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
                     </th>
                     </tr>
                     </div>

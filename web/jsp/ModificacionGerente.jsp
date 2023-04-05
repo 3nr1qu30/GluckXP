@@ -66,5 +66,6 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
      
       </form>
+     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>

@@ -71,7 +71,8 @@
             %>            
        
         </table>
-        
+        <br>
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 </body>
 </html>
 
@@ -83,6 +84,7 @@
         </head>
         <body>
         <center><h1>No tienes permiso de acceder a esta pagina</h1></center>
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
         </body>
     </html>
 

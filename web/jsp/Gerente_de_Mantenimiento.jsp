@@ -67,7 +67,7 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         <br>
         <br>
         
-        <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
+        <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
         <table border="1" width="600" align="center">
                 <th>id_reporte</th>
@@ -109,7 +109,7 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         </table>
         </div>
         <br>
-        <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
+        <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
         <table border="1" width="600" align="center">
             <tr>
@@ -167,6 +167,7 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         %>
         </table>
         </div>
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 <%} else{%>
@@ -177,6 +178,7 @@ if(nivel.equals("8") || nivel.equals("6")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 

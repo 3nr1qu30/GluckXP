@@ -51,7 +51,7 @@
     </table>
       </div>
     <br>
-    <p align=center>Reportes enviados por Gerente de Soporte</p>
+    <p align=center>Reportes enviados por Gerente de Mantenimiento</p>
     
     <div class=container>
     <table border=1 align=center>

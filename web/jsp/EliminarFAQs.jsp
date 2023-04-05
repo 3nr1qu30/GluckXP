@@ -41,6 +41,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
       <br>
           <a href="ServletEliminarFAQ?id_FAQs=<%=rs.getString(1)%>"><button class="boton">Eliminar</button><a/>
         <%}%>
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </div>
     </body>
 </html>
@@ -52,6 +53,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 <%}%>

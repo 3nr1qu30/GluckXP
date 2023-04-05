@@ -66,6 +66,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
          <label>Fecha</label>
      <input type="text" name="fecha" id="fecha" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
      <button type="submit">Enviar</button>
+     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </div>
    
    <%

@@ -39,6 +39,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
       <%}%>
     </table> 
         </div>
+    <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     </body>
 </html>
 <%} else{%>
