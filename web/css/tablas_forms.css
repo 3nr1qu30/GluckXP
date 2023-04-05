@@ -130,3 +130,17 @@ select{
   padding: 5px 10px;
   width: 100%;
 }
+
+
+.image-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.image-button img {
+  width: 50px;
+  height: auto;
+  object-fit: cover;
+}   

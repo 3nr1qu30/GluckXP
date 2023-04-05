@@ -9,6 +9,12 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+    <%session = request.getSession();
+              String nivel = session.getAttribute("lvl").toString();
+              String usuario = session.getAttribute("usuario").toString();
+    if(nivel.equals("6") || nivel.equals("7") || nivel.equals("4")){%>
+    
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -55,7 +61,9 @@
             <th> <%=rs.getString(7) %> </th>
             <th> <%=rs.getString(8) %> </th>
             <th>
-                <button>Accion 2</button>
+                <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
+                <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button>
+                </a>
             </th>
         <tr>
   
@@ -67,7 +75,18 @@
     
         <br><br>
     
-    <button class="boton">Consultar</button>
-    
 </body>
 </html>
+    
+    <%} else{%>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Error</title>
+        </head>
+        <body>
+        <center><h1>No tienes permiso de acceder a esta pagina</h1></center>
+        </body>
+    </html>
+
+    <%}%>
