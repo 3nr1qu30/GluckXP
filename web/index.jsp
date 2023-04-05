@@ -125,7 +125,9 @@
       <div class="faq-answer">
         <p>Para registrarte en nuestro sitio, simplemente ve a la página de registro y completa el formulario con tus datos personales. Luego, pulsa el botón de enviar y recibirás un correo de confirmación.</p>
       </div>
+      </div>
         <%while(rs.next()){%>
+        <div class="faq-item">
         <div class="faq-question">
             <h3><%=rs.getString(2)%></h3>
         <div class="arrow"></div>
@@ -133,6 +135,7 @@
       <div class="faq-answer">
         <p><%=rs.getString(3)%></p>
       </div> 
+      </div>
       <%}%>
     </div>
 </body>
