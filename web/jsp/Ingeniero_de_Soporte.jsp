@@ -13,7 +13,7 @@
     <%session = request.getSession();
               String nivel = session.getAttribute("lvl").toString();
               String usuario = session.getAttribute("usuario").toString();
-    if(nivel.equals("6") || nivel.equals("7") || nivel.equals("4")){%>
+    if(nivel.equals("6") || nivel.equals("5") || nivel.equals("4")){%>
     
 <html lang="es">
 <head>
@@ -61,7 +61,7 @@
             <th> <%=rs.getString(7) %> </th>
             <th> <%=rs.getString(8) %> </th>
             <th>
-                <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
+                <a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
                 <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button>
                 </a>
             </th>
