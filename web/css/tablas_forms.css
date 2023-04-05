@@ -351,3 +351,16 @@ boton {
     margin-top: 10px;
         
 }
+
+.nose{
+    border: hidden;
+}
+
+.tablasinnada{
+    border: hidden;
+}
+
+.izquierda{
+    transform: translate(75px);
+}
+

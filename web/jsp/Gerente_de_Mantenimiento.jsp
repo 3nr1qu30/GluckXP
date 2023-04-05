@@ -20,7 +20,8 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
-        <table border="1" width="600" align="center">
+        <div class="container">
+        <table border="1" width="600" align="center" class="reportes-table">
             <tr bgcolor="skyblue">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -62,11 +63,12 @@ if(nivel.equals("8") || nivel.equals("6")){%>
         %>
         
         </table>
+        </div>
         <br>
         <br>
         
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
-        
+        <div class="container">
         <table border="1" width="600" align="center">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -105,9 +107,10 @@ if(nivel.equals("8") || nivel.equals("6")){%>
                 rs.close();
         %>
         </table>
+        </div>
         <br>
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
-        
+        <div class="container">
         <table border="1" width="600" align="center">
             <tr>
                 <th>id_reporte</th>
@@ -163,7 +166,7 @@ if(nivel.equals("8") || nivel.equals("6")){%>
                 rs.close();
         %>
         </table>
-        
+        </div>
     </body>
 </html>
 <%} else{%>
