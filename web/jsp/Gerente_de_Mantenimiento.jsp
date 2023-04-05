@@ -2,6 +2,11 @@
 <%@page import="Clases.Conexion"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%session = request.getSession();
+          String nivel = session.getAttribute("lvl").toString();
+          String usuario = session.getAttribute("usuario").toString();
+if(nivel.equals("8") || nivel.equals("6")){%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -78,7 +83,6 @@
                 <th>Modificar</th>
             </tr>
             <%
-                Conexion yo = new Conexion();
                 query = "select * from reporte where id_estatus = 5";
                 rs = sql.consultar(query);
                 while (rs.next()){
@@ -173,3 +177,15 @@
         
     </body>
 </html>
+<%} else{%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        No tienes permiso de acceder a esta pagina
+    </body>
+</html>
+
+<%}%>
