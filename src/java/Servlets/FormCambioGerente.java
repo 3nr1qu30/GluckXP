@@ -18,10 +18,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author CLON 2018
  */
-@WebServlet(name = "FormUsuarioUnico", urlPatterns = {"/jsp/FormUsuarioUnico"})
-public class FormUsuarioUnico extends HttpServlet {
+@WebServlet(name = "FormCambioGerente", urlPatterns = {"/jsp/FormCambioGerente"})
+public class FormCambioGerente extends HttpServlet {
 
-    /**
+  /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -34,19 +34,20 @@ public class FormUsuarioUnico extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");           
         try (PrintWriter out = response.getWriter()) {
-            String id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora;
+            String id_destinatario, id_gerentesoporte, id_asistente, descripcion, solucion,fechahora;
             int reporte, estatus;            
             EdicionAsist rep = new EdicionAsist();           
           
-            reporte =   Integer.parseInt(request.getParameter("idreporte"));
-            estatus =    Integer.parseInt(request.getParameter("estatus"));
-            id_destinatario =request.getParameter("iddestinos");
-            id_gerentesoporte = request.getParameter("idgerentesoporte");      
-            id_asistente=      request.getParameter("idusuario");
+            reporte =   Integer.parseInt(request.getParameter("folioreporte"));
+            estatus =    Integer.parseInt(request.getParameter("status"));
+            id_destinatario =request.getParameter("ingenierosoporte");
+            id_gerentesoporte = request.getParameter("gerentesoporte");      
+            id_asistente=      request.getParameter("asistente");
             descripcion= request.getParameter("descripcion");
+            solucion= request.getParameter("solucion");
             fechahora=   request.getParameter("fecha");
             
-           rep.ModAsist(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora);
+           rep.ModGeren(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, solucion, fechahora);
             response.sendRedirect("../jsp/Gerente_de_Soporte.jsp");
         }
     }

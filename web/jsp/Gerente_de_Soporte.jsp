@@ -9,11 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gerente de Soporte</title>
+         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
+        <title>Gerente de Soporte</title>    
     </head>
      <body>   
       <p align=center>Reportes enviados por asistente</p>
-<table border=1 align=center>
+<div class=container>
+      <table border=1 align=center>
     <tr align=center bgcolor=#FFFFCC>
         <tr>
           <th>Folio Reporte</th>
@@ -47,9 +49,11 @@
       %>
      
     </table>
-      
+      </div>
     <br>
     <p align=center>Reportes enviados por Gerente de Soporte</p>
+    
+    <div class=container>
     <table border=1 align=center>
     <tr align=center bgcolor=#FFFFCC>
         <tr>
@@ -65,23 +69,23 @@
  
     
        <%
-       Conexion Sql = new Conexion();
-       String Query = "select * from reporte where id_estatus = 6";
-       ResultSet rs2 = Sql.consultar(Query);
-       while(rs2.next()){
+      
+        query = "select * from reporte where id_estatus = 6";
+        rs = sql.consultar(query);
+       while(rs.next()){
    %>
  
      <tbody>
         <tr>
-          <td><%=rs2.getString(2)%></td>
-     <td><%=rs2.getString(4)%></td>
-     <td><%=rs2.getString(3)%></td>
-     <td><%=rs2.getInt(1)%></td>
-     <td><%=rs2.getString(6)%></td>
-     <td><%=rs2.getString(7)%></td>
-     <td><%=rs2.getString(8)%></td>
-     <td><%=rs2.getInt(5)%></td>
-          <td><a href="ModificacionGerente.jsp?id_folio=<%=rs2.getString(1)%>"><button>Modificar</button></a></td>
+          <td><%=rs.getString(2)%></td>
+     <td><%=rs.getString(4)%></td>
+     <td><%=rs.getString(3)%></td>
+     <td><%=rs.getInt(1)%></td>
+     <td><%=rs.getString(6)%></td>
+     <td><%=rs.getString(7)%></td>
+     <td><%=rs.getString(8)%></td>
+     <td><%=rs.getInt(5)%></td>
+          <td><a href="ModificacionGerente.jsp?id_folio=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
       </tbody>
     
      <%
@@ -89,6 +93,6 @@
       %>
     
     </table>
-    
+    </div>
     </body>
 </html>

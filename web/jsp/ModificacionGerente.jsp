@@ -21,25 +21,15 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <title>Gerente de Soporte</title>
     </head>
      <body>   
 
     
     
-    <p align=center>Reportes enviados por Gerente de Mantenimiento</p>
-    <form action="../jsp/Gerente_de_Soporte.jsp" method="post" name="altas">
-    <table border=1 align=center>
-    <tr align=center bgcolor=#FFFFCC>
-    <td>Id asistente</td>
-    <td>Id Ingeniero de Soporte</td>
-    <td>Id Gerente de Soporte</td>
-    <td>Folio Reporte</td>
-    <td>Descripción</td>
-    <td>Solución</td>
-    <td>Fecha y Hora</td>
-    <td>Status</td>
-    </tr>
+    <p align=center>Modificar reporte enviado por Gerente de Mantenimiento</p>
+  
        <%
        int id_folio = Integer.parseInt(request.getParameter("id_folio"));    
        Conexion Sql = new Conexion();
@@ -47,22 +37,34 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
        ResultSet rs2 = Sql.consultar(Query);
        while(rs2.next()){
    %>
-     <tr> 
-     <td><%=rs2.getString(2)%></td>
-     <td><%=rs2.getString(4)%></td>
-     <td><%out.println(usuario);%></td>
-     <td><%=rs2.getInt(1)%></td>
-     <td><%=rs2.getString(6)%></td>
-     <td><%=rs2.getString(7)%></td>
-     <td><%out.println(fechaHoraReporte);%></td>
-     <td><%=rs2.getInt(5)%></td>
-     <td><input type="submit" value="Enviar" name="enviar"></td>
-    </tr>
-     <%
-        }
-      %>
+    <form method="POST" action="FormCambioGerente?id_reporte=<%=id_folio%>">
+    <div class="input-group">
+        <label>Id usuario</label>
+     <input type="text" name="asistente" id="destinos" value="<%=rs2.getString(2)%>" readonly="readonly">
+     <label>Id Ingeniero de Soporte</label>
+     <input type="text" name="ingenierosoporte" id="destinos">
+     <label>Id Gerente de Soporte</label>
+     <input type="text" name="gerentesoporte" id="destinos" value="<%out.println(usuario);%>" readonly="readonly">
+     <label>Folio Reporte</label>
+     <input type="text" name="folioreporte" id="destinos" value="<%=rs2.getInt(1)%>" readonly="readonly">
+     <label>Descripción</label>
+     <input type="text" name="descripcion" id="destinos" value="<%=rs2.getString(6)%>" readonly="readonly">
+     <label>Solución</label>
+     <input type="text" name="solucion" id="destinos" value="<%=rs2.getString(7)%>" readonly="readonly">
+     <label>Fecha</label>
+     <input type="text" name="fecha" id="destinos" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
+     <label>Estatus</label>
+     <select name='status' id='status' ><option value='' selected> Nuevo estatus </option>
+     <option value="2">En proceso</option>
+     </select>
+     <br>
+     <button type="submit">Enviar</button>
+   
+     
+      </div>
+     <%}%>
     
-    </table>   
+     
       </form>
     </body>
 </html>
