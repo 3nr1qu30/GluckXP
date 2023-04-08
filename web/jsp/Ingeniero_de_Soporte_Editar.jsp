@@ -137,7 +137,7 @@ if (request.getParameter("btnGrabar") != null){
     
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");
-  if(solucionAnt === "" || solucionAnt === "null"){
+  if(solucionAnt !== "" || solucionAnt !== "null"){
       solucionAnt.readonly=true;
   } else {
       solucionN.value = solucionAnt;
