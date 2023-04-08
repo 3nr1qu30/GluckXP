@@ -16,7 +16,7 @@ if(nivel.equals("8") || nivel.equals("4")){%>
         <title>JSP Page</title>
     </head>
     <body>
-        <h2 align="center">Modificar FQA's</h2>
+        <h2 align="center">Modificar FQA's Editor; <%=usuario%></h2>
         <%FAQs faq = new FAQs();
         int id_FAQs = Integer.parseInt(request.getParameter("id_FAQs"));
         ResultSet rs = faq.VisualizarFAQEspecifica(id_FAQs);
@@ -38,12 +38,12 @@ if(nivel.equals("8") || nivel.equals("4")){%>
             respuesta = document.FAQS.SolucionForm.value;
             console.log(pregunta);
             console.log(respuesta);
-            if(pregunta.length==0 || pregunta.length < 50){
-                alertify.alert("Error","Ingrese una pregunta con una extension de 50 o más caracteres").set('label','ok');
+            if(pregunta.length==0 || pregunta.length < 15){
+                alertify.alert("Error","Ingrese una pregunta con una extension de 15 o más caracteres").set('label','ok');
                 return false;
             }else{
-                if(respuesta.length==0|| respuesta.length < 50){
-                    alertify.alert("Error","Ingrese una respuesta con una extension de 50 o más caracteres").set('label','ok');
+                if(respuesta.length==0|| respuesta.length < 15){
+                    alertify.alert("Error","Ingrese una respuesta con una extension de 15 o más caracteres").set('label','ok');
                     return false;
                 }else{
                     alertify.success("FAQ registrada");
