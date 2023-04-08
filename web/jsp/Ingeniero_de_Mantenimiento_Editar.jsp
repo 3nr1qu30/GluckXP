@@ -119,12 +119,10 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
             </table>
         </form>
                     <br><br><br>
-                    <div class="clasesita">
-                            <a href="Ingeniero_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
-                            <br>
+                            <a href="Ingeniero_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda"></a>
+                            <br><br>
                             <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 
-                    </div>
                 <%
                     }
                 } catch (Exception e){

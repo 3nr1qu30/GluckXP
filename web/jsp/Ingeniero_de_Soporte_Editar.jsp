@@ -3,9 +3,12 @@
     Created on : Apr 3, 2023, 9:58:45 PM
     Author     : Marco
 --%>
-    <%session = request.getSession();
-              String nivel = session.getAttribute("lvl").toString();
-              String usuario = session.getAttribute("usuario").toString();%>
+
+<%session = request.getSession();
+        String nivel = session.getAttribute("lvl").toString();
+        String usuario = session.getAttribute("usuario").toString();
+%>
+
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.*"%>
@@ -13,6 +16,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,12 +26,13 @@
     </head>
     <body onload="actualizarForm()">
         <h2 align="center">Editar Reporte</h2>
-        <%
-            String id_reporte = request.getParameter("id_reporte");
+        
+<%
+        String id_reporte = request.getParameter("id_reporte");
             
-                Connection cnx = null;
-                Statement sta = null;
-                ResultSet rs = null;
+            Connection cnx = null;
+            Statement sta = null;
+            ResultSet rs = null;
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
@@ -36,8 +41,7 @@
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
                     
                     while (rs.next()){
-        %>
-        
+%>
         
 <script>
 function SoloLetras(e)
@@ -92,7 +96,7 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15"  onkeypress="return SoloLetras(event);" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15"  readonly="false" onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
@@ -103,22 +107,14 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                         <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
                     </td>
                 </tr>
-                    <th colspan="2" align="center" class="nose">
                         <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton" >
-                    </th>
             </table>
         </form>
-                    <br>
-                    <div class="clasesita">
-                            <a href="Ingeniero_de_Soporte.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
-                            <br>
-                            <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
-
-                    </div>
-                <%
-                    }
-                } catch (Exception e){
-                }
+    <br>
+<%
+        }
+        } catch (Exception e){
+        }
 
 if (request.getParameter("btnGrabar") != null){
     int idreporte = Integer.parseInt(request.getParameter("idreporte"));
@@ -129,18 +125,14 @@ if (request.getParameter("btnGrabar") != null){
     String solucionrep = request.getParameter("solucionrep");
     String fecha = request.getParameter("fecha");
 
-
-
     sta.executeUpdate("update reporte set id_usuario_solicitante='"+idusuariosoli+"', id_usuario_manipula_reporte='"+idusuariomani+"', id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
-
     request.getRequestDispatcher("Ingeniero_de_Soporte.jsp").forward(request, response);
 }
-                %>
+%>
+  
     </body>
     
-<script>
-   var solucionAnt = document.getElementById("solucionrep")[0].value;
-           
+<script>   
 function mostrarOpciones() {
     var selectEstatus = document.getElementById("idestatus");
     var selectUsuario = document.getElementById("idusuarioasig");
@@ -154,12 +146,28 @@ function mostrarOpciones() {
         option1.text = "SAVG050624HDFNSNA2";
         selectUsuario.add(option1);
 }
-        
+    var solucionAnt = document.getElementById("solucionrep")[0].value;
+    
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");
-  solucionN.value = solucionAnt;
-   }
+  if(solucionAnt === "" || solucionAnt === "null"){
+      solucionAnt.readonly=true;
+  } else {
+      solucionN.value = solucionAnt;
+    }   
+  }
 }
 </script>
 
+<style>
+    .clasesita2{
+        position: absolute;
+        bottom: 0;
+        right: 90%;
+    }
+</style>
+<br>
+<a href="Ingeniero_de_Soporte.jsp"><input type="submit" name="btnSalir" class="boton izquierda" align="center">Regresar</a>
+<br><br><br
+<a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 </html>

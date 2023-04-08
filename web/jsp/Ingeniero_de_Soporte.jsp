@@ -60,13 +60,10 @@
             <th> <%=rs.getString(6) %> </th>
             <th> <%=rs.getString(7) %> </th>
             <th> <%=rs.getString(8) %> </th>
-            <th>
-                <a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
-                <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button>
-                </a>
+
+                <a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>"> <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button> </a>
                 <br>
-                <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
-            </th>
+
         <tr>
   
             <%
@@ -76,7 +73,7 @@
     </table>
     
         <br><br>
-    
+    <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 </body>
 </html>
     
@@ -88,6 +85,8 @@
         </head>
         <body>
         <center><h1>No tienes permiso de acceder a esta pagina</h1></center>
+        
+        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
         </body>
     </html>
 
