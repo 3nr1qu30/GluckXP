@@ -84,7 +84,7 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                 <tr>
                     <td>Estatus</td>
                     <td>
-                        <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
+                        <select name="idestatus" id="idestatus">
                         <option value="8">Cerrado</option>
                         </select>
                     </td>
@@ -133,19 +133,6 @@ if (request.getParameter("btnGrabar") != null){
     </body>
     
 <script>   
-function mostrarOpciones() {
-    var selectEstatus = document.getElementById("idestatus");
-    var selectUsuario = document.getElementById("idusuarioasig");
-    var valorEstatus = selectEstatus.value;
-
-    selectUsuario.innerHTML = "";
-
-    if (valorEstatus === "8") {
-        var option1 = document.createElement("option");
-        option1.value = "SAVG050624HDFNSNA2";
-        option1.text = "SAVG050624HDFNSNA2";
-        selectUsuario.add(option1);
-}
     var solucionAnt = document.getElementById("solucionrep")[0].value;
     
 function actualizarForm() {
