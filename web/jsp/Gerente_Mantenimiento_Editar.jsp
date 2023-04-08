@@ -48,9 +48,10 @@
                     <td><input type="text" name="idusuariomani" value="<%=usuario%>" readonly="readonly"></td>
                 </tr>
                 <tr>
-                    <td>Id de estatus: </td>
+                    <td>Estatus: </td>
                     <td>
-                        <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
+                        <select name="idestatus" id="idestatus" onchange="siemprepasa()">
+                        <option selected> Selecciona el estatus</option>
                         <option value="6">Mantenimiento finalizado</option>
                         <option value="4">En programación</option>
                         </select>
@@ -59,9 +60,8 @@
                 <tr>
                     <td>Id de usuario asigando: </td>
                     <td>
-                        <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
-                            <option value="3">3</option>
-                            <option value="6">6</option>
+                        <select name="idusuarioasig" id="idusuarioasig">
+                            <option selected> Elige el Id </option>   
                         </select>
                     </td>
                 </tr>
@@ -129,38 +129,34 @@ if (request.getParameter("btnGrabar") != null){
     </body>
     
 <script>
-function mostrarOpciones() {
-    var selectEstatus = document.getElementById("idestatus");
+function siemprepasa() {
+    var selectEstatus = document.getElementById("idestatus").value;
     var selectUsuario = document.getElementById("idusuarioasig");
-    var valorEstatus = selectEstatus.value;
 
-    selectUsuario.innerHTML = "";
 
-    if (valorEstatus === "6") {
-        var option1 = document.createElement("option");
-        option1.value = "3";
-        option1.text = "3";
-        selectUsuario.add(option1);
+    if (selectEstatus === "6") {
+        document.getElementById("idusuarioasig").innerHTML= "";
+        var option = document.createElement("option");
+  
+        option.text = "Elige el Id";
+        selectUsuario.add(option);
+        var option = document.createElement("option");
+        option.value = "5";
+        option.text = "5";
+        selectUsuario.add(option);
+        }
 
-    } else if (valorEstatus === "4") {
-        var option1 = document.createElement("option");
-        option1.value = "6";
-        option1.text = "6";
-        selectUsuario.add(option1);
-
+     else if (selectEstatus === "4") {
+          document.getElementById("idusuarioasig").innerHTML= "";
+       var option = document.createElement("option");
+       option.text = "Elige el Id";
+        selectUsuario.add(option);
+        var option = document.createElement("option");
+        option.value = "6";
+        option.text = "6";
+        selectUsuario.add(option);
     }
-}
-
-function mostrarEstatus() {
-    var selectEstatus = document.getElementById("idestatus");
-    var selectUsuario = document.getElementById("idusuarioasig");
-    var valorUsuario = selectUsuario.value;
-
-    if (valorUsuario === "3") {
-        selectEstatus.value = "6";
-    } else if (valorUsuario === "6") {
-        selectEstatus.value = "4";
-    }
+   
 }
 </script>
 
