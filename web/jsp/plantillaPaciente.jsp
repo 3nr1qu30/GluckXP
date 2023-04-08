@@ -53,7 +53,7 @@
             <ul class="nav-links">
                 <li><a href="../index.jsp">
                     <i class="uil uil-estate"></i>
-                    <span class="link-name">Casa</span>
+                    <span class="link-name">Home</span>
                 </a></li>
                 <li><a href="../jsp/Asistente.jsp" >
                     <i class="uil uil-envelope-edit"></i>
