@@ -5,6 +5,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+<%session = request.getSession();
+          String usuario = session.getAttribute("usuario").toString();
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +45,7 @@
                 </tr>
                 <tr>
                     <td>Id de usuario manipulante: </td>
-                    <td><input type="text" name="idusuariomani" value="SAVG050624HDFNSNA2" readonly="readonly"></td>
+                    <td><input type="text" name="idusuariomani" value="<%=usuario%>" readonly="readonly"></td>
                 </tr>
                 <tr>
                     <td>Id de estatus: </td>
