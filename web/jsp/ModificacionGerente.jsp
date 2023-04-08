@@ -42,7 +42,12 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         <label>Id usuario</label>
      <input type="text" name="asistente" id="destinos" value="<%=rs2.getString(2)%>" readonly="readonly">
      <label>Id Ingeniero de Soporte</label>
-     <input type="text" name="ingenierosoporte" id="destinos">
+     <select name='ingenierosoporte' id='destinos'>
+         <option selected> Elige el Id </option>
+          <option value="NIBM050825HDFVRRA1">NIBM050825HDFVRRA1</option>
+     </select>
+     <br>
+         <br> 
      <label>Id Gerente de Soporte</label>
      <input type="text" name="gerentesoporte" id="destinos" value="<%out.println(usuario);%>" readonly="readonly">
      <label>Folio Reporte</label>
@@ -58,14 +63,15 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
      <option value="2">En proceso</option>
      </select>
      <br>
+         <br> 
      <button type="submit">Enviar</button>
-   
+   <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
      
       </div>
      <%}%>
     
      
       </form>
-     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+    
     </body>
 </html>

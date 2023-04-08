@@ -4,16 +4,17 @@
 <%@page import="Clases.Conexion"%>
 <%@page import="Clases.EdicionAsist"%>
 <%@page import="java.sql.*" %>
+<%@page import="java.util.List"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-        <%session = request.getSession();
+ <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
-          String usuario = session.getAttribute("usuario").toString();                 
+          String usuario = session.getAttribute("usuario").toString();     
         %>
+        
           
   <%
 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -27,7 +28,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         <title>Gerente de Soporte</title>
     </head>
      <body>   
-      <p align=center>Reportes enviados por asistente</p>
+      <p align=center>Modificar reporte enviado por asistente</p>
           
    <%   
        int id_folio = Integer.parseInt(request.getParameter("id_folio"));
@@ -38,41 +39,75 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
    %>
    
      <form method="POST" action="FormUsuarioUnico?id_reporte=<%=id_folio%>">
-     <div class="input-group">
-         <label>Folio del Reporte</label>
-     <input type="text" name="idreporte" id="id_reporte" value="<%=rs.getInt(1)%>" readonly="readonly">             
-         <label>Elige al destinatario</label>
-     <select name='destinatario' id='destino' ><option value='' selected> Elige a quien enviar </option>
-     <option value="SAVG050624HDFNSNA2">Gerente de Mantenimiento</option>
-     <option value="NIBM050825HDFVRRA1">Ingeniero de Soporte</option>
+<div class="input-group">
+        <label>Id usuario</label>
+     <input type="text" name="asistente" id="destinos" value="<%=rs.getString(2)%>" readonly="readonly">
+      <label>Elige al destinatario</label>        
+      <select name='destinatario' id='destino' onchange="agregaropcion()" >
+         <option selected> Elige a quien enviar </option>
+     <option value="1">Gerente de Mantenimiento</option>
+     <option value="2">Ingeniero de Soporte</option>
      </select>
          <br>
          <br>
-         <label>Id de destinatario</label>
-     <input type="text" name="iddestinos" id="destinos">
-         <label>Id Gerente de Soporte</label>
-     <input type="text" name="idgerentesoporte" id="gerentesoporte" value="<%out.println(usuario);%>" readonly="readonly">
-         <label>Id usuario</label>
-     <input type="text" name="idusuario" id="usuario" value="<%=rs.getString(2)%>" readonly="readonly">
-         <label>Descripción</label>
-     <input type="text" name="descripcion" id="desc" value="<%=rs.getString(6)%>" readonly="readonly">
-         <label>Estatus</label>
-     <select name='estatus' id='estatus' ><option value='' selected> Nuevo estatus </option>
+      <label>Id de destinatario</label>
+     <select name='ingenierosoporte' id='iddestinos'>
+         <option selected> Elige el Id </option>   
+     </select>
+      <br>
+         <br> 
+     <label>Id Gerente de Soporte</label>
+     <input type="text" name="gerentesoporte" id="destinos" value="<%out.println(usuario);%>" readonly="readonly">
+     <label>Folio Reporte</label>
+     <input type="text" name="folioreporte" id="destinos" value="<%=rs.getInt(1)%>" readonly="readonly">
+     <label>Descripción</label>
+     <input type="text" name="descripcion" id="destinos" value="<%=rs.getString(6)%>" readonly="readonly">
+     <label>Fecha</label>
+     <input type="text" name="fecha" id="destinos" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
+     <label>Estatus</label>
+     <select name='status' id='status' ><option value='' selected> Nuevo estatus </option>
      <option value="2">En proceso</option>
-     <option value="3">En mantenimiento</option>
+     <option value="3">En Mantenimiento</option>
      </select>
-         <br>
-         <br>         
-         <label>Fecha</label>
-     <input type="text" name="fecha" id="fecha" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
+     <br>
+     <br>
      <button type="submit">Enviar</button>
-     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
-    </div>
+   <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+     
+      </div>
    
    <%
     }
    %>
       
        </form>
+ 
+
     </body>
+    
+           <script>
+               
+function agregaropcion() {
+    var selectEstatus = document.getElementById("destino").value;
+    var selectUsuario = document.getElementById("iddestinos");
+
+
+    if (selectEstatus === "1") {
+        var option = document.createElement("option");
+        option.value = "SAVG050624HDFNSNA2";
+        option.text = "SAVG050624HDFNSNA2";
+        selectUsuario.add(option);
+        }
+
+     else if (selectEstatus === "2") {
+       var option = document.createElement("option");
+       option.value = "NIBM050825HDFVRRA1";
+        option.text = "NIBM050825HDFVRRA";
+        selectUsuario.add(option);
+    }
+   
+}
+  
+</script>
+
 </html>

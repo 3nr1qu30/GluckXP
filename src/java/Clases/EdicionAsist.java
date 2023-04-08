@@ -81,7 +81,7 @@ public class EdicionAsist {
         this.sql = sql;
     }
  
-        public void ModAsist(int reporte, int estatus, String id_destinatario, String id_gerentesoporte, String id_asistente, String descripcion, String fechahora ){
+        public void ModAsist(int reporte, int estatus, String id_destinatario, String id_gerentesoporte, String id_asistente, String descripcion,String fechahora ){
             String query;
             
             query = "update reporte set id_estatus ='"+estatus+"',id_usuario_solicitante = '"+id_asistente+"',id_usuario_manipula_reporte='"+id_gerentesoporte+"',id_usuario_asignado_tarea='"+id_destinatario+"',descripcion_reporte = '"+descripcion+"',fecha_hora_reporte = '"+fechahora+"'"
