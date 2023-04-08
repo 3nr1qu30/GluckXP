@@ -338,9 +338,7 @@ boton {
     text-align: left
 }
 
-.rojo{
-    background-color: #FF5733;
-}
+
 
 .nota{
     width: 100%;
@@ -377,4 +375,23 @@ boton {
 
 .margen{
     width: 90%;
+}
+
+
+.pap{
+    width: 50%;
+}
+
+.withtot{
+    height: 90px;
+}
+
+.rojos{
+    background-color: #FF5733;
+    color: white;
+}
+
+.rojo{
+    background-color: #FF5733;
+    color: white;
 }
