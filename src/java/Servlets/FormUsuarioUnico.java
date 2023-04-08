@@ -34,16 +34,16 @@ public class FormUsuarioUnico extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");           
         try (PrintWriter out = response.getWriter()) {
-            String id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora;
+           String id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora;
             int reporte, estatus;            
             EdicionAsist rep = new EdicionAsist();           
           
-            reporte =   Integer.parseInt(request.getParameter("idreporte"));
-            estatus =    Integer.parseInt(request.getParameter("estatus"));
-            id_destinatario =request.getParameter("iddestinos");
-            id_gerentesoporte = request.getParameter("idgerentesoporte");      
-            id_asistente=      request.getParameter("idusuario");
-            descripcion= request.getParameter("descripcion");
+            reporte =   Integer.parseInt(request.getParameter("folioreporte"));
+            estatus =    Integer.parseInt(request.getParameter("status"));
+            id_destinatario =request.getParameter("ingenierosoporte");
+            id_gerentesoporte = request.getParameter("gerentesoporte");      
+            id_asistente=      request.getParameter("asistente");
+            descripcion= request.getParameter("descripcion");          
             fechahora=   request.getParameter("fecha");
             
            rep.ModAsist(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora);
