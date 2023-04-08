@@ -18,7 +18,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ingeniero de Mantenimiento</title>
+  <title>Ingeniero de Soporte</title>
   <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -60,10 +60,7 @@
             <th> <%=rs.getString(6) %> </th>
             <th> <%=rs.getString(7) %> </th>
             <th> <%=rs.getString(8) %> </th>
-
-                <a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>"> <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button> </a>
-                <br>
-
+            <th><a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>"> <button class="image-button"><img src="../imagenes/botonmodif.png" alt="Modificar"/></button> </a></th>
         <tr>
   
             <%
@@ -73,6 +70,8 @@
     </table>
     
         <br><br>
+    <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+    
     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 </body>
 </html>

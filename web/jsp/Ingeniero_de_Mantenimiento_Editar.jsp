@@ -11,6 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.util.ArrayList"%>
 <%session = request.getSession();
               String nivel = session.getAttribute("lvl").toString();
               String usuario = session.getAttribute("usuario").toString();%>
@@ -92,7 +93,7 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                     <td>Usuario al que se asigna la tarea
                     <td>
                         <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
-                            <option value="NEGR080905HDFGNBA7">SAVG050624HDFNSNA2</option>
+                            <option value="5">5</option>
                         </select>
                     </td>
                 </tr>
