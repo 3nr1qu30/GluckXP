@@ -93,6 +93,11 @@ function agregaropcion() {
 
 
     if (selectEstatus === "1") {
+        document.getElementById("iddestinos").innerHTML= "";
+        var option = document.createElement("option");
+  
+        option.text = "Elige el Id";
+        selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "5";
         option.text = "5";
@@ -100,8 +105,12 @@ function agregaropcion() {
         }
 
      else if (selectEstatus === "2") {
+          document.getElementById("iddestinos").innerHTML= "";
        var option = document.createElement("option");
-       option.value = "4";
+       option.text = "Elige el Id";
+        selectUsuario.add(option);
+        var option = document.createElement("option");
+        option.value = "4";
         option.text = "4";
         selectUsuario.add(option);
     }
