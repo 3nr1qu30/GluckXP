@@ -40,25 +40,31 @@
         
         
 <script>
-function validarFormulario() {
-    var solucion = document.getElementById("descripcionrep")[0].value;
-    var caracteresEspeciales = /[!@#$%^&*()_+-=[]{};':"\|,.<>/?]/g; 
+function SoloLetras(e)
+{
+key = e.keyCode || e.which;
+tecla = String.fromCharCode(key).toString();
+letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóú";
 
-    if (solucion.value.length > 50) {
-        alert("La descripción debe tener 50");
-        return false;
-    }
-    if (caracteresEspeciales.test(solucion)) {
-        alert("La descripción no puede contener caracteres especiales.");
-        return false;
-    }
-    return true;
-    
+especiales = [8,13];
+tecla_especial = false
+for(var i in especiales) {
+if(key == especiales[i]){
+ tecla_especial = true;
+ break;
 }
+}
+
+if(letras.indexOf(tecla) == -1 && !tecla_especial)
+{
+ alert("Ingresar solo letras");
+ return false;
+}
+}
+
 </script>
 
-<form action="" onsubmit="return validarFormulario();">        
-        <form action="">
+<form>        
             <table border="1" width="250" align="center" class="tablasinnada">
                 <tr>
                     <td>Folio del reporte</td>
@@ -87,7 +93,7 @@ function validarFormulario() {
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>"></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15"  onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
@@ -103,14 +109,12 @@ function validarFormulario() {
                     </th>
             </table>
         </form>
+                    <br>
                     <div class="clasesita">
-                    <tr align="center">
-                        <th colspan="2" align="center" class="">
                             <a href="Ingeniero_de_Soporte.jsp"><input type="submit" name="btnSalir" value="Volver" class="boton izquierda" align="center"></a>
                             <br>
                             <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
-                    </th>
-                    </tr>
+
                     </div>
                 <%
                     }
