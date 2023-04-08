@@ -63,7 +63,6 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
  return false;
 }
 }
-
 </script>
 
 <form>        
@@ -103,7 +102,7 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "3" onkeypress="return SoloLetas(event); required"></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15"  readonly="false" onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
@@ -150,22 +149,6 @@ if (request.getParameter("btnGrabar") != null){
     
 <script>
    var solucionAnt = document.getElementById("solucionrep")[0].value;
-           
-function mostrarOpciones() {
-    var selectEstatus = document.getElementById("idestatus");
-    var selectUsuario = document.getElementById("idusuarioasig");
-    var valorEstatus = selectEstatus.value;
-
-    selectUsuario.innerHTML = "";
-
-    if (valorEstatus === "5") {
-        var option1 = document.createElement("option");
-        option1.value = "SAVG050624HDFNSNA2";
-        option1.text = "SAVG050624HDFNSNA2";
-        selectUsuario.add(option1);
-
-    }
-}
 
 function mostrarEstatus() {
     var selectEstatus = document.getElementById("idestatus");
