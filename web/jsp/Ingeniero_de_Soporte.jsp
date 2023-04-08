@@ -72,7 +72,6 @@
         <br><br>
     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
     
-    <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
 </body>
 </html>
     
