@@ -364,3 +364,17 @@ boton {
     transform: translate(75px);
 }
 
+.boton2{
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.margen{
+    width: 90%;
+}

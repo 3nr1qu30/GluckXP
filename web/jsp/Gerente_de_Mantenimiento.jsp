@@ -167,7 +167,10 @@ if(nivel.equals("4") || nivel.equals("6")){%>
         %>
         </table>
         </div>
-        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+        <br>
+        <br>
+        <br>
+        <a href="../index.jsp" class="boton rojo mi-enlace izquierda">Regresar a inicio</a>
     </body>
 </html>
 <%} else{%>
@@ -178,7 +181,7 @@ if(nivel.equals("4") || nivel.equals("6")){%>
     </head>
     <body>
         No tienes permiso de acceder a esta pagina
-        <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+        <a href="../index.jsp" class="boton rojo mi-enlace izquierda">Regresar a inicio</a>
     </body>
 </html>
 

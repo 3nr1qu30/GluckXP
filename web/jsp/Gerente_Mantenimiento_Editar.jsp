@@ -34,7 +34,7 @@
                     while (rs.next()){
         %>
         <form action="">
-            <table border="1" width="250" align="center" class="tablasinnada">
+            <table border="1" width="250" align="center" class="tablasinnada margen">
                 <tr>
                     <td>Id reporte: </td>
                     <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
@@ -60,8 +60,8 @@
                     <td>Id de usuario asigando: </td>
                     <td>
                         <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
-                            <option value="NEGR080905HDFGNBA7">NEGR080905HDFGNBA7</option>
-                            <option value="NIBM050825HDFVRRA1">NIBM050825HDFVRRA1</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
                         </select>
                     </td>
                 </tr>
@@ -83,16 +83,24 @@
                     </td>
                 </tr>
                     <th colspan="2" align="center" class="nose">
-                        <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton" >
+                        <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton2" >
                     </th>
             </table>
         </form>
                     <table class="tablasinnada">
                     <tr align="center">
                         <th colspan="2" align="center" class="">
-                            <a href="Gerente_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver a Reportes" class="boton izquierda" align="center"></a>
+                            <a href="Gerente_de_Mantenimiento.jsp"><input type="submit" name="btnSalir" value="Volver a Reportes" class="boton2 izquierda" align="center"></a>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <br>
                             <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+                            <br>
+                            <br>
+                            <br>
                     </th>
                     </tr>
                     </table>
@@ -130,19 +138,14 @@ function mostrarOpciones() {
 
     if (valorEstatus === "6") {
         var option1 = document.createElement("option");
-        Conexion sql = new Conexion();
-        ResultSet usuario =sql.consultar("select * from usuario where id_tipo_usuario  =4");
-        while(usuario.next()){
-        var option1 = document.createElement("option");
-        option1.value = usuario.getString(1);
-        option1.text = usuario.getString(1);
+        option1.value = "3";
+        option1.text = "3";
         selectUsuario.add(option1);
-        }
 
     } else if (valorEstatus === "4") {
         var option1 = document.createElement("option");
-        option1.value = "NIBM050825HDFVRRA1";
-        option1.text = "NIBM050825HDFVRRA1";
+        option1.value = "6";
+        option1.text = "6";
         selectUsuario.add(option1);
 
     }
@@ -153,9 +156,9 @@ function mostrarEstatus() {
     var selectUsuario = document.getElementById("idusuarioasig");
     var valorUsuario = selectUsuario.value;
 
-    if (valorUsuario === "NEGR080905HDFGNBA7") {
+    if (valorUsuario === "3") {
         selectEstatus.value = "6";
-    } else if (valorUsuario === "NIBM050825HDFVRRA1") {
+    } else if (valorUsuario === "6") {
         selectEstatus.value = "4";
     }
 }
