@@ -8,7 +8,7 @@
 <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();  
-        %>
+        if(nivel.equals("4")){%>
 
 <html lang="en">
 <head>
@@ -269,3 +269,15 @@
     
 </body>
 </html>
+
+<%} else{%>
+ <!DOCTYPE html>
+        <html>
+            <head>
+                <meta charset="UTF-8">
+            </head>
+            <body>
+                No tienes acceso
+            </body>
+        </html>
+<%}%>
