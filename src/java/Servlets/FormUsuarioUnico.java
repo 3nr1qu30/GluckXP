@@ -47,7 +47,7 @@ public class FormUsuarioUnico extends HttpServlet {
             fechahora=   request.getParameter("fecha");
             
            rep.ModAsist(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, fechahora);
-            response.sendRedirect("../jsp/Gerente_de_Soporte.jsp");
+            response.sendRedirect("../jsp/plantillaPaciente.jsp");
         }
     }
 

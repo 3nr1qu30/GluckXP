@@ -47,7 +47,7 @@ public class ServletLogin extends HttpServlet {
                     response.sendRedirect("../jsp/Asistente.jsp");
                     break;
                 case 4:
-                    response.sendRedirect("../jsp/Gerente_de_Soporte.jsp");
+                    response.sendRedirect("../jsp/plantillaPaciente.jsp");
                     break;
                 case 5:
                     response.sendRedirect("../jsp/Ingeniero_de_Soporte.jsp");

@@ -149,7 +149,7 @@
     <%session = request.getSession();
               String nivel = session.getAttribute("lvl").toString();
               String usuario = session.getAttribute("usuario").toString();
-    if(nivel.equals("8") || nivel.equals("3")){%>
+    if(nivel.equals("4") || nivel.equals("3")){%>
     
     <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -48,7 +48,7 @@ public class FormCambioGerente extends HttpServlet {
             fechahora=   request.getParameter("fecha");
             
            rep.ModGeren(reporte, estatus, id_destinatario, id_gerentesoporte, id_asistente, descripcion, solucion, fechahora);
-            response.sendRedirect("../jsp/Gerente_de_Soporte.jsp");
+            response.sendRedirect("../jsp/plantillaPaciente.jsp");
         }
     }
 

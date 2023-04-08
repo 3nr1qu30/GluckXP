@@ -5,7 +5,7 @@
 <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();
-if(nivel.equals("8") || nivel.equals("6")){%>
+if(nivel.equals("4") || nivel.equals("6")){%>
 
 <!DOCTYPE html>
 <html>

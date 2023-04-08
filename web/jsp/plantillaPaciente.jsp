@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+
+<%@page import="java.time.LocalDateTime"%>
+        <%@page import="java.time.format.DateTimeFormatter"%>
+        <%@page import="Clases.Conexion"%>
+        <%@page import="java.util.List"%>
+        <%@page import="java.sql.*" %>    
+
+<%session = request.getSession();
+          String nivel = session.getAttribute("lvl").toString();
+          String usuario = session.getAttribute("usuario").toString();  
+        %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +23,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
+    <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
       <!-- Swiper CSS -->
       <link rel="stylesheet" href="css/swiper-bundle.min.css" />
 
@@ -36,14 +47,34 @@
 
             <span class="logo_name">Glucky</span>
         </div>
-
+        
         <div class="menu-items">
+            <form action="ServletLogin" method="post">
             <ul class="nav-links">
                 <li><a href="../index.jsp">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Casa</span>
                 </a></li>
-                
+                <li><a href="../jsp/Asistente.jsp" >
+                    <i class="uil uil-envelope-edit"></i>
+                    <span class="link-name">Asistente</span>
+                </a></li>
+                <li><a href="../jsp/Editor_de_FAQs.jsp">
+                    <i class="uil uil-chat"></i>
+                    <span class="link-name">Editor</span>
+                </a></li>
+                <li><a href="../jsp/Gerente_de_Mantenimiento.jsp">
+                    <i class="uil uil-plus-circle"></i>
+                    <span class="link-name">Gerente de mantenimiento</span>
+                </a></li>
+                <li><a href="../jsp/Ingeniero_de_Soporte.jsp">
+                  <i class="uil uil-bag"></i>
+                  <span class="link-name">Ingeniero de soporte</span>
+                </a></li>
+                <li><a href="../jsp/Ingeniero_de_Mantenimiento.jsp">
+                    <i class="uil uil-analysis"></i>
+                    <span class="link-name">Ingeniero de mantenimiento</span>
+                </a></li>
             </ul>
             
             <ul class="logout-mode">
@@ -54,7 +85,9 @@
                 </div>
             </li>
             </ul>
+        </form>
         </div>
+           
     </nav>
 
     <section class="dashboard">
@@ -63,11 +96,11 @@
 
             <div class="search-box">
                 <i class="uil uil-circle"></i>
-                <input type="text" placeholder="AplicaciÃ³n de soporte" disabled>
+                <input type="text" placeholder="Aplicación de soporte" disabled>
             </div>
 
                 <div class="icon" onclick="toggleNotifi()">
-			        <div class="noti">0</div>
+			        <div class="noti"></div>
 		        </div>
 
                 <div class="notifi-box" id="box">
@@ -95,7 +128,7 @@
                       <span class="name">Nombre completito jeje</span>
                       <span class="job">Email@cum.com</span>
                       <span class="job">Paciente</span>
-                      <span class="job">DirecciÃ³n??</span>
+                      <span class="job">Dirección??</span>
                     </div>
               
                     <div class="media-buttons">
@@ -104,7 +137,7 @@
                       </a>
                     
                     </div>
-              
+               
                     <div class="buttons">
                       <button class="button" onclick="toggleNotifi2()"">Cerrar</button>
                       <button class="button">Cuenta</>
@@ -135,111 +168,92 @@
 
 
 
-        <%@page import="java.time.LocalDateTime"%>
-        <%@page import="java.time.format.DateTimeFormatter"%>
-        <%@page import="Clases.Conexion"%>
-        <%@page import="java.util.List"%>
-        <%@page import="java.sql.*" %>
-        
-        <%session = request.getSession();
-                  String nivel = session.getAttribute("lvl").toString();
-                  String usuario = session.getAttribute("usuario").toString();
-        if(nivel.equals("4") || nivel.equals("3")){%>
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Agregar reporte</title>
-                <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
-        
-            </head>
-            <h1>Asistente</h1>
-            <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
-                
-                    <br>
-                    <a href="AgregarReporteAsistente.jsp" class="boton mi-enlace">Agregar Reporte</a> 
-                    <br><br>
-                     <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
-                    <br>
-                    
-                
-                <br><br>
-        <div class="container">
-          
-            
-            
-                    <h2>Reportes creados</h2>
-                    <br>
-                    
-                      <div class="nota">
-                        Solo podrÃƒÂ¡s crear y observar tus reportes con estado "abierto"
-                        podrÃƒÂ¡s asignar los reportes a cualquier gerente de soporte existente.
-                        Asegurate de escribir datos correctamente.
-                    </div>
-                    
-                    
-                    <table class="reportes-table">
-                     
-                        <tr >
-                            <th>Folio de reporte</th>
-                            <th>Usuario solicitante</th>
-                            <th>Asistente</th>
-                            <th>Gerente de soporte</th>
-                            <th>Estatus</th>
-                            <th>Descripcion de reporte</th>
-                            
-                            <th>Fecha de envÃƒÂ­o</th>
-                        </tr>
-                        <%  
-                            Conexion sql = new Conexion();
-                            String query = "select * from reporte where id_estatus = 1";
-                            ResultSet rs = sql.consultar(query);
-                            if (rs != null){
-                            while (rs.next()) {%>
-                        <tr>
-                            <td><%=rs.getString(1)%></td>
-                            <td><%=rs.getString(2)%></td>
-                            <td><%=rs.getString(3)%></td>
-                            <td><%=rs.getString(4)%></td>
-                            <td>Abierto</td>
-                            <td><%=rs.getString(6)%></td>
-                         
-                            <td><%=rs.getString(8)%></td>
-                        </tr>
-                        <% }
-        }else{
-        out.println("No hay reportes");
+            <p align=center>Reportes enviados por asistente</p>
+<div class=container>
+      <table border=1 align=center>
+    <tr align=center bgcolor=#FFFFCC>
+        <tr>
+          <th>Folio Reporte</th>
+          <th>Id Gerente de Soporte</th>
+          <th>Id Usuario</th>
+          <th>Descripcion</th>
+          <th>estatus</th>
+          <th>Fecha y Hora</th>
+         
+        </tr>
+       
+   <%
+       Conexion sql = new Conexion();
+       String query = "select * from reporte where id_estatus = 1";
+       ResultSet rs = sql.consultar(query);
+       while(rs.next()){
+   %>
+   <tbody>
+        <tr>
+          <td><%=rs.getString(1)%></td>
+          <td><%=rs.getString(3)%></td>
+          <td><%=rs.getString(2)%></td>
+          <td><%=rs.getString(6)%></td>
+          <td><%=rs.getInt(5)%></td>
+          <td><%=rs.getString(8)%></td>
+          <td><a href="ModificaciónAsistente.jsp?id_folio=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
+      </tbody>
+    
+      <%
         }
-                            rs.close();
-                        %>
-                    </table>
-                </div>
-                    
-                        
-                        
-                        
-                       
-                          </body>
-        </html>
+      %>
+     
+    </table>
+      </div>
+    <br>
+    <p align=center>Reportes enviados por Gerente de Mantenimiento</p>
+    
+    <div class=container>
+    <table border=1 align=center>
+    <tr align=center bgcolor=#FFFFCC>
+        <tr>
+          <td>Id Usuario</td>
+    <td>Id Gerente de Mantenimiento</td>
+    <td>Id Gerente de Soporte</td>
+    <td>Folio reporte</td>
+    <td>Descripción</td>
+    <td>Solución</td>
+    <td>Fecha y Hora</td>
+          <th>Estatus</th>
+        </tr>
+ 
+    
+       <%
+      
+        query = "select * from reporte where id_estatus = 6";
+        rs = sql.consultar(query);
+       while(rs.next()){
+   %>
+ 
+     <tbody>
+        <tr>
+          <td><%=rs.getString(2)%></td>
+     <td><%=rs.getString(4)%></td>
+     <td><%=rs.getString(3)%></td>
+     <td><%=rs.getInt(1)%></td>
+     <td><%=rs.getString(6)%></td>
+     <td><%=rs.getString(7)%></td>
+     <td><%=rs.getString(8)%></td>
+     <td><%=rs.getInt(5)%></td>
+          <td><a href="ModificacionGerente.jsp?id_folio=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
+      </tbody>
+    
+     <%
+        }
+      %>
+    
+    </table>
+    </div>
+
+
+
+
         
-        
-        <%} else{%>
-                <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="UTF-8">
-            </head>
-            <body>
-                No tienes acceso
-            </body>
-        </html>
-        <%}%>
-        
-
-
-
-
-
                     
         <!-- Aqui ponen sus cosas-->
         </div>
