@@ -138,8 +138,9 @@ var solucionAnt = document.getElementById("solucionrep")[0].value;
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");
   if(solucionAnt === " " || solucionAnt === "null"){
-      solucionN.value = solucionAnt;
-  } else {
+        solucionAnt.disabled = false;
+        solucionN.value = solucionAnt;
+  } else if (solucionAnt !== " " || solucionAnt !== "null"){
       solucionAnt.disabled = true;
 }   
 }
