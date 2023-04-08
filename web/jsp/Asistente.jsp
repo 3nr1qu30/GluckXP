@@ -50,7 +50,7 @@ Author     : Isaac
                     <th>Gerente de soporte</th>
                     <th>Estatus</th>
                     <th>Descripcion de reporte</th>
-                    <th>Fecha de enviÂ­o</th>
+                    <th>Fecha de envio</th>
                 </tr>
                 <%
                     Conexion sql = new Conexion();
