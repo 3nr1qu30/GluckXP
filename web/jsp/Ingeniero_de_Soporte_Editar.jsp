@@ -96,7 +96,7 @@ if(letras.indexOf(tecla) == -1 && !tecla_especial)
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15"  readonly="false" onkeypress="return SoloLetras(event);" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15" onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
