@@ -94,15 +94,15 @@ function agregaropcion() {
 
     if (selectEstatus === "1") {
         var option = document.createElement("option");
-        option.value = "SAVG050624HDFNSNA2";
-        option.text = "SAVG050624HDFNSNA2";
+        option.value = "5";
+        option.text = "5";
         selectUsuario.add(option);
         }
 
      else if (selectEstatus === "2") {
        var option = document.createElement("option");
-       option.value = "NIBM050825HDFVRRA1";
-        option.text = "NIBM050825HDFVRRA";
+       option.value = "4";
+        option.text = "4";
         selectUsuario.add(option);
     }
    
