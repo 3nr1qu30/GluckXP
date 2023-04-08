@@ -33,6 +33,7 @@ public class ServletModificarFAQs extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String usuario,respuesta,pregunta;
             int id_FAQs;
