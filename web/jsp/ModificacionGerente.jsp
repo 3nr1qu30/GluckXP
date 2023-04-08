@@ -44,7 +44,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
      <label>Id Ingeniero de Soporte</label>
      <select name='ingenierosoporte' id='destinos'>
          <option selected> Elige el Id </option>
-          <option value="NIBM050825HDFVRRA1">NIBM050825HDFVRRA1</option>
+          <option value="4">4</option>
      </select>
      <br>
          <br> 
