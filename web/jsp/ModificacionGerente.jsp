@@ -218,8 +218,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
      <input type="text" name="fecha" id="destinos" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
      <label>Estatus</label>
      <select name='status' id='status' >
-     <option value='0' selected> Nuevo estatus </option>
-     <option value="2">En proceso</option>
+     <option value="2" selected>En proceso</option>
      </select>
      <br>
          <br> 

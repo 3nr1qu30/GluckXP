@@ -245,12 +245,13 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 function agregaropcion() {
     var selectEstatus = document.getElementById("destino").value;
     var selectUsuario = document.getElementById("iddestinos");
+    var selectestado = document.getElementById("status");
 
 
     if (selectEstatus === "1") {
         document.getElementById("iddestinos").innerHTML= "";
-        var option = document.createElement("option");
-  
+        document.getElementById("status").innerHTML= "";
+        var option = document.createElement("option"); 
         option.text = "Elige el Id";
         option.value = "0";
         selectUsuario.add(option);
@@ -258,18 +259,27 @@ function agregaropcion() {
         option.value = "5";
         option.text = "5";
         selectUsuario.add(option);
+        var option = document.createElement("option");
+        option.value = "3";
+        option.text = "En Mantenimiento";
+        selectestado.add(option);
         }
 
      else if (selectEstatus === "2") {
-          document.getElementById("iddestinos").innerHTML= "";
-       var option = document.createElement("option");
-       option.text = "Elige el Id";
-       option.value = "0";
+        document.getElementById("iddestinos").innerHTML= "";
+        document.getElementById("status").innerHTML= "";
+        var option = document.createElement("option");
+        option.text = "Elige el Id";
+        option.value = "0";
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "4";
         option.text = "4";
         selectUsuario.add(option);
+        var option = document.createElement("option");
+        option.value = "2";
+        option.text = "En proceso";
+        selectestado.add(option);
     }
    
 }
