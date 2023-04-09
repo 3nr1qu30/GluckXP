@@ -40,17 +40,11 @@
         }
     }
     
-     var solucionAnt = document.getElementById("solucionrep").value;
+    var solucionAnt = document.getElementById("solucionrep").value;
 
 function actualizarForm() {
-  var solucionN = document.getElementById("solucionN");
-  var solucionCont = document.getElementById(rs.getString(7));
-  if(solucionCont === "" || solucionCont === "null"){
-       solucionAnt.disabled = false;
-       solucionN.value = solucionAnt;
-  } else if(solucionCont !== "" || solucionCont !== "null"){
-      solucionrep.disabled = true;
-}   
+    var solucionN = document.getElementById("solucionN");
+    solucionN.value = solucionAnt;
 }
 </script>
 
@@ -73,7 +67,7 @@ function actualizarForm() {
         <title>Ingeniero de Soporte</title>
     </head>
 
-    <body onload="actualizarForm()">
+    <body>
         <nav>
         <div class="logo-name">
             <div class="logo-image">
@@ -174,7 +168,7 @@ function actualizarForm() {
                 Cierra el reporte
             </div>
             <br>
-<form>        
+    <form onload="actualizarForm()">        
             <table border="1" width="250" align="center" class="tablasinnada">
                 <tr>
                     <td>Folio del reporte</td>
@@ -198,11 +192,11 @@ function actualizarForm() {
                 </tr>
                 <tr>
                     <td>Descripción</td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
+                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" disabled="true"></td>
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15" disabled="" onkeypress="return SoloLetras(event) && actualizarForm();" required></td>
+                    <td><input type="text" id="solucionrep" value="<%=rs.getString(7)%>" minlength="15"  onkeypress="return SoloLetras(event)" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
