@@ -17,6 +17,43 @@
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 
+<script>
+    function SoloLetras(e)
+    {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toString();
+        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóú";
+
+        especiales = [8, 13];
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial)
+        {
+            alert("Ingresar solo letras");
+            return false;
+        }
+    }
+    
+     var solucionAnt = document.getElementById("solucionrep").value;
+
+function actualizarForm() {
+  var solucionN = document.getElementById("solucionN");
+  var solucionCont = document.getElementById(rs.getString(7));
+  if(solucionCont === "" || solucionCont === "null"){
+       solucionAnt.disabled = false;
+       solucionN.value = solucionAnt;
+  } else if(solucionCont !== "" || solucionCont !== "null"){
+      solucionrep.disabled = true;
+}   
+}
+</script>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -110,7 +147,6 @@
     
             </div>
         
-        </div>
         <br>
 
 
@@ -166,7 +202,7 @@
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15" onkeypress="return SoloLetras(event);" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15" disabled="" onkeypress="return SoloLetras(event) && actualizarForm();" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
@@ -208,40 +244,4 @@
 
     </body>
 
-    <script>
-    var solucionAnt = document.getElementById("solucionrep")[0].value;
-
-function actualizarForm() {
-  var solucionN = document.getElementById("solucionN");
-  if(solucionAnt === "" || solucionAnt === "null"){
-      solucionN.value = solucionAnt;
-  } else if(solucionAnt !== " " || solucionAnt !== "null"){
-      solucionAnt.disabled = true;
-}   
-}
-    </script>
-
-<script>
-    function SoloLetras(e)
-    {
-        key = e.keyCode || e.which;
-        tecla = String.fromCharCode(key).toString();
-        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóú";
-
-        especiales = [8, 13];
-        tecla_especial = false
-        for (var i in especiales) {
-            if (key == especiales[i]) {
-                tecla_especial = true;
-                break;
-            }
-        }
-
-        if (letras.indexOf(tecla) == -1 && !tecla_especial)
-        {
-            alert("Ingresar solo letras");
-            return false;
-        }
-    }
-</script>
 </html>
