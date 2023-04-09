@@ -198,7 +198,7 @@ function actualizarForm() {
                 </tr>
                 <tr>
                     <td>Descripción</td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" disabled="true"></td>
+                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Solución</td>
