@@ -40,7 +40,7 @@ public class ServletEliminarFAQ extends HttpServlet {
             HttpSession session = request.getSession();
             id_FAQs = Integer.parseInt(request.getParameter("id_FAQs"));
             faq.EliminarFAQ(id_FAQs);
-            response.sendRedirect("../jsp/PublicarFAQ.jsp");
+            response.sendRedirect("../jsp/Editor_de_FAQs.jsp");
         }
     }
 

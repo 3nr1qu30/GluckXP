@@ -44,7 +44,7 @@ public class ServletModificarFAQs extends HttpServlet {
             respuesta=request.getParameter("SolucionForm");
             id_FAQs = Integer.parseInt(request.getParameter("id_FAQs"));
             faq.ModificarFAQ(pregunta, respuesta, usuario,id_FAQs);
-            response.sendRedirect("../jsp/PublicarFAQ.jsp");
+            response.sendRedirect("../jsp/Editor_de_FAQs.jsp");
         }
     }
 

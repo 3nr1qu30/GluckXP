@@ -36,7 +36,7 @@ public class ServletLogin extends HttpServlet {
             session.setAttribute("lvl", nivel);
             switch (nivel) {
                 case 0:
-                    response.sendRedirect("../index.html");
+                    response.sendRedirect("../index.jsp");
                     break;
                 case 1:
                     response.sendRedirect("../jsp/Doctor.jsp");
