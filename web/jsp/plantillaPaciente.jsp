@@ -258,8 +258,6 @@
     <tr align=center bgcolor=#FFFFCC>
         <tr>
           <td>Id Usuario</td>
-    <td>Id Gerente de Mantenimiento</td>
-    <td>Id Gerente de Soporte</td>
     <td>Folio reporte</td>
     <td>Descripción</td>
     <td>Solución</td>
@@ -278,8 +276,6 @@
      <tbody>
         <tr>
           <td><%=rs.getString(2)%></td>
-     <td><%=rs.getString(4)%></td>
-     <td><%=rs.getString(3)%></td>
      <td><%=rs.getInt(1)%></td>
      <td><%=rs.getString(6)%></td>
      <td><%=rs.getString(7)%></td>
