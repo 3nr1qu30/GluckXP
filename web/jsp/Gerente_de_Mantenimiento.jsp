@@ -172,7 +172,7 @@ if(nivel.equals("6")){%>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
                     <th>
-                            <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
+                            <a href="Gerente_Mantenimiento_Editar_Prog.jsp?id_reporte=<%=rs.getString(1)%>">
                             <img src="../imagenes/botonmodif.png" width="30" height="30"/>
                             </a>
                     </th>
@@ -335,26 +335,6 @@ if(nivel.equals("6")){%>
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Home</span>
                 </a></li>
-                <li><a href="../jsp/Asistente.jsp" >
-                    <i class="uil uil-envelope-edit"></i>
-                    <span class="link-name">Asistente</span>
-                </a></li>
-                <li><a href="../jsp/Editor_de_FAQs.jsp">
-                    <i class="uil uil-chat"></i>
-                    <span class="link-name">Editor</span>
-                </a></li>
-                <li><a href="../jsp/Gerente_de_Mantenimiento.jsp">
-                    <i class="uil uil-plus-circle"></i>
-                    <span class="link-name">Gerente de mantenimiento</span>
-                </a></li>
-                <li><a href="../jsp/Ingeniero_de_Soporte.jsp">
-                  <i class="uil uil-bag"></i>
-                  <span class="link-name">Ingeniero de soporte</span>
-                </a></li>
-                <li><a href="../jsp/Ingeniero_de_Mantenimiento.jsp">
-                    <i class="uil uil-analysis"></i>
-                    <span class="link-name">Ingeniero de mantenimiento</span>
-                </a></li>
                 <li><a href="../jsp/plantillaPaciente.jsp">
                     <i class="uil uil-smile-squint-wink"></i>
                     <span class="link-name">Regresar a Gerente de Soporte</span>
@@ -482,7 +462,7 @@ if(nivel.equals("6")){%>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
                     <th>
-                            <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
+                            <a href="Gerente_Mantenimiento_Editar_Prog.jsp?id_reporte=<%=rs.getString(1)%>">
                             <img src="../imagenes/botonmodif.png" width="30" height="30"/>
                             </a>
                     </th>
