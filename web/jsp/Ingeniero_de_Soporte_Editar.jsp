@@ -156,15 +156,7 @@
                     <td>Estatus</td>
                     <td>
                         <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
-                        <option value="5">Programacion finalizada</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Usuario al que se asigna la tarea
-                    <td>
-                        <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
-                            <option value="8">8</option>
+                        <option value="8">Cerrado</option>
                         </select>
                     </td>
                 </tr>
