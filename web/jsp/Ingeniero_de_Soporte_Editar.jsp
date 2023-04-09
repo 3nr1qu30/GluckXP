@@ -40,11 +40,17 @@
         }
     }
     
-    var solucionAnt = document.getElementById("solucionrep").value;
 
+var solucionAnt = document.getElementById("solucionrep").value;
 function actualizarForm() {
-    var solucionN = document.getElementById("solucionN");
-    solucionN.value = solucionAnt;
+  var solucionN = document.getElementById("solucionN");
+  var solucionCont = document.getElementById(rs.getString(7));
+  if(solucionCont === "" || solucionCont === "null"){
+       solucionAnt.disabled = false;
+       solucionN.value = solucionAnt;
+  } else if(solucionCont !== "" || solucionCont !== "null"){
+      solucionrep.disabled = true;
+}   
 }
 </script>
 
@@ -196,7 +202,7 @@ function actualizarForm() {
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" id="solucionrep" value="<%=rs.getString(7)%>" minlength="15"  onkeypress="return SoloLetras(event)" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15"  onkeypress="return SoloLetras(event)" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
