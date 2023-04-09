@@ -181,7 +181,7 @@ function actualizarForm() {
             <br>
             <br><br>
             <div class="nota">
-                Solo podrás enviar los reportes a...
+                Debes programar una solución y escribir lo que hiciste en el campo de solución
             </div>
             <br>
 <form>        
