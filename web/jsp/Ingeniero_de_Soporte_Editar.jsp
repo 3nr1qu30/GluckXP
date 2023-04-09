@@ -36,7 +36,7 @@
         <title>Ingeniero de Soporte</title>
     </head>
 
-    <body onload="actualizarForm()>
+    <body onload="actualizarForm()">
         <nav>
         <div class="logo-name">
             <div class="logo-image">
