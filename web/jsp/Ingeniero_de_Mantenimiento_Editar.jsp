@@ -48,7 +48,7 @@
             <form action="ServletLogin" method="post">
             <ul class="nav-links">
                 <br>
-                <li><a href= "Ingeniero_de_Soporte.jsp">
+                <li><a href= "Ingeniero_de_Mantenimiento.jsp">
                     <i class="uil uil-envelope-edit"></i>
                     <span class="link-name">Lista de Reportes</span>
                 </a></li>
@@ -219,7 +219,7 @@ function actualizarForm() {
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15" onkeypress="return SoloLetras(event);" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength = "15" maxlength="500" onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
