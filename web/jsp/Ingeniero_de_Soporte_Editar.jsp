@@ -130,13 +130,13 @@
 
                 while (rs.next()) {
         %>
+        <div class="dash-content">
         <div class="container pap">
             <h2 align="center">Editar Reporte</h2>
             <br>
             <br><br>
             
-            <br>
-<form>        
+            <br> 
             <table border="1" width="250" align="center" class="tablasinnada">
                 <tr>
                     <td>Folio del reporte</td>
@@ -180,6 +180,7 @@
                     </td>
             </table>
         </form>
+        </div>
         </div>
 
 
