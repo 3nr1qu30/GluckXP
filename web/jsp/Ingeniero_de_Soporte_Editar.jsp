@@ -215,7 +215,7 @@
             var solucionN = document.getElementById("solucionN");
             if (solucionAnt === " " || solucionAnt === "null") {
                 solucionN.value = solucionAnt;
-            } else {
+            } else if(solucionAnt !== " " || solucionAnt !== "null"){
                 solucionAnt.disabled = true;
             }
         }
