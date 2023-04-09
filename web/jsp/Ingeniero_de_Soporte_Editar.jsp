@@ -134,9 +134,7 @@
             <h2 align="center">Editar Reporte</h2>
             <br>
             <br><br>
-            <div class="nota">
-                Solo podrás enviar los reportes a...
-            </div>
+            
             <br>
 <form>        
             <table border="1" width="250" align="center" class="tablasinnada">
@@ -166,7 +164,7 @@
                 </tr>
                 <tr>
                     <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" maxlength = "15" onkeypress="return SoloLetras(event);" required></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15" onkeypress="return SoloLetras(event);" required></td>
                 </tr>
                 <tr>
                     <td>Fecha y hora</td>
