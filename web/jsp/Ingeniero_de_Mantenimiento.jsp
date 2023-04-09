@@ -148,7 +148,7 @@
             <th class="blancos"> <%=rs.getString(2) %> </th>
             <th class="blancos"> <%=rs.getString(3) %> </th>
             <th class="blancos"> <%=rs.getString(4) %> </th>
-            <th class="blancos"> <%=rs.getInt(5) %> </th>
+            <th class="blancos"> En programación </th>
             <th class="blancos"> <%=rs.getString(6) %> </th>
             <th class="blancos"> <%=rs.getString(7) %> </th>
             <th class="blancos"> <%=rs.getString(8) %> </th>

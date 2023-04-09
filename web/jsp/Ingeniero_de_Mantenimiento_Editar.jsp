@@ -175,6 +175,7 @@ function actualizarForm() {
 }
 
 </script>
+<div class="dash-content">
 <div class="container pap">
             <h2 align="center">Editar Reporte</h2>
             <br>
@@ -236,6 +237,7 @@ function actualizarForm() {
             </table>
         </form>
         </div>
+                    </div>
 
                 <%
                     }
