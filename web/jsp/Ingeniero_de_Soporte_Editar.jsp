@@ -209,16 +209,16 @@
     </body>
 
     <script>
-        var solucionAnt = document.getElementById("solucionrep")[0].value;
+    var solucionAnt = document.getElementById("solucionrep")[0].value;
 
-        function actualizarForm() {
-            var solucionN = document.getElementById("solucionN");
-            if (solucionAnt === " " || solucionAnt === "null") {
-                solucionN.value = solucionAnt;
-            } else if(solucionAnt !== " " || solucionAnt !== "null"){
-                solucionAnt.disabled = true;
-            }
-        }
+function actualizarForm() {
+  var solucionN = document.getElementById("solucionN");
+  if(solucionAnt === "" || solucionAnt === "null"){
+      solucionN.value = solucionAnt;
+  } else if(solucionAnt !== " " || solucionAnt !== "null"){
+      solucionAnt.disabled = true;
+}   
+}
     </script>
 
 <script>

@@ -167,9 +167,9 @@ var solucionAnt = document.getElementById("solucionrep")[0].value;
     
 function actualizarForm() {
   var solucionN = document.getElementById("solucionN");
-  if(solucionAnt === " " || solucionAnt === "null"){
+  if(solucionAnt === "" || solucionAnt === "null"){
       solucionN.value = solucionAnt;
-  } else if(solucionAnt !== " " || solucionAnt !== "null"){
+  } else if(solucionAnt !== "" || solucionAnt !== "null"){
       solucionAnt.disabled = true;
 }   
 }
@@ -184,7 +184,7 @@ function actualizarForm() {
                 Debes programar una solución y escribir lo que hiciste en el campo de solución
             </div>
             <br>
-<form>        
+<form onload="actualizarForm()>        
             <table border="1" width="250" align="center" class="tablasinnada">
                 <tr>
                     <td>Folio del reporte</td>
