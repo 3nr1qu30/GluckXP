@@ -250,6 +250,52 @@
     </table>
     </div>
 
+<br>
+    <p align=center>Reportes</p>
+    
+    <div class=container>
+    <table border=1 align=center>
+    <tr align=center bgcolor=#FFFFCC>
+        <tr>
+          <td>Id Usuario</td>
+    <td>Id Gerente de Mantenimiento</td>
+    <td>Id Gerente de Soporte</td>
+    <td>Folio reporte</td>
+    <td>Descripción</td>
+    <td>Solución</td>
+    <td>Fecha y Hora</td>
+          <th>Estatus</th>
+        </tr>
+ 
+    
+       <%
+      
+        query = "select * from reporte";
+        rs = sql.consultar(query);
+       while(rs.next()){
+   %>
+ 
+     <tbody>
+        <tr>
+          <td><%=rs.getString(2)%></td>
+     <td><%=rs.getString(4)%></td>
+     <td><%=rs.getString(3)%></td>
+     <td><%=rs.getInt(1)%></td>
+     <td><%=rs.getString(6)%></td>
+     <td><%=rs.getString(7)%></td>
+     <td><%=rs.getString(8)%></td>
+     <td><%=rs.getInt(5)%></td>
+      </tbody>
+    
+     <%
+        }
+      %>
+    
+    </table>
+    </div>
+      
+    
+
 
 
 
@@ -257,7 +303,6 @@
                     
         <!-- Aqui ponen sus cosas-->
         </div>
-    </div>
 
     
     <script src="js/peticionesDoctor.js">
