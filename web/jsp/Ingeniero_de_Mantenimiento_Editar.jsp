@@ -185,57 +185,39 @@ function actualizarForm() {
             </div>
             <br>
 <form onload="actualizarForm()>        
-            <table border="1" width="250" align="center" class="tablasinnada">
-                <tr>
-                    <td>Folio del reporte</td>
-                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Usuario solicitante</td>
-                    <td><input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Usuario manipulante</td>
-                    <td><input type="text" name="manipulante" value="<%=usuario%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Estatus</td>
-                    <td>
+           
+            <div class="contenedorsss" style="width: 1000px">
+                   Folio del reporte
+                    <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
+                    Usuario solicitante
+                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly"></td>
+                    Usuario manipulante</td>
+                    <input type="text" name="manipulante" value="<%=usuario%>" readonly="readonly"></td>
+                    Estatus</td>
                         <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
                         <option value="5">Programacion finalizada</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Usuario al que se asigna la tarea
-                    <td>
+                    Usuario al que se asigna la tarea
                         <select name="idusuarioasig" id="idusuarioasig" onchange="mostrarEstatus()">
                             <option value="5">5</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Descripción</td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
-                </tr>
-                <tr>
-                    <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength = "15" maxlength="500" onkeypress="return SoloLetras(event);" required></td>
-                </tr>
-                <tr>
-                    <td>Fecha y hora</td>
-                    <td><%
+                    Descripción</td>
+                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
+                    Solución</td>
+                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength = "15" maxlength="500" onkeypress="return SoloLetras(event);" required></td>
+                    Fecha y hora</td>
+                    <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                             String fechaHoraReporte = dtf.format(LocalDateTime.now());
                         %>
                         <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
-                    </td>
-                </tr>
-                    <td colspan="2" align="center">
+                    
+                
+                   
                         <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton">
-                    </td>
-            </table>
-        </form>
+                        </div>
+</form>
+       
         </div>
                     </div>
 
