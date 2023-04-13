@@ -142,9 +142,10 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
         <div class="container">
-        <table border="1" width="600" align="center" class="reportes-table">
-            <tr bgcolor="skyblue">
-                <th>id_reporte</th>
+        <table border="1" width="600" align="center" class="reporte-table">
+            <thead class="thead">
+            <tr>
+                <th class="yo">id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
                 <th>id_usuario_asignado_tarea</th>
@@ -154,6 +155,7 @@ if(nivel.equals("6")){%>
                 <th>fecha_hora_reporte</th>
                 <th>Modificar</th>
             </tr>
+            </thead>
             <%
                 Conexion sql = new Conexion();
                 String query = "select * from reporte where id_estatus = 3";
@@ -191,6 +193,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
         <table border="1" width="600" align="center">
+            <tr class="encabezado-tabla">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -233,7 +236,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
         <table border="1" width="600" align="center">
-            <tr>
+            <tr class="encabezado-tabla">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>

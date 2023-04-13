@@ -157,6 +157,7 @@
                 Connection cnx = null;
                 Statement sta = null;
                 ResultSet rs = null;
+                String yo = null;
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
@@ -166,6 +167,7 @@
                     
                     while (rs.next()){
         %>
+        
         <form action="" onsubmit="return validarFormulario();">
             <table border="1" width="250" align="center" class="tablasinnada margen">
                 <tr>
@@ -178,7 +180,10 @@
                 </tr>
                 <tr>
                     <td>Id de usuario manipulante: </td>
-                    <td><input type="text" name="idusuariomani" value="<%=usuario%>" readonly="readonly"></td>
+                <%rs = sta.executeQuery("SELECT nombre_persona FROM usuario NATURAL JOIN persona where id_usuario = '"+usuario+"'");
+                while(rs.next()){%>
+                    <td><input type="text" name="idusuariomani" value="<%=rs.getString(5)%>" readonly="readonly"></td>
+                    <%}%>
                 </tr>
                 <tr>
                     <td>Estatus: </td>

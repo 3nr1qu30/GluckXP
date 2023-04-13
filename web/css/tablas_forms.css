@@ -460,7 +460,7 @@ tr{
 }
 
 .reporte-table thead th {
-  background-color: #fff;
+  background-color: skyblue;
 }
 
 .reporte-table tbody tr:nth-child(even) {
