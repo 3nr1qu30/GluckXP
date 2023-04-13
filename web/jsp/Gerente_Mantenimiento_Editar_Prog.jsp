@@ -9,7 +9,6 @@
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();
           if(nivel.equals("6")){%>
-%>
 
 <!DOCTYPE html>
 <html>
@@ -156,13 +155,16 @@
             
                 Connection cnx = null;
                 Statement sta = null;
+                Statement sta2 = null;
                 ResultSet rs = null;
+                ResultSet rs2 = null;
                 String yo = null;
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
                     cnx = DriverManager.getConnection ("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
                     sta = cnx.createStatement();
+                    sta2 = cnx.createStatement();
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
                     
                     while (rs.next()){
@@ -180,9 +182,9 @@
                 </tr>
                 <tr>
                     <td>Id de usuario manipulante: </td>
-                <%rs = sta.executeQuery("SELECT nombre_persona FROM usuario NATURAL JOIN persona where id_usuario = '"+usuario+"'");
-                while(rs.next()){%>
-                    <td><input type="text" name="idusuariomani" value="<%=rs.getString(5)%>" readonly="readonly"></td>
+                <%rs2 = sta2.executeQuery("SELECT * FROM usuario NATURAL JOIN persona where id_usuario = '"+usuario+"'");
+                while(rs2.next()){%>
+                    <td><input type="text" name="idusuariomani" value="<%=rs2.getString(5)%> <%=rs2.getString(6)%>" readonly="readonly"></td>
                     <%}%>
                 </tr>
                 <tr>
@@ -232,7 +234,7 @@
 if (request.getParameter("btnGrabar") != null){
     int idreporte = Integer.parseInt(request.getParameter("idreporte"));
     String idusuariosoli = request.getParameter("idusuariosoli");
-    String idusuariomani = request.getParameter("idusuariomani");
+    String idusuariomani = usuario;
     String idusuarioasig = request.getParameter("idusuarioasig");
     int idestatus = Integer.parseInt(request.getParameter("idestatus"));
     String descripcionrep = request.getParameter("descripcionrep");
@@ -249,8 +251,8 @@ if (request.getParameter("btnGrabar") != null){
         </div>
     </body>
     
-<script>
-function siemprepasa() {
+    <script>
+    function siemprepasa() {
     var selectEstatus = document.getElementById("idestatus").value;
     var selectUsuario = document.getElementById("idusuarioasig");
 
@@ -278,12 +280,12 @@ function siemprepasa() {
         option.text = "6";
         selectUsuario.add(option);
     }
-}
+    }
 
-function validarFormulario() {   
+    function validarFormulario() {   
     var selectEstatus = document.getElementById("idestatus").value;
     var selectUsuario = document.getElementById("idusuarioasig").value;
-    
+
     if (selectEstatus == 0 && selectUsuario == 0){
         alert("Requieres seleccionar un estatus y a un usuario");
         return false;
@@ -297,10 +299,10 @@ function validarFormulario() {
         return false;
     }
     return true;
-}
+    }
 
 
-</script>
+    </script>
 
 </html>
 <%} else if (nivel.equals("4")){%>
