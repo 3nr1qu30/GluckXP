@@ -495,3 +495,7 @@ buenisimo{
     margin-top: 10px;
     transform: translate(10px);
 }
+
+.omitir{
+    background-color: lightcoral; 
+}

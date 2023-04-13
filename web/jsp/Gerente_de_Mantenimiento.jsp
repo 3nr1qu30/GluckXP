@@ -193,6 +193,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
         <table border="1" width="600" align="center">
+            <thead class="thead">
             <tr class="encabezado-tabla">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -204,6 +205,7 @@ if(nivel.equals("6")){%>
                 <th>fecha_hora_reporte</th>
                 <th>Modificar</th>
             </tr>
+            </thead>
             <%
                 query = "select * from reporte where id_estatus = 5";
                 rs = sql.consultar(query);
@@ -236,6 +238,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
         <table border="1" width="600" align="center">
+            <thead class="thead">
             <tr class="encabezado-tabla">
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -246,6 +249,7 @@ if(nivel.equals("6")){%>
                 <th>solucion_reporte</th>
                 <th>fecha_hora_reporte</th>
             </tr>
+            </thead>
             <%
                 query = "select * from reporte where id_estatus = 4";
                 rs = sql.consultar(query);
@@ -436,7 +440,8 @@ if(nivel.equals("6")){%>
         
         <div class="container">
         <table border="1" width="600" align="center" class="reportes-table">
-            <tr bgcolor="skyblue">
+            <thead class="thead">
+            <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -447,6 +452,7 @@ if(nivel.equals("6")){%>
                 <th>fecha_hora_reporte</th>
                 <th>Modificar</th>
             </tr>
+            </thead>
             <%
                 Conexion sql = new Conexion();
                 String query = "select * from reporte where id_estatus = 3";
@@ -484,6 +490,8 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
         <table border="1" width="600" align="center">
+            <thead class="thead">
+            <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -494,6 +502,7 @@ if(nivel.equals("6")){%>
                 <th>fecha_hora_reporte</th>
                 <th>Modificar</th>
             </tr>
+            </thead>
             <%
                 query = "select * from reporte where id_estatus = 5";
                 rs = sql.consultar(query);
@@ -526,6 +535,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
         <table border="1" width="600" align="center">
+            <thead class="thead">
             <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
@@ -536,6 +546,7 @@ if(nivel.equals("6")){%>
                 <th>solucion_reporte</th>
                 <th>fecha_hora_reporte</th>
             </tr>
+            </thead>
             <%
                 query = "select * from reporte where id_estatus = 4";
                 rs = sql.consultar(query);

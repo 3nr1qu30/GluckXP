@@ -158,7 +158,6 @@
                 Statement sta2 = null;
                 ResultSet rs = null;
                 ResultSet rs2 = null;
-                String yo = null;
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
@@ -174,17 +173,17 @@
             <table border="1" width="250" align="center" class="tablasinnada margen">
                 <tr>
                     <td>Id reporte: </td>
-                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
+                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Id de usuario solicitante: </td>
-                    <td><input type="text" name="idusuariosoli" value="<%=rs.getString(2)%>" readonly="readonly"></td>
+                    <td><input type="text" name="idusuariosoli" value="<%=rs.getString(2)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Id de usuario manipulante: </td>
                 <%rs2 = sta2.executeQuery("SELECT * FROM usuario NATURAL JOIN persona where id_usuario = '"+usuario+"'");
                 while(rs2.next()){%>
-                    <td><input type="text" name="idusuariomani" value="<%=rs2.getString(5)%> <%=rs2.getString(6)%>" readonly="readonly"></td>
+                    <td><input type="text" name="idusuariomani" value="<%=rs2.getString(5)%> <%=rs2.getString(6)%>" readonly="readonly" class="omitir"></td>
                     <%}%>
                 </tr>
                 <tr>
@@ -206,11 +205,11 @@
                 </tr>
                 <tr>
                     <td>Descripción del reporte: </td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
+                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Solución del reporte: </td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" readonly="readonly"></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Fecha de envío: </td>
@@ -218,7 +217,7 @@
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                             String fechaHoraReporte = dtf.format(LocalDateTime.now());
                         %>
-                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
+                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly" class="omitir">
                     </td>
                 </tr>
                     <th colspan="2" align="center" class="nose">
@@ -257,19 +256,7 @@ if (request.getParameter("btnGrabar") != null){
     var selectUsuario = document.getElementById("idusuarioasig");
 
 
-    if (selectEstatus === "6") {
-        document.getElementById("idusuarioasig").innerHTML= "";
-        var option = document.createElement("option");
-        option.text = "Elige el Id";
-        option.value = "0";
-        selectUsuario.add(option);
-        var option = document.createElement("option");
-        option.value = "3";
-        option.text = "3";
-        selectUsuario.add(option);
-        }
-
-     else if (selectEstatus === "4") {
+    if (selectEstatus === "4") {
           document.getElementById("idusuarioasig").innerHTML= "";
        var option = document.createElement("option");
        option.text = "Elige el Id";
@@ -277,7 +264,7 @@ if (request.getParameter("btnGrabar") != null){
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "6";
-        option.text = "6";
+        option.text = "Antonio Nieves Bartolo";
         selectUsuario.add(option);
     }
     }
@@ -450,12 +437,15 @@ if (request.getParameter("btnGrabar") != null){
             
                 Connection cnx = null;
                 Statement sta = null;
+                Statement sta2 = null;
                 ResultSet rs = null;
+                ResultSet rs2 = null;
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
                     cnx = DriverManager.getConnection ("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
                     sta = cnx.createStatement();
+                    sta2 = cnx.createStatement();
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
                     
                     while (rs.next()){
@@ -464,15 +454,18 @@ if (request.getParameter("btnGrabar") != null){
             <table border="1" width="250" align="center" class="tablasinnada margen">
                 <tr>
                     <td>Id reporte: </td>
-                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
+                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Id de usuario solicitante: </td>
-                    <td><input type="text" name="idusuariosoli" value="<%=rs.getString(2)%>" readonly="readonly"></td>
+                    <td><input type="text" name="idusuariosoli" value="<%=rs.getString(2)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Id de usuario manipulante: </td>
-                    <td><input type="text" name="idusuariomani" value="<%=usuario%>" readonly="readonly"></td>
+                <%rs2 = sta2.executeQuery("SELECT * FROM usuario NATURAL JOIN persona where id_usuario = '"+usuario+"'");
+                while(rs2.next()){%>
+                    <td><input type="text" name="idusuariomani" value="<%=rs2.getString(5)%> <%=rs2.getString(6)%>" readonly="readonly" class="omitir"></td>
+                    <%}%>
                 </tr>
                 <tr>
                     <td>Estatus: </td>
@@ -493,11 +486,11 @@ if (request.getParameter("btnGrabar") != null){
                 </tr>
                 <tr>
                     <td>Descripción del reporte: </td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" ></td>
+                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Solución del reporte: </td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" readonly="readonly"></td>
+                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" readonly="readonly" class="omitir"></td>
                 </tr>
                 <tr>
                     <td>Fecha de envío: </td>
@@ -505,7 +498,7 @@ if (request.getParameter("btnGrabar") != null){
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                             String fechaHoraReporte = dtf.format(LocalDateTime.now());
                         %>
-                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
+                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly" class="omitir">
                     </td>
                 </tr>
                     <th colspan="2" align="center" class="nose">
@@ -544,19 +537,7 @@ function siemprepasa() {
     var selectUsuario = document.getElementById("idusuarioasig");
 
 
-    if (selectEstatus === "6") {
-        document.getElementById("idusuarioasig").innerHTML= "";
-        var option = document.createElement("option");
-        option.text = "Elige el Id";
-        option.value = "0";
-        selectUsuario.add(option);
-        var option = document.createElement("option");
-        option.value = "3";
-        option.text = "3";
-        selectUsuario.add(option);
-        }
-
-     else if (selectEstatus === "4") {
+    if (selectEstatus === "4") {
           document.getElementById("idusuarioasig").innerHTML= "";
        var option = document.createElement("option");
        option.text = "Elige el Id";
@@ -564,7 +545,7 @@ function siemprepasa() {
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "6";
-        option.text = "6";
+        option.text = "Antonio Nieves Bartolo";
         selectUsuario.add(option);
     }
 }
