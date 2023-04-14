@@ -192,9 +192,9 @@ if(nivel.equals("6")){%>
         
         <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
-        <table border="1" width="600" align="center">
+        <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
-            <tr class="encabezado-tabla">
+            <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -237,9 +237,9 @@ if(nivel.equals("6")){%>
         <br>
         <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
-        <table border="1" width="600" align="center">
+        <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
-            <tr class="encabezado-tabla">
+            <tr>
                 <th>id_reporte</th>
                 <th>id_usuario_solicitante</th>
                 <th>id_usuario_manipula_reporte</th>
@@ -439,7 +439,7 @@ if(nivel.equals("6")){%>
         <h2 align="center">Reportes enviados por el Gerente de Soporte</h2>
         
         <div class="container">
-        <table border="1" width="600" align="center" class="reportes-table">
+        <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
             <tr>
                 <th>id_reporte</th>
@@ -489,7 +489,7 @@ if(nivel.equals("6")){%>
         
         <h2 align="center">Reportes enviados por el Ingeniero de mantenimineto</h2>
         <div class="container">
-        <table border="1" width="600" align="center">
+        <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
             <tr>
                 <th>id_reporte</th>
@@ -534,7 +534,7 @@ if(nivel.equals("6")){%>
         <br>
         <h2 align="center">Reportes enviados por el Gerente de Mantenimiento</h2>
         <div class="container">
-        <table border="1" width="600" align="center">
+        <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
             <tr>
                 <th>id_reporte</th>
