@@ -235,7 +235,7 @@
 if (request.getParameter("btnGrabar") != null){
     int idreporte = Integer.parseInt(request.getParameter("idreporte"));
     String idusuariosoli = request.getParameter("idusuariosoli");
-    String idusuariomani = request.getParameter("idusuariomani");
+    String idusuariomani = usuario;
     String idusuarioasig = request.getParameter("idusuarioasig");
     int idestatus = Integer.parseInt(request.getParameter("idestatus"));
     String descripcionrep = request.getParameter("descripcionrep");
@@ -529,7 +529,7 @@ function validarFormulario() {
 if (request.getParameter("btnGrabar") != null){
     int idreporte = Integer.parseInt(request.getParameter("idreporte"));
     String idusuariosoli = request.getParameter("idusuariosoli");
-    String idusuariomani = request.getParameter("idusuariomani");
+    String idusuariomani = usuario;
     String idusuarioasig = request.getParameter("idusuarioasig");
     int idestatus = Integer.parseInt(request.getParameter("idestatus"));
     String descripcionrep = request.getParameter("descripcionrep");
