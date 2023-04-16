@@ -7,6 +7,7 @@
 <%session = request.getSession();
     String nivel = session.getAttribute("lvl").toString();
     String usuario = session.getAttribute("usuario").toString();
+        if (nivel.equals("6") || nivel.equals("5") || nivel.equals("4")){
 %>
 
 <%@page import="java.text.SimpleDateFormat"%>
@@ -165,61 +166,40 @@ function actualizarForm() {
 
                 while (rs.next()) {
         %>
-        <div class="dash-content">
-        <div class="container pap">
-            <h2 align="center">Editar Reporte</h2>
-            <br>
-            <br><br>
+<div class="dash-content">
+    <div class="container pap">
+        <h2 align="center">Editar Reporte</h2>
+            <br><br><br>
             <div class="nota">
-                Cierra el reporte
+                Soluciona el reporte
             </div>
             <br>
     <form onload="actualizarForm()">        
-            <table border="1" width="250" align="center" class="tablasinnada">
-                <tr>
-                    <td>Folio del reporte</td>
-                    <td><input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Usuario solicitante</td>
-                    <td><input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Usuario manipulante</td>
-                    <td><input type="text" name="manipulante" value="<%=usuario%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Estatus</td>
-                    <td>
-                        <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
+                        <div class="contenedorsss" style="width: 100%">
+                   Folio del reporte
+                    <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly">
+                    Usuario solicitante
+                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly">
+                    Estatus
+                        <select name="idestatus" id="idestatus"">
+                        <option value="7">Solucionado</option>
                         <option value="8">Cerrado</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Descripción</td>
-                    <td><input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly"></td>
-                </tr>
-                <tr>
-                    <td>Solución</td>
-                    <td><input type="text" name="solucionrep" value="<%=rs.getString(7)%>" minlength="15"  onkeypress="return SoloLetras(event)" required></td>
-                </tr>
-                <tr>
-                    <td>Fecha y hora</td>
-                    <td><%
+                    Descripción
+                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
+                    Solución
+                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" required></td>
+                    Fecha y hora
+                    <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                             String fechaHoraReporte = dtf.format(LocalDateTime.now());
                         %>
                         <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
-                    </td>
-                </tr>
-                    <td colspan="2" align="center">
+                    
                         <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton">
-                    </td>
-            </table>
-        </form>
-        </div>
-                    </div>
+                        </div>
+    </form>
+</div>
 
 
         <br>
@@ -228,16 +208,16 @@ function actualizarForm() {
             } catch (Exception e) {
             }
 
-            if (request.getParameter("btnGrabar") != null) {
-                int idreporte = Integer.parseInt(request.getParameter("idreporte"));
-                String idusuariosoli = request.getParameter("solicitante");
-                String idusuariomani = request.getParameter("manipulante");
-                int idestatus = Integer.parseInt(request.getParameter("idestatus"));
-                String descripcionrep = request.getParameter("descripcionrep");
-                String solucionrep = request.getParameter("solucionrep");
-                String fecha = request.getParameter("fecha");
+           if (request.getParameter("btnGrabar") != null){
+    int idreporte = Integer.parseInt(request.getParameter("idreporte"));
+    int idestatus = Integer.parseInt(request.getParameter("idestatus"));
+    String descripcionrep = request.getParameter("descripcionrep");
+    String solucionrep = request.getParameter("solucionrep");
+    String fecha = request.getParameter("fecha");
 
-                sta.executeUpdate("update reporte set id_usuario_solicitante='" + idusuariosoli + "', id_usuario_manipula_reporte='" + idusuariomani + "', id_estatus='" + idestatus + "', descripcion_reporte='" + descripcionrep + "', solucion_reporte='" + solucionrep + "', fecha_hora_reporte='" + fecha + "' where id_reporte='" + idreporte + "'");
+
+
+    sta.executeUpdate("update reporte set id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
                 request.getRequestDispatcher("Ingeniero_de_Soporte.jsp").forward(request, response);
             }
         %>
@@ -245,3 +225,17 @@ function actualizarForm() {
     </body>
 
 </html>
+<%} else {%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Error</title>
+    </head>
+    <body>
+    <center><h1>No tienes permiso de acceder a esta pagina</h1></center>
+
+    <a href="../index.jsp" class="boton rojo mi-enlace">Regresar a inicio</a>
+</body>
+</html>
+
+<%}%>

@@ -151,13 +151,64 @@
                     <th class="blancos"> <%=rs.getString(6)%> </th>
                     <th class="blancos"> <%=rs.getString(7)%> </th>
                     <th class="blancos"> <%=rs.getString(8)%> </th>
-                    <th class="blancos"><a href="Ingeniero_de_Soporte_Editar.jsp?id_reporte=<%=rs.getString(1)%>"> <button class="boton mi-enlace">Modificar</button> </a></th>
+                    <th class="blancos"><a href="Ingeniero_de_Soporte_Editar1.jsp?id_reporte=<%=rs.getString(1)%>"> <button class="boton mi-enlace">Solucionar</button> </a></th>
                 <tr>
                 </tbody>
 
                     <%
                         }
                         rs.close();
+                    %>    
+            </table>
+
+
+        </div>
+            
+            <div class="container">
+            <div class="nota">
+                Solo podrás ver y editar los reportes enviados el estatus de "solucionado"
+            </div>
+            <h1>Lista de Reportes</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Folio del reporte</th>
+                    <th>Usuario solicitante</th>
+                    <th>Usuario que manipula el reporte</th>
+                    <th>Usuario asignado a la tarea</th>
+                    <th>Estatus</th>
+                    <th>Descripción</th>
+                    <th>Solución</th>
+                    <th>Fecha y hora</th>
+                    <th>Editar</th>
+                </tr>
+                </thead>
+
+                <%
+                    Conexion sql2 = new Conexion();
+                    String query2 = "select * from reporte where id_estatus = 7";
+                    ResultSet rs2 = sql.consultar(query2);
+
+                    while (rs2.next()) {
+                %>
+
+                <tbody>
+                <tr>
+                    <th class="blancos"> <%=rs2.getInt(1)%> </th>
+                    <th class="blancos"> <%=rs2.getString(2)%> </th>
+                    <th class="blancos"> <%=rs2.getString(3)%> </th>
+                    <th class="blancos"> <%=rs2.getString(4)%> </th>
+                    <th class="blancos"> Solucionado </th>
+                    <th class="blancos"> <%=rs2.getString(6)%> </th>
+                    <th class="blancos"> <%=rs2.getString(7)%> </th>
+                    <th class="blancos"> <%=rs2.getString(8)%> </th>
+                    <th class="blancos"><a href="Ingeniero_de_Soporte_Editar2.jsp?id_reporte=<%=rs2.getString(1)%>"> <button class="boton mi-enlace">Cerrar</button> </a></th>
+                <tr>
+                </tbody>
+
+                    <%
+                        }
+                        rs2.close();
                     %>    
             </table>
 

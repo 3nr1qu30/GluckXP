@@ -148,13 +148,13 @@
             <th class="blancos"> <%=rs.getString(2) %> </th>
             <th class="blancos"> <%=rs.getString(3) %> </th>
             <th class="blancos"> <%=rs.getString(4) %> </th>
-            <th class="blancos"> En programación </th>
+            <th class="blancos"> En programación</th>
             <th class="blancos"> <%=rs.getString(6) %> </th>
             <th class="blancos"> <%=rs.getString(7) %> </th>
             <th class="blancos"> <%=rs.getString(8) %> </th>
             <th class="blancos">
                 <a href="Ingeniero_de_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>">
-                <button class="boton mi-enlace">Modificar</button>
+                <button class="boton mi-enlace">Solucionar</button>
                 </a>
             </th>
         <tr>
@@ -166,7 +166,7 @@
        
         </table>
     </div>
-            
+    
 </body>
 </html>
 
