@@ -15,6 +15,7 @@
     <title>GLUCKY</title>
     <link rel="stylesheet" href="css/index.css">
     <link href="css/abc.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png" type="image/svg"/>
 </head>
 <body>
 

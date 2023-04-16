@@ -4,7 +4,8 @@
     Author     : Marco
 --%>
 
-<%session = request.getSession();
+<%
+    session = request.getSession();
     String nivel = session.getAttribute("lvl").toString();
     String usuario = session.getAttribute("usuario").toString();
         if (nivel.equals("6") || nivel.equals("5") || nivel.equals("4")){
@@ -19,39 +20,22 @@
 <%@page import="java.time.format.DateTimeFormatter"%>
 
 <script>
-    function SoloLetras(e)
-    {
-        key = e.keyCode || e.which;
-        tecla = String.fromCharCode(key).toString();
-        letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóú";
+var solucionAnt = document.querySelector("[name=solucionrep");
 
-        especiales = [8, 13];
-        tecla_especial = false
-        for (var i in especiales) {
-            if (key == especiales[i]) {
-                tecla_especial = true;
-                break;
-            }
+    function actualizarForm() {
+        var solucionN = document.getElementById("solucionN");
+            solucionN.value = solucionAnt;
+}
+
+function validarForm () {
+      solucionAnt.addEventListener('blur', function(e)) {
+      var fieldValue = e.taget.value;
+      if (fieldValue.length < 0){
+          solucionAnt.setAttribute('readonly', true);
+        } else {
+            solucionAnt.setAtrribute('readonly', false);
         }
-
-        if (letras.indexOf(tecla) == -1 && !tecla_especial)
-        {
-            alert("Ingresar solo letras");
-            return false;
-        }
-    }
-    
-
-var solucionAnt = document.getElementById("solucionrep").value;
-function actualizarForm() {
-  var solucionN = document.getElementById("solucionN");
-  var solucionCont = document.getElementById(rs.getString(7));
-  if(solucionCont === "" || solucionCont === "null"){
-       solucionAnt.disabled = false;
-       solucionN.value = solucionAnt;
-  } else if(solucionCont !== "" || solucionCont !== "null"){
-      solucionrep.disabled = true;
-}   
+}    
 }
 </script>
 
@@ -153,11 +137,11 @@ function actualizarForm() {
 
 
         <%
-            String id_reporte = request.getParameter("id_reporte");
-
             Connection cnx = null;
             Statement sta = null;
             ResultSet rs = null;
+            
+            String id_reporte = request.getParameter("id_reporte");
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -189,7 +173,7 @@ function actualizarForm() {
                     Descripción
                     <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
                     Solución
-                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" required></td>
+                    <input type="text" name="solucionrep" id="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500"   validarFormulario() required></td>
                     Fecha y hora
                     <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

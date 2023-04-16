@@ -183,13 +183,12 @@ function actualizarForm() {
                     <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly">
                     Estatus
                         <select name="idestatus" id="idestatus"">
-                        <option value="7">Solucionado</option>
                         <option value="8">Cerrado</option>
                         </select>
                     Descripción
                     <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
                     Solución
-                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500"></td>
+                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" readonly="readonly"></td>
                     Fecha y hora
                     <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -210,16 +209,14 @@ function actualizarForm() {
             }
 
            if (request.getParameter("btnGrabar") != null){
-    int idreporte = Integer.parseInt(request.getParameter("idreporte"));
-    int idestatus = Integer.parseInt(request.getParameter("idestatus"));
-    String descripcionrep = request.getParameter("descripcionrep");
-    String solucionrep = request.getParameter("solucionrep");
-    String fecha = request.getParameter("fecha");
+                int idreporte = Integer.parseInt(request.getParameter("idreporte"));
+                int idestatus = Integer.parseInt(request.getParameter("idestatus"));
+                String descripcionrep = request.getParameter("descripcionrep");
+                String solucionrep = request.getParameter("solucionrep");
+                String fecha = request.getParameter("fecha");
 
-
-
-    sta.executeUpdate("update reporte set id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
-                request.getRequestDispatcher("Ingeniero_de_Soporte.jsp").forward(request, response);
+                    sta.executeUpdate("update reporte set id_estatus='"+idestatus+"', descripcion_reporte='"+descripcionrep+"', solucion_reporte='"+solucionrep+"', fecha_hora_reporte='"+fecha+"' where id_reporte='"+idreporte+"'");
+                    request.getRequestDispatcher("Ingeniero_de_Soporte.jsp").forward(request, response);
             }
         %>
 
