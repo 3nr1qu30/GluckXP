@@ -8,13 +8,14 @@
 <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
           String usuario = session.getAttribute("usuario").toString();  
-        if(nivel.equals("4")){%>
+     %>
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
     <link href="../css/asignacionesCitasPacientes.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -169,18 +170,19 @@
 
 
             <p align=center>Reportes enviados por asistente</p>
-<div class=container>
-      <table border=1 align=center>
-    <tr align=center bgcolor=#FFFFCC>
-        <tr>
+<div class="container">
+        <table border="1" width="600" align="center" class="reporte-table">
+            <thead class="thead">
+            <tr>
           <th>Folio Reporte</th>
           <th>Id Gerente de Soporte</th>
           <th>Id Usuario</th>
           <th>Descripcion</th>
           <th>estatus</th>
           <th>Fecha y Hora</th>
-         
-        </tr>
+          <th> </th>
+            </tr>
+            </thead>
        
    <%
        Conexion sql = new Conexion();
@@ -208,19 +210,21 @@
     <br>
     <p align=center>Reportes enviados por Gerente de Mantenimiento</p>
     
-    <div class=container>
-    <table border=1 align=center>
-    <tr align=center bgcolor=#FFFFCC>
-        <tr>
-          <td>Id Usuario</td>
-    <td>Id Gerente de Mantenimiento</td>
-    <td>Id Gerente de Soporte</td>
-    <td>Folio reporte</td>
-    <td>Descripción</td>
-    <td>Solución</td>
-    <td>Fecha y Hora</td>
-          <th>Estatus</th>
-        </tr>
+    <div class="container">
+        <table border="1" width="600" align="center" class="reporte-table">
+            <thead class="thead">
+            <tr>
+    <th>Id Usuario</th>
+    <th>Id Gerente de Mantenimiento</th>
+    <th>Id Gerente de Soporte</th>
+    <th>Folio reporte</th>
+    <th>Descripción</th>
+    <th>Solución</th>
+    <th>Fecha y Hora</th>
+    <th>Estatus</th>
+     <th> </th>
+            </tr>
+            </thead>
  
     
        <%
@@ -253,17 +257,19 @@
 <br>
     <p align=center>Reportes</p>
     
-    <div class=container>
-    <table border=1 align=center>
-    <tr align=center bgcolor=#FFFFCC>
-        <tr>
-          <td>Id Usuario</td>
-    <td>Folio reporte</td>
-    <td>Descripción</td>
-    <td>Solución</td>
-    <td>Fecha y Hora</td>
+    <div class="container">
+        <table border="1" width="600" align="center" class="reporte-table">
+            <thead class="thead">
+            <tr>
+              <th>Id Usuario</th>
+    <th>Folio reporte</th>
+    <th>Descripción</th>
+    <th>Solución</th>
+    <th>Fecha y Hora</th>
           <th>Estatus</th>
-        </tr>
+     <th> </th>
+            </tr>
+            </thead>
  
     
        <%
@@ -311,14 +317,3 @@
 </body>
 </html>
 
-<%} else{%>
- <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="UTF-8">
-            </head>
-            <body>
-                No tienes acceso
-            </body>
-        </html>
-<%}%>

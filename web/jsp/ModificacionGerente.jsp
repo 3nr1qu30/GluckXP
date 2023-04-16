@@ -198,7 +198,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     <form method="POST" onsubmit="return validarFormulario2();" action="FormCambioGerente?id_reporte=<%=id_folio%>" >
     <div class="input-group">
         <label>Id usuario</label>
-     <input type="text" name="asistente" id="destinos" value="<%=rs2.getString(2)%>" readonly="readonly">
+     <input type="text" name="asistente" id="destinos" value="<%=rs2.getString(2)%>" readonly="readonly" class="omitir">
      <label>Id Ingeniero de Soporte</label>
      <select name='ingenierosoporte' id='destinatario'>
          <option selected value="0"> Elige el Id </option>
@@ -207,15 +207,15 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
      <br>
          <br> 
      <label>Id Gerente de Soporte</label>
-     <input type="text" name="gerentesoporte" id="destinos" value="<%out.println(usuario);%>" readonly="readonly">
+     <input type="text" name="gerentesoporte" id="destinos" value="<%out.println(usuario);%>" readonly="readonly" class="omitir">
      <label>Folio Reporte</label>
-     <input type="text" name="folioreporte" id="destinos" value="<%=rs2.getInt(1)%>" readonly="readonly">
+     <input type="text" name="folioreporte" id="destinos" value="<%=rs2.getInt(1)%>" readonly="readonly" class="omitir">
      <label>Descripción</label>
-     <input type="text" name="descripcion" id="destinos" value="<%=rs2.getString(6)%>" readonly="readonly">
+     <input type="text" name="descripcion" id="destinos" value="<%=rs2.getString(6)%>" readonly="readonly" class="omitir">
      <label>Solución</label>
-     <input type="text" name="solucion" id="destinos" value="<%=rs2.getString(7)%>" readonly="readonly">
+     <input type="text" name="solucion" id="destinos" value="<%=rs2.getString(7)%>" readonly="readonly" class="omitir">
      <label>Fecha</label>
-     <input type="text" name="fecha" id="destinos" value="<%out.println(fechaHoraReporte);%>" readonly="readonly">
+     <input type="text" name="fecha" id="destinos" value="<%out.println(fechaHoraReporte);%>" readonly="readonly" class="omitir">
      <label>Estatus</label>
      <select name='status' id='status' >
      <option value="2" selected>En proceso</option>
