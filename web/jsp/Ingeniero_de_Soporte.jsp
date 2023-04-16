@@ -30,6 +30,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <link rel="shortcut icon" href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png" type="image/svg"/>
         <title>Ingeniero de Soporte</title>
     </head>
 

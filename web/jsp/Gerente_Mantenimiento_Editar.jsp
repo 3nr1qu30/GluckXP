@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Gerente de Mantenimiento Editar</title>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,10 +30,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-
-
-
-    <title>Peticiones</title> 
         <!--====== Favicon Icon ======-->
         <link
         rel="shortcut icon"

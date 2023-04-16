@@ -11,7 +11,7 @@ if(nivel.equals("6")){%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Gerente de Mantenimiento</title>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,6 @@ if(nivel.equals("6")){%>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-    <title>Peticiones</title> 
         <link
         rel="shortcut icon"
         href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png"

@@ -71,6 +71,7 @@ function actualizarForm() {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <link rel="shortcut icon" href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png" type="image/svg"/>
         <title>Ingeniero de Soporte</title>
     </head>
 
@@ -188,7 +189,7 @@ function actualizarForm() {
                     Descripción
                     <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
                     Solución
-                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" required></td>
+                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500"></td>
                     Fecha y hora
                     <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

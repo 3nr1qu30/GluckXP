@@ -32,6 +32,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <link rel="shortcut icon" href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png" type="image/svg"/>
         <title>Ingeniero de Mantenimiento</title>
     </head>
 
@@ -167,23 +168,23 @@ function actualizarForm() {
            
         <div class="contenedorsss" style="width: 100%">
                    Folio del reporte
-                        <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly">
+                        <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly" class="omitir">
                     Usuario solicitante
-                        <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly">
+                        <input class="omitir" type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly" class="omitir">
                     Estatus
                         <select name="idestatus" id="idestatus" onchange="mostrarOpciones()">
                         <option value="5">Programacion finalizada</option>
                         </select>
                     Descripción
-                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
-                    Solución</td>
+                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" class="omitir">
+                    Solución
                     <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" required></td>
                     Fecha y hora
                     <%
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                         String fechaHoraReporte = dtf.format(LocalDateTime.now());
                     %>
-                    <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
+                    <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly" class="omitir">
                     
                     <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton">
         </div>

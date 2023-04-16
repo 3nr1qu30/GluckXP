@@ -71,6 +71,7 @@ function actualizarForm() {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <link href="../css/tablas_forms.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <link rel="shortcut icon" href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png" type="image/svg"/>
         <title>Ingeniero de Soporte</title>
     </head>
 
@@ -175,7 +176,7 @@ function actualizarForm() {
             </div>
             <br>
     <form onload="actualizarForm()">        
-                        <div class="contenedorsss" style="width: 100%">
+            <div class="contenedorsss" style="width: 100%">
                    Folio del reporte
                     <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly">
                     Usuario solicitante
@@ -197,7 +198,7 @@ function actualizarForm() {
                         <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
                     
                         <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton">
-                        </div>
+            </div>
     </form>
 </div>
 
