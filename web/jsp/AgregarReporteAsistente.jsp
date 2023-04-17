@@ -1,7 +1,8 @@
 <%-- 
-Document   : Asistente
+Document   : AgregarReporteAsistente
 Created on : 4 abr 2023, 3:33:30
 Author     : Isaac
+Comer      : siempres
 --%>
 
 <%@page import="java.time.LocalDateTime"%>
@@ -9,15 +10,16 @@ Author     : Isaac
 <%@page import="Clases.Conexion"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%session = request.getSession();
     String nivel = session.getAttribute("lvl").toString();
     String usuario = session.getAttribute("usuario").toString();
-    if (nivel.equals("3")) {%>
+        if (nivel.equals("3")){%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar reporte</title>
         <link rel="stylesheet" href="../css/tablas_forms.css">
         <link href="../css/asignacionesCitasPacientes.css" rel="stylesheet" type="text/css"/>
@@ -36,8 +38,7 @@ Author     : Isaac
         <link
         rel="shortcut icon"
         href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png"
-        type="image/svg"
-      />
+        type="image/svg">
     </head>
     <body>
         <nav>
@@ -59,7 +60,7 @@ Author     : Isaac
                 <br>
                 <li><a href="AgregarReporteAsistente.jsp" >
                     <i class="uil uil-envelope-edit"></i>
-                    <span class="link-name">Agregar reportes</span>
+                    <span class="link-name">Agregar Reporte</span>
                 </a></li>
                 <br>
                 <li><a href="../index.jsp">
@@ -152,62 +153,112 @@ Author     : Isaac
         
         </div>
         <br>
+        
+        
         <div class="dash-content">
             <h1>Asistente</h1>
             <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
             <br>
+            <h3>Agregar reporte </h3>
+            <%
+
+                if (request.getParameter("btnG") != null) {
+                    String id_usuario_solicitante = request.getParameter("IdUsuario");
+                    String usuario_manipula_reporte = usuario;
+                    String GerenteSop = request.getParameter("GerenteSop");
+                    int id_estatus = 1;
+                    String descripcion_reporte = request.getParameter("Desc");
+                    String solucion_reporte = "";
+
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    String fechaHoraReporte = dtf.format(LocalDateTime.now());
+
+                    Conexion sql2 = new Conexion();
+                    String query2 = "SELECT * FROM usuario WHERE id_usuario = '" + id_usuario_solicitante + "'";
+                    ResultSet rs = sql2.consultar(query2);
+
+                    if (rs.next()) {
+                        Conexion sql1 = new Conexion();
+                        String query = "insert into reporte values(default,'" + id_usuario_solicitante + "','" + usuario_manipula_reporte + "','" + GerenteSop + "','" + id_estatus + "','" + descripcion_reporte + "','" + solucion_reporte + "','" + fechaHoraReporte + "')";
+                        sql1.ejecutar(query);
+                        request.getRequestDispatcher("Asistente.jsp").forward(request, response);
+                        out.println("");
+                    } else {
+            %>
+            <h3 class="nota rojos">El ID de Usuario que has escrito "<%=id_usuario_solicitante%>" no está registrado :( '.</h3>
+            <%
+                    }
+                }
+            %>
+
             <div class="nota">
-                Solo podras crear y observar tus reportes con estado "abierto"
-                podras asignar los reportes a cualquier gerente de soporte existente.
+                Solo podrás crear y observar tus reportes con estado "abierto"
+                podrás asignar los reportes a cualquier gerente de soporte existente.
                 Asegurate de escribir datos correctamente.
             </div>
             <br>
-            <br>
-            <table class="reportes-table">
-                <tr >
-                    <th>Folio de reporte</th>
-                    <th>Usuario solicitante</th>
-                    <th>Asistente</th>
-                    <th>Gerente de soporte</th>
-                    <th>Estatus</th>
-                    <th>Descripcion de reporte</th>
-                    <th>Fecha de envio</th>
-                </tr>
-                <%
-                    Conexion sql = new Conexion();
-                    String query = "select * from reporte where id_estatus = 1";
-                    ResultSet rs = sql.consultar(query);
-                    if (rs != null) {
-                        while (rs.next()) {%>
-                <tr>
-                    <td><%=rs.getString(1)%></td>
-                    <td><%=rs.getString(2)%>, Enrique</td>
-                    <td><%=rs.getString(3)%>, Isaac</td>
-                    <td><%=rs.getString(4)%>, Roberto</td>
-                    <td>Abierto</td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getString(8)%></td>
-                </tr>
-                <% }
-                } else {
-                %>
-                <div class="nota rojo">
-                    No hay reportes creados
-                </div>
-                <%
-                    }
-                    rs.close();
-                %>
-            </table>
+
+            <form action="" onsubmit="return validarFormulario();" style="text-align: left">
+                <label for="IdUsuario" class="izq" > Usuario que solicita</label>
+                
+                <select name="IdUsuario" class="" class="select">
+                <%Conexion sqlPERSONA = new Conexion();
+                        String queryPERSONA = "select * from usuario where id_tipo_usuario = 1";
+                        String queryNOMPERSONA = "SELECT p.nombre_persona FROM persona p JOIN usuario u ON p.id_usuario = u.id_usuario WHERE u.id_tipo_usuario = 1";
+                        ResultSet rs1PERSONA = sqlPERSONA.consultar(queryPERSONA);
+                        ResultSet rs2NOMPERSONA = sqlPERSONA.consultar(queryNOMPERSONA);
+                       while (rs1PERSONA.next()) { %>
+                        <option value="<%= rs1PERSONA.getString(1) %>">
+                          <% 
+                          while (rs2NOMPERSONA.next()) {
+                              out.print(rs2NOMPERSONA.getString("nombre_persona"));
+                              out.println(" Id: ");
+                              out.print(rs1PERSONA.getString(1));
+                          } %>
+                        </option>
+                      <% 
+                        rs2NOMPERSONA.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
+                      } 
+                      %>
+                </select>
+                
+                <br>
+                <label for="GerenteSop" class="izq">Gerente asignado</label>
+                <select name="GerenteSop" class="" class="select">
+                    
+                    
+                    <%Conexion sql = new Conexion();
+                        String query = "select * from usuario where id_tipo_usuario = 4";
+                        String query2 = "SELECT p.nombre_persona FROM persona p JOIN usuario u ON p.id_usuario = u.id_usuario WHERE u.id_tipo_usuario = 4";
+                        ResultSet rs1 = sql.consultar(query);
+                        ResultSet rs2 = sql.consultar(query2);
+                       while (rs1.next()) { %>
+                        <option value="<%= rs1.getString(1) %>">
+                          <% 
+                          while (rs2.next()) {
+                              out.print(rs2.getString("nombre_persona"));
+                          } %>
+                        </option>
+                      <% 
+                        rs2.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
+                      } 
+                      %>
+                    
+                    
+                </select>
+                <br>
+                <label for="Desc" class="izq" >Descripción</label>
+                <input type="text" id="Desc" name="Desc" class="grandisimo withtot" placeholder="Escribe la descripción del problema reportado por el usuario">
+                <input type="submit" value="Enviar reporte a la gerencia de soporte" class="boton" name="btnG" >
+            </form>
         </div>
+        <br>
     </body>
-</html>
-<%}else if(nivel.equals("4")){%>
-    if (nivel.equals("3")) {%>
-<!DOCTYPE html>
+    <%}else if(nivel.equals("4")){%>
+    <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar reporte</title>
         <link rel="stylesheet" href="../css/tablas_forms.css">
         <link href="../css/asignacionesCitasPacientes.css" rel="stylesheet" type="text/css"/>
@@ -226,8 +277,7 @@ Author     : Isaac
         <link
         rel="shortcut icon"
         href="https://i.ibb.co/2qbH6y4/730-sin-t-tulo-20221221143952.png"
-        type="image/svg"
-      />
+        type="image/svg">
     </head>
     <body>
         <nav>
@@ -249,10 +299,10 @@ Author     : Isaac
                 <br>
                 <li><a href="AgregarReporteAsistente.jsp" >
                     <i class="uil uil-envelope-edit"></i>
-                    <span class="link-name">Agregar reportes</span>
+                    <span class="link-name">Agregar Reporte</span>
                 </a></li>
                 <br>
-                                <li><a href="plantillaPaciente.jsp">
+                <li><a href="plantillaPaciente.jsp">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Regresar al inicio</span>
                 </a></li>
@@ -351,60 +401,103 @@ Author     : Isaac
             <h1>Asistente</h1>
             <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
             <br>
+            <h3>Agregar reporte </h3>
+            <%
+
+                if (request.getParameter("btnG") != null) {
+                    String id_usuario_solicitante = request.getParameter("IdUsuario");
+                    String usuario_manipula_reporte = usuario;
+                    String GerenteSop = request.getParameter("GerenteSop");
+                    int id_estatus = 1;
+                    String descripcion_reporte = request.getParameter("Desc");
+                    String solucion_reporte = "";
+
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    String fechaHoraReporte = dtf.format(LocalDateTime.now());
+
+                    Conexion sql2 = new Conexion();
+                    String query2 = "SELECT * FROM usuario WHERE id_usuario = '" + id_usuario_solicitante + "'";
+                    ResultSet rs = sql2.consultar(query2);
+
+                    if (rs.next()) {
+                        Conexion sql1 = new Conexion();
+                        String query = "insert into reporte values(default,'" + id_usuario_solicitante + "','" + usuario_manipula_reporte + "','" + GerenteSop + "','" + id_estatus + "','" + descripcion_reporte + "','" + solucion_reporte + "','" + fechaHoraReporte + "')";
+                        sql1.ejecutar(query);
+                        request.getRequestDispatcher("Asistente.jsp").forward(request, response);
+                        out.println("");
+                    } else {
+            %>
+            <h3 class="nota rojos">El ID de Usuario que has escrito "<%=id_usuario_solicitante%>" no está registrado :( '.</h3>
+            <%
+                    }
+                }
+            %>
+
             <div class="nota">
-                Solo podras crear y observar tus reportes con estado "abierto"
-                podras asignar los reportes a cualquier gerente de soporte existente.
+                Solo podrás crear y observar tus reportes con estado "abierto"
+                podrás asignar los reportes a cualquier gerente de soporte existente.
                 Asegurate de escribir datos correctamente.
             </div>
             <br>
-            <br>
-            <table class="reportes-table">
-                <tr >
-                    <th>Folio de reporte</th>
-                    <th>Usuario solicitante</th>
-                    <th>Asistente</th>
-                    <th>Gerente de soporte</th>
-                    <th>Estatus</th>
-                    <th>Descripcion de reporte</th>
-                    <th>Fecha de envio</th>
-                </tr>
-                <%
-                    Conexion sql = new Conexion();
-                    String query = "select * from reporte where id_estatus = 1";
-                    ResultSet rs = sql.consultar(query);
-                    if (rs != null) {
+
+            <form action="" onsubmit="return validarFormulario();" style="text-align: left">
+                <label for="IdUsuario" class="izq" >Id de usuario que solicita</label>
+                <input type="text" id="IdUsuario" name="IdUsuario"  maxlength="18" class="" required >
+                <br>
+                <label for="GerenteSop" class="izq">Gerente asignado</label>
+                <select name="GerenteSop" class="" class="select">
+                    <%Conexion sql = new Conexion();
+                        String query = "select * from usuario where id_tipo_usuario = 4";
+                        ResultSet rs = sql.consultar(query);
                         while (rs.next()) {%>
-                <tr>
-                    <td><%=rs.getString(1)%></td>
-                    <td><%=rs.getString(2)%></td>
-                    <td><%=rs.getString(3)%></td>
-                    <td><%=rs.getString(4)%></td>
-                    <td>Abierto</td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getString(8)%></td>
-                </tr>
-                <% }
-                } else {
-                %>
-                <div class="nota rojo">
-                    No hay reportes creados
-                </div>
-                <%
-                    }
-                    rs.close();
-                %>
-            </table>
+
+                    <option value="<%=rs.getString(1)%>"><%=rs.getString(1)%></option>
+
+                    <%}%>
+                </select>
+                <br>
+                <label for="Desc" class="izq" >Descripción</label>
+                <input type="text" id="Desc" name="Desc" class="grandisimo withtot" placeholder="Escribe la descripción del problema reportado por el usuario">
+                <input type="submit" value="Enviar reporte a la gerencia de soporte" class="boton" name="btnG" >
+            </form>
         </div>
+        <br>
     </body>
+    <%} else {%>
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+        </head>
+        <body>
+            No tienes acceso
+        </body>
+    </html>
+    <%}%>
+    <script>
+        function validarFormulario() {
+            var idUsuario = document.getElementById("IdUsuario").value;
+            var descripcion = document.getElementById("Desc").value;
+            var caracteresEspeciales = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]/g;
+
+            if (idUsuario.length > 18) {
+                alert("El Id de usuario debe tener exactamente 18 caracteres.");
+                return false;
+            }
+            if (caracteresEspeciales.test(idUsuario)) {
+                alert("El Id de usuario no puede contener caracteres especiales.");
+                return false;
+            }
+            if (descripcion.length < 1 || descripcion.length > 500) {
+                alert("La descripción debe tener entre 15 y 500 caracteres.");
+                return false;
+            }
+            if (caracteresEspeciales.test(descripcion)) {
+                alert("La descripción no puede contener caracteres especiales.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </html>
-<%} else {%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        No tienes acceso
-    </body>
-</html>
-<%}%>
+
