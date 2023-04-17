@@ -175,11 +175,13 @@
             <thead class="thead">
             <tr>
           <th>Folio Reporte</th>
-          <th>Id Gerente de Soporte</th>
           <th>Id Usuario</th>
+          <th>Id Gerente de Soporte</th>
+          
           <th>Descripcion</th>
-          <th>estatus</th>
+          
           <th>Fecha y Hora</th>
+          <th>estatus</th>
           <th> </th>
             </tr>
             </thead>
@@ -191,17 +193,22 @@
        while(rs.next()){
    %>
    <tbody>
+       <% String estatus;
+       if(rs.getInt(5)== 1){
+       estatus = "Abierto";
+       %>
         <tr>
           <td><%=rs.getString(1)%></td>
-          <td><%=rs.getString(3)%></td>
           <td><%=rs.getString(2)%></td>
+          <td><%=rs.getString(3)%></td>
+          
           <td><%=rs.getString(6)%></td>
-          <td><%=rs.getInt(5)%></td>
+         
           <td><%=rs.getString(8)%></td>
-          <td><a href="ModificaciónAsistente.jsp?id_folio=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
+           <td><%=estatus%></td>
+          <td><a href="ModificaciónAsistente.jsp?id_folio=<%=rs.getString(1)%>"><button>Asignar</button></a></td>
       </tbody>
-    
-      <%
+    <% }
         }
       %>
      
@@ -214,10 +221,11 @@
         <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
             <tr>
+     <th>Folio reporte</th>            
     <th>Id Usuario</th>
     <th>Id Gerente de Mantenimiento</th>
     <th>Id Gerente de Soporte</th>
-    <th>Folio reporte</th>
+   
     <th>Descripción</th>
     <th>Solución</th>
     <th>Fecha y Hora</th>
@@ -232,19 +240,31 @@
         query = "select * from reporte where id_estatus = 6";
         rs = sql.consultar(query);
        while(rs.next()){
-   %>
- 
+   %> 
      <tbody>
+
         <tr>
+      <td><%=rs.getInt(1)%></td>      
           <td><%=rs.getString(2)%></td>
      <td><%=rs.getString(4)%></td>
      <td><%=rs.getString(3)%></td>
-     <td><%=rs.getInt(1)%></td>
+     
      <td><%=rs.getString(6)%></td>
      <td><%=rs.getString(7)%></td>
      <td><%=rs.getString(8)%></td>
-     <td><%=rs.getInt(5)%></td>
-          <td><a href="ModificacionGerente.jsp?id_folio=<%=rs.getString(1)%>"><button>Modificar</button></a></td>
+     
+      <% String estatus;
+       if(rs.getInt(5)== 6){
+       estatus = "Mantenimiento Finalizado";
+           }else {
+          estatus = "";   
+          }
+       %>
+    
+       <td><%=estatus%></td>
+       
+
+          <td><a href="ModificacionGerente.jsp?id_folio=<%=rs.getString(1)%>"><button>Asignar</button></a></td>
       </tbody>
     
      <%
@@ -261,13 +281,14 @@
         <table border="1" width="600" align="center" class="reporte-table">
             <thead class="thead">
             <tr>
+              <th>Folio reporte</th>   
               <th>Id Usuario</th>
-    <th>Folio reporte</th>
+   
     <th>Descripción</th>
     <th>Solución</th>
     <th>Fecha y Hora</th>
           <th>Estatus</th>
-     <th> </th>
+
             </tr>
             </thead>
  
@@ -281,16 +302,42 @@
  
      <tbody>
         <tr>
-          <td><%=rs.getString(2)%></td>
-     <td><%=rs.getInt(1)%></td>
+        <td><%=rs.getInt(1)%></td>     
+     <td><%=rs.getString(2)%></td>
+    
      <td><%=rs.getString(6)%></td>
      <td><%=rs.getString(7)%></td>
-     <td><%=rs.getString(8)%></td>
-     <td><%=rs.getInt(5)%></td>
+     <td><%=rs.getString(8)%></td> 
+     
+      <% String estatus;
+       if(rs.getInt(5)== 1){
+       estatus = "Abierto";
+           } else if(rs.getInt(5)==2){
+          estatus = "En proceso";   
+          } else if(rs.getInt(5)==3){
+          estatus = "En mantenimiento";   
+          } else if(rs.getInt(5)==4){
+          estatus = "En programacion";   
+          }else if(rs.getInt(5)==5){
+          estatus = "Progamacion finalizada";   
+          }else if(rs.getInt(5)==6){
+          estatus = "Mantenimiento finalizado";   
+          }else if(rs.getInt(5)==7){
+          estatus = "Solucionado";   
+          }else if(rs.getInt(5)==8){
+          estatus = "Cerrado";   
+          }else {
+          estatus = "";   
+          }
+       %>
+     
+       <td><%=estatus%></td>
+       
       </tbody>
     
-     <%
-        }
+     <%        
+         
+}
       %>
     
     </table>

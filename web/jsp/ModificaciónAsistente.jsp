@@ -226,7 +226,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
      </select>
      <br>
      <br>
-     <button type="submit">Enviar</button>
+     <button type="submit">Asignar</button>
   
      
       </div>
