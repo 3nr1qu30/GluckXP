@@ -64,7 +64,7 @@ Author     : Isaac
                 <br>
                 <li><a href="../index.jsp">
                     <i class="uil uil-chat"></i>
-                    <span class="link-name">Cerrar sesi髇</span>
+                    <span class="link-name">Cerrar sesi贸n</span>
                 </a></li>
             </ul>
             
@@ -86,7 +86,7 @@ Author     : Isaac
 
             <div class="search-box">
                 <i class="uil uil-circle"></i>
-                <input type="text" placeholder="Aplicaci髇 de soporte" disabled>
+                <input type="text" placeholder="Aplicaci贸n de soporte" disabled>
             </div>
 
                 <div class="icon" onclick="toggleNotifi()">
@@ -118,7 +118,7 @@ Author     : Isaac
                       <span class="name">Nombre completito jeje</span>
                       <span class="job">Email@cum.com</span>
                       <span class="job">Paciente</span>
-                      <span class="job">Direcci髇??</span>
+                      <span class="job">Direcci贸n??</span>
                     </div>
               
                     <div class="media-buttons">
@@ -181,9 +181,9 @@ Author     : Isaac
                         while (rs.next()) {%>
                 <tr>
                     <td><%=rs.getString(1)%></td>
-                    <td><%=rs.getString(2)%></td>
-                    <td><%=rs.getString(3)%></td>
-                    <td><%=rs.getString(4)%></td>
+                    <td><%=rs.getString(2)%>, Enrique</td>
+                    <td><%=rs.getString(3)%>, Isaac</td>
+                    <td><%=rs.getString(4)%>, Roberto</td>
                     <td>Abierto</td>
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getString(8)%></td>
@@ -259,7 +259,7 @@ Author     : Isaac
                 <br>
                 <li><a href="../index.jsp">
                     <i class="uil uil-chat"></i>
-                    <span class="link-name">Cerrar sesi髇</span>
+                    <span class="link-name">Cerrar sesi贸n</span>
                 </a></li>
             </ul>
             
@@ -281,7 +281,7 @@ Author     : Isaac
 
             <div class="search-box">
                 <i class="uil uil-circle"></i>
-                <input type="text" placeholder="Aplicaci髇 de soporte" disabled>
+                <input type="text" placeholder="Aplicaci贸n de soporte" disabled>
             </div>
 
                 <div class="icon" onclick="toggleNotifi()">
@@ -313,7 +313,7 @@ Author     : Isaac
                       <span class="name">Nombre completito jeje</span>
                       <span class="job">Email@cum.com</span>
                       <span class="job">Paciente</span>
-                      <span class="job">Direcci髇??</span>
+                      <span class="job">Direcci贸n??</span>
                     </div>
               
                     <div class="media-buttons">
