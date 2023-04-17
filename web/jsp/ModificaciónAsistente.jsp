@@ -257,7 +257,7 @@ function agregaropcion() {
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "5";
-        option.text = "5";
+        option.text = "Sandoval Vásquez Gonzalo";
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "3";
@@ -274,7 +274,7 @@ function agregaropcion() {
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "4";
-        option.text = "4";
+        option.text = "Nieves Bartolo Marco Antonio";
         selectUsuario.add(option);
         var option = document.createElement("option");
         option.value = "2";
