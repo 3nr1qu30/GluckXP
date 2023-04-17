@@ -184,34 +184,7 @@ if(nivel.equals("8")){%>
       <%}%>
     </table> 
         </div>
-        </div>
-        <script src="../css/alertify.min.js" type="text/javascript"></script>
-    <script>function validar_FAQ(){
-            pregunta = document.FAQS.PreguntaForm.value;
-            respuesta = document.FAQS.SolucionForm.value;
-            console.log(pregunta);
-            console.log(respuesta);
-            if(pregunta.length==0 || pregunta.length < 15){
-                alertify.alert("Error","Ingrese una pregunta con una extension de 15 o más caracteres").set('label','ok');
-                return false;
-            }else{
-                if(respuesta.length==0|| respuesta.length < 15){
-                    alertify.alert("Error","Ingrese una respuesta con una extension de 15 o más caracteres").set('label','ok');
-                    return false;
-                }else{
-                    alertify.success("FAQ registrada");
-                    return true;
-                    }
-                }
-            }
-            function validar_texto(){
-                teclas = e.keyCode;
-                teclado = String.fromCharCode(teclas);
-                if(teclado < 'A' || teclado > 'z' || teclado < 0 || teclado > 9 && teclado !=""){
-                    return false;
-                }
-            }
-        </script>             
+        </div>        
     </body>
 </html>
 <%}else if(nivel.equals("4")){%>
@@ -400,34 +373,7 @@ if(nivel.equals("8")){%>
       <%}%>
     </table> 
         </div>
-        </div>
-        <script src="../css/alertify.min.js" type="text/javascript"></script>
-    <script>function validar_FAQ(){
-            pregunta = document.FAQS.PreguntaForm.value;
-            respuesta = document.FAQS.SolucionForm.value;
-            console.log(pregunta);
-            console.log(respuesta);
-            if(pregunta.length==0 || pregunta.length < 15){
-                alertify.alert("Error","Ingrese una pregunta con una extension de 15 o más caracteres").set('label','ok');
-                return false;
-            }else{
-                if(respuesta.length==0|| respuesta.length < 15){
-                    alertify.alert("Error","Ingrese una respuesta con una extension de 15 o más caracteres").set('label','ok');
-                    return false;
-                }else{
-                    alertify.success("FAQ registrada");
-                    return true;
-                    }
-                }
-            }
-            function validar_texto(){
-                teclas = e.keyCode;
-                teclado = String.fromCharCode(teclas);
-                if(teclado < 'A' || teclado > 'z' || teclado < 0 || teclado > 9 && teclado !=""){
-                    return false;
-                }
-            }
-        </script>             
+        </div>             
     </body>
 </html>
 <%} else{%>
