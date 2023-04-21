@@ -7,7 +7,8 @@
 
 <%session = request.getSession();
           String nivel = session.getAttribute("lvl").toString();
-          String usuario = session.getAttribute("usuario").toString();  
+          String usuario = session.getAttribute("usuario").toString(); 
+
      %>
 
 <html lang="en">

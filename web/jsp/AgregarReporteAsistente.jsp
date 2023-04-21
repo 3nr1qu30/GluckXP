@@ -217,7 +217,7 @@ Comer      : siempres
                           } %>
                         </option>
                       <% 
-                        rs2NOMPERSONA.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
+                        //rs2NOMPERSONA.beforeFirst(); // volver a colocar el cursorj en la primera fila del resultado
                       } 
                       %>
                 </select>
@@ -228,7 +228,7 @@ Comer      : siempres
                     
                     
                     <%Conexion sql = new Conexion();
-                        String query = "select * from usuario where id_tipo_usuario = 4";
+                        String query = "select * from usuario natural join persona where id_tipo_usuario = 4";
                         String query2 = "SELECT p.nombre_persona FROM persona p JOIN usuario u ON p.id_usuario = u.id_usuario WHERE u.id_tipo_usuario = 4";
                         ResultSet rs1 = sql.consultar(query);
                         ResultSet rs2 = sql.consultar(query2);
@@ -240,7 +240,7 @@ Comer      : siempres
                           } %>
                         </option>
                       <% 
-                        rs2.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
+                       // rs2.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
                       } 
                       %>
                     
@@ -300,11 +300,6 @@ Comer      : siempres
                 <li><a href="AgregarReporteAsistente.jsp" >
                     <i class="uil uil-envelope-edit"></i>
                     <span class="link-name">Agregar Reporte</span>
-                </a></li>
-                <br>
-                <li><a href="plantillaPaciente.jsp">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name">Regresar al inicio</span>
                 </a></li>
                 <br>
                 <li><a href="../index.jsp">
@@ -397,6 +392,8 @@ Comer      : siempres
         
         </div>
         <br>
+        
+        
         <div class="dash-content">
             <h1>Asistente</h1>
             <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
@@ -441,19 +438,52 @@ Comer      : siempres
             <br>
 
             <form action="" onsubmit="return validarFormulario();" style="text-align: left">
-                <label for="IdUsuario" class="izq" >Id de usuario que solicita</label>
-                <input type="text" id="IdUsuario" name="IdUsuario"  maxlength="18" class="" required >
+                <label for="IdUsuario" class="izq" > Usuario que solicita</label>
+                
+                <select name="IdUsuario" class="" class="select">
+                <%Conexion sqlPERSONA = new Conexion();
+                        String queryPERSONA = "select * from usuario where id_tipo_usuario = 1";
+                        String queryNOMPERSONA = "SELECT p.nombre_persona FROM persona p JOIN usuario u ON p.id_usuario = u.id_usuario WHERE u.id_tipo_usuario = 1";
+                        ResultSet rs1PERSONA = sqlPERSONA.consultar(queryPERSONA);
+                        ResultSet rs2NOMPERSONA = sqlPERSONA.consultar(queryNOMPERSONA);
+                       while (rs1PERSONA.next()) { %>
+                        <option value="<%= rs1PERSONA.getString(1) %>">
+                          <% 
+                          while (rs2NOMPERSONA.next()) {
+                              out.print(rs2NOMPERSONA.getString("nombre_persona"));
+                              out.println(" Id: ");
+                              out.print(rs1PERSONA.getString(1));
+                          } %>
+                        </option>
+                      <% 
+                        //rs2NOMPERSONA.beforeFirst(); // volver a colocar el cursorj en la primera fila del resultado
+                      } 
+                      %>
+                </select>
+                
                 <br>
                 <label for="GerenteSop" class="izq">Gerente asignado</label>
                 <select name="GerenteSop" class="" class="select">
+                    
+                    
                     <%Conexion sql = new Conexion();
-                        String query = "select * from usuario where id_tipo_usuario = 4";
-                        ResultSet rs = sql.consultar(query);
-                        while (rs.next()) {%>
-
-                    <option value="<%=rs.getString(1)%>"><%=rs.getString(1)%></option>
-
-                    <%}%>
+                        String query = "select * from usuario natural join persona where id_tipo_usuario = 4";
+                        String query2 = "SELECT p.nombre_persona FROM persona p JOIN usuario u ON p.id_usuario = u.id_usuario WHERE u.id_tipo_usuario = 4";
+                        ResultSet rs1 = sql.consultar(query);
+                        ResultSet rs2 = sql.consultar(query2);
+                       while (rs1.next()) { %>
+                        <option value="<%= rs1.getString(1) %>">
+                          <% 
+                          while (rs2.next()) {
+                              out.print(rs2.getString("nombre_persona"));
+                          } %>
+                        </option>
+                      <% 
+                       // rs2.beforeFirst(); // volver a colocar el cursor en la primera fila del resultado
+                      } 
+                      %>
+                    
+                    
                 </select>
                 <br>
                 <label for="Desc" class="izq" >Descripción</label>

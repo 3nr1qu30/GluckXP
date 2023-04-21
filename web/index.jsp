@@ -118,8 +118,11 @@
   <div class="faq-container">
 
         <%FAQs faq = new FAQs();
-        ResultSet rs = faq.VisualizarFAQ();%>
-        <%while(rs.next()){%>
+        ResultSet rs = faq.VisualizarFAQ();
+         %>
+        
+        <%
+while(rs.next()){%>
         <div class="faq-item">
         <div class="faq-question">
             <h3><%=rs.getString(2)%></h3>
