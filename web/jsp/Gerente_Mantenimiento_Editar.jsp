@@ -158,7 +158,7 @@
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
-                    cnx = DriverManager.getConnection ("jdbc:mysql://localhost:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","root","n0m3l0");
+                    cnx = DriverManager.getConnection("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
                     sta = cnx.createStatement();
                     sta2 = cnx.createStatement();
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
@@ -453,7 +453,7 @@ function validarFormulario() {
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
-                    cnx = DriverManager.getConnection ("jdbc:mysql://localhost:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","root","n0m3l0");
+                    cnx = DriverManager.getConnection("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City","Escuela","Sardipondi69.");
                     sta = cnx.createStatement();
                     sta2 = cnx.createStatement();
                     rs = sta.executeQuery("select * from reporte where id_reporte='"+id_reporte+"'");
