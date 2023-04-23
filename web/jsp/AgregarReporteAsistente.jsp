@@ -505,29 +505,14 @@ Comer      : siempres
     </html>
     <%}%>
     <script>
-        function validarFormulario() {
-            var idUsuario = document.getElementById("IdUsuario").value;
-            var descripcion = document.getElementById("Desc").value;
-            var caracteresEspeciales = /[!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?]/g;
-
-            if (idUsuario.length > 18) {
-                alert("El Id de usuario debe tener exactamente 18 caracteres.");
-                return false;
-            }
-            if (caracteresEspeciales.test(idUsuario)) {
-                alert("El Id de usuario no puede contener caracteres especiales.");
-                return false;
-            }
-            if (descripcion.length < 1 || descripcion.length > 500) {
-                alert("La descripción debe tener entre 15 y 500 caracteres.");
-                return false;
-            }
-            if (caracteresEspeciales.test(descripcion)) {
-                alert("La descripción no puede contener caracteres especiales.");
-                return false;
-            }
-            return true;
+       function validarFormulario() {
+        var desc = document.getElementById("Desc").value;
+        if (desc.length < 15 || desc.length > 500) {
+          alert("La descripción debe tener entre 15 y 500 caracteres");
+          return false; // evita que el formulario se envíe
         }
+        return true; // permite que el formulario se envíe
+      }
+      </script>
     </script>
 </html>
-
