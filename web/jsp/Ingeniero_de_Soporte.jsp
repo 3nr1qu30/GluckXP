@@ -215,12 +215,33 @@
                     while (rs2.next()) {
                 %>
 
+                
+                    <% 
+                    
+                    String modificador = "";
+                    String status = rs.getString(3);
+
+                     if (status.equals('3')) {
+                        modificador = "Roberto Negrete Gonzalez";
+                     }
+                        else if (status.equals('4')) {
+                            modificador = "Marco Nieves Bartolo";
+                     }        
+                    String nose = rs.getString(4);
+                    String yo = "";
+                    
+                    if (nose.equals('4')) {
+                        yo = "Marco Nieves Bartolo";
+                    } else {
+                        yo = "null";
+                    }
+                    %>
                 <tbody>
                 <tr>
                     <th class="blancos"> <%=rs2.getInt(1)%> </th>
                     <th class="blancos"> <%=rs.getString(2)%> </th>
-                    <th class="blancos"> Roberto Negrete Gonzalez </th>
-                    <th class="blancos"> Marco Nieves Bartolo </th>
+                    <th class="blancos"> <%=modificador%> </th>
+                    <th class="blancos"> <%=yo%> </th>
                     <th class="blancos"> Solucionado </th>
                     <th class="blancos"> <%=rs2.getString(6)%> </th>
                     <th class="blancos"> <%=rs2.getString(7)%> </th>
