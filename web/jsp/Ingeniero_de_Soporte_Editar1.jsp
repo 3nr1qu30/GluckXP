@@ -145,7 +145,7 @@ function validarForm () {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City", "root", "n0m3l0");
+                cnx = DriverManager.getConnection("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City", "Escuela", "Sardipondi69.");
                 sta = cnx.createStatement();
                 rs = sta.executeQuery("select * from reporte where id_reporte='" + id_reporte + "'");
 
@@ -162,16 +162,16 @@ function validarForm () {
     <form onload="actualizarForm()">        
             <div class="contenedorsss" style="width: 100%">
                    Folio del reporte
-                    <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly">
+                    <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly" class="omitir">
                     Usuario solicitante
-                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly">
+                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly" class="omitir">
                     Estatus
                         <select name="idestatus" id="idestatus"">
                         <option value="7">Solucionado</option>
                         <option value="8">Cerrado</option>
                         </select>
                     Descripción
-                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
+                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" class="omitir">
                     Solución
                     <input type="text" name="solucionrep" id="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500"   validarFormulario() required></td>
                     Fecha y hora

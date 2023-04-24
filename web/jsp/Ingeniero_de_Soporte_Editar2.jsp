@@ -58,7 +58,7 @@ function actualizarForm() {
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8">
+       <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/asignacionesCitasPacientes.css" rel="stylesheet" type="text/css"/>
@@ -161,7 +161,7 @@ function actualizarForm() {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City", "root", "n0m3l0");
+                cnx = DriverManager.getConnection("jdbc:mysql://26.160.48.186:3306/GluckyXp?useSSL=false&serverTimezone=America/Mexico_City", "Escuela", "Sardipondi69.");
                 sta = cnx.createStatement();
                 rs = sta.executeQuery("select * from reporte where id_reporte='" + id_reporte + "'");
 
@@ -178,23 +178,23 @@ function actualizarForm() {
     <form onload="actualizarForm()">        
                         <div class="contenedorsss" style="width: 100%">
                    Folio del reporte
-                    <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly">
+                   <input type="text" name="idreporte" value="<%=rs.getString(1)%>" readonly="readonly" class="omitir">
                     Usuario solicitante
-                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly">
+                    <input type="text" name="solicitante" value="<%=rs.getString(2)%>" readonly="readonly" class="omitir">
                     Estatus
                         <select name="idestatus" id="idestatus"">
                         <option value="8">Cerrado</option>
                         </select>
                     Descripción
-                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" >
+                    <input type="text" name="descripcionrep" value="<%=rs.getString(6)%>" readonly="readonly" class="omitir">
                     Solución
-                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" readonly="readonly"></td>
+                    <input type="text" name="solucionrep" value="<%=rs.getString(7)%>"  maxlength="500" readonly="readonly" class="omitir"></td>
                     Fecha y hora
                     <%
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                             String fechaHoraReporte = dtf.format(LocalDateTime.now());
                         %>
-                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly">
+                        <input type="text" name="fecha" value="<%=fechaHoraReporte%>" readonly="readonly" class="omitir">
                     
                         <input type="submit" name="btnGrabar" value="Enviar Reporte" class="boton">
                         </div>
