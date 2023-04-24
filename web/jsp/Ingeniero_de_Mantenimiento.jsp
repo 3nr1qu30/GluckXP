@@ -152,9 +152,10 @@
                      if (status.equals('5')) {
                         modificador = "Gonzalo Sandoval Vasquez";
                      }
-                        else if (status.equals('7'))
+                        else if (status.equals('6')) {
                             modificador = "Marco Nieves Bartolo";
-                            
+                     }  
+                     
                     String nose = rs.getString(4);
                     String yo = "";
                     

@@ -153,9 +153,9 @@
                      if (status.equals('3')) {
                         modificador = "Roberto Negrete Gonzalez";
                      }
-                        else if (status.equals('7'))
+                        else if (status.equals('4')) {
                             modificador = "Marco Nieves Bartolo";
-                            
+                     }        
                     String nose = rs.getString(4);
                     String yo = "";
                     
