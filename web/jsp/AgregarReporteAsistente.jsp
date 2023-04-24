@@ -505,14 +505,27 @@ Comer      : siempres
     </html>
     <%}%>
     <script>
-       function validarFormulario() {
-        var desc = document.getElementById("Desc").value;
-        if (desc.length < 15 || desc.length > 500) {
-          alert("La descripción debe tener entre 15 y 500 caracteres");
-          return false; // evita que el formulario se envíe
-        }
-        return true; // permite que el formulario se envíe
-      }
+     
+	    function validarFormulario() {
+		  var desc = document.getElementById("Desc").value;
+		  if (desc.length < 15 || desc.length > 500) {
+		    alert("La descripción debe tener entre 15 y 500 caracteres");
+		    return false; // evita que el formulario se envíe
+		  }
+		  else if (!/^[a-zA-Z0-9!@#$%^&*(),.?":{}|<>_+=\-\[\]\\';\/]+$/g.test(desc)) {
+		    alert("La descripción contiene caracteres no válidos");
+		    return false; // evita que el formulario se envíe
+		  }
+		  return true; // permite que el formulario se envíe
+		}
+		Esta función primero verifica la longitud de la descripción, y si está fuera del rango especificado, muestra una alerta y evita que el formulario se envíe. Si la longitud es correcta, entonces verifica si la descripción contiene caracteres no válidos utilizando la expresión regular proporcionada. Si la descripción contiene caracteres no válidos, muestra una alerta y evita que el formulario se envíe. Si ambas validaciones son exitosas, la función permite que el formulario se envíe.
+
+
+
+
+
+
+
       </script>
     </script>
 </html>
