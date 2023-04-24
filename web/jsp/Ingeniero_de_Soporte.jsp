@@ -146,8 +146,8 @@
                 <tr>
                     <th class="blancos"> <%=rs.getInt(1)%> </th>
                     <th class="blancos"> <%=rs.getString(2)%> </th>
-                    <th class="blancos"> <%=rs.getString(3)%> </th>
-                    <th class="blancos"> <%=rs.getString(4)%> </th>
+                    <th class="blancos"> Roberto Negrete Gonzalez </th>
+                    <th class="blancos"> Marco Nieves Bartolo </th>
                     <th class="blancos"> En proceso </th>
                     <th class="blancos"> <%=rs.getString(6)%> </th>
                     <th class="blancos"> <%=rs.getString(7)%> </th>
@@ -196,9 +196,9 @@
                 <tbody>
                 <tr>
                     <th class="blancos"> <%=rs2.getInt(1)%> </th>
-                    <th class="blancos"> <%=rs2.getString(2)%> </th>
-                    <th class="blancos"> <%=rs2.getString(3)%> </th>
-                    <th class="blancos"> <%=rs2.getString(4)%> </th>
+                    <th class="blancos"> <%=rs.getString(2)%> </th>
+                    <th class="blancos"> Roberto Negrete Gonzalez </th>
+                    <th class="blancos"> Marco Nieves Bartolo </th>
                     <th class="blancos"> Solucionado </th>
                     <th class="blancos"> <%=rs2.getString(6)%> </th>
                     <th class="blancos"> <%=rs2.getString(7)%> </th>
