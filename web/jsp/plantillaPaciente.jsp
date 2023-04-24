@@ -197,11 +197,33 @@
        <% String estatus;
        if(rs.getInt(5)== 1){
        estatus = "Abierto";
+       
+  String nombre;
+       if(rs.getInt(2)== 1){
+       nombre = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(2)==2){
+          nombre = "Montoya Rodriguez Isaac";   
+          } else if(rs.getInt(2)==3){
+          nombre = "Negrete González Roberto";      
+          }else {
+          nombre = "";   
+          }
+           String nombre2;
+       if(rs.getInt(3)== 1){
+       nombre2 = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(3)==2){
+          nombre2 = "Montoya Rodriguez";   
+          } else if(rs.getInt(3)==3){
+          nombre2 = "Negrete González Roberto";      
+          }else {
+          nombre2 = "";   
+          }
        %>
         <tr>
           <td><%=rs.getString(1)%></td>
-          <td><%=rs.getString(2)%></td>
-          <td><%=rs.getString(3)%></td>
+          
+          <td><%=nombre%></td>
+          <td><%=nombre2%></td>
           
           <td><%=rs.getString(6)%></td>
          
@@ -245,15 +267,47 @@
      <tbody>
 
         <tr>
-      <td><%=rs.getInt(1)%></td>      
-          <td><%=rs.getString(2)%></td>
-     <td><%=rs.getString(4)%></td>
-     <td><%=rs.getString(3)%></td>
-     
+      <td><%=rs.getInt(1)%></td>     
+                  <%      
+  String nombre;
+       if(rs.getInt(2)== 1){
+       nombre = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(2)==2){
+          nombre = "Montoya Rodriguez Isaac";   
+          } else if(rs.getInt(2)==3){
+          nombre = "Negrete González Roberto";      
+          }else {
+          nombre = "";   
+          }
+           String nombre2;
+       if(rs.getInt(3)== 1){
+       nombre2 = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(3)==2){
+          nombre2 = "Montoya Rodriguez Isaac";   
+          } else if(rs.getInt(3)==3){
+          nombre2 = "Negrete González Roberto";      
+          }else {
+          nombre2 = "";   
+          }
+          
+           String nombre3;
+       if(rs.getInt(3)== 1){
+       nombre3 = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(3)==2){
+          nombre3 = "Montoya Rodriguez Isaac";   
+          } else if(rs.getInt(3)==3){
+          nombre3 = "Sandoval Vasquez Gonzalo";      
+          }else {
+          nombre3 = "";   
+          }
+       %>
+          <td><%=nombre%></td>
+     <td><%=nombre3%></td>
+     <td><%=nombre2%></td>
      <td><%=rs.getString(6)%></td>
      <td><%=rs.getString(7)%></td>
      <td><%=rs.getString(8)%></td>
-     
+       
       <% String estatus;
        if(rs.getInt(5)== 6){
        estatus = "Mantenimiento Finalizado";
@@ -303,8 +357,21 @@
  
      <tbody>
         <tr>
-        <td><%=rs.getInt(1)%></td>     
-     <td><%=rs.getString(2)%></td>
+        <td><%=rs.getInt(1)%></td>
+                        <%      
+  String nombre;
+       if(rs.getInt(2)== 1){
+       nombre = "Varillas Figueroa Enrique";
+           } else if(rs.getInt(2)==2){
+          nombre = "Montoya Rodriguez Isaac";   
+          } else if(rs.getInt(2)==3){
+          nombre = "Negrete González Roberto";      
+          }else {
+          nombre = "";   
+          }
+           %>
+           
+     <td><%=nombre%></td>
     
      <td><%=rs.getString(6)%></td>
      <td><%=rs.getString(7)%></td>
@@ -320,7 +387,7 @@
           } else if(rs.getInt(5)==4){
           estatus = "En programacion";   
           }else if(rs.getInt(5)==5){
-          estatus = "Progamacion finalizada";   
+          estatus = "Programacion finalizada";   
           }else if(rs.getInt(5)==6){
           estatus = "Mantenimiento finalizado";   
           }else if(rs.getInt(5)==7){
