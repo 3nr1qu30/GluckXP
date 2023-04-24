@@ -193,7 +193,7 @@ if(nivel.equals("6")){%>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
                     <td>
-                        <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>"><button class="boton69">Modificar</button></a>
+                        <a href="Gerente_Mantenimiento_Editar_Prog.jsp?id_reporte=<%=rs.getString(1)%>"><button class="boton69">Modificar</button></a>
                     </td>
             </tr>
             
@@ -567,7 +567,7 @@ if(nivel.equals("6")){%>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
                     <td>
-                        <a href="Gerente_Mantenimiento_Editar.jsp?id_reporte=<%=rs.getString(1)%>"><button class="boton69">Modificar</button></a>
+                        <a href="Gerente_Mantenimiento_Editar_Prog.jsp?id_reporte=<%=rs.getString(1)%>"><button class="boton69">Modificar</button></a>
                     </td>
             </tr>
             
