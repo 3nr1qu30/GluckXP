@@ -499,3 +499,14 @@ buenisimo{
 .omitir{
     background-color: lightcoral; 
 }
+
+.boton69{
+  background-color: #00a2ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
