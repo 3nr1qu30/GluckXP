@@ -144,11 +144,33 @@
         while (rs.next()) {
     %>
     
+                        <% 
+                    
+                    String modificador = "";
+                    String status = rs.getString(3);
+
+                     if (status.equals('5')) {
+                        modificador = "Gonzalo Sandoval Vasquez";
+                     }
+                        else if (status.equals('7'))
+                            modificador = "Marco Nieves Bartolo";
+                            
+                    String nose = rs.getString(4);
+                    String yo = "";
+                    
+                    if (nose.equals('6')) {
+                        yo = "Antonio Nieves Bartolo";
+                    } else {
+                        yo = "null";
+                    }
+                    %>
+    
+    
         <tr>
             <th class="blancos"> <%=rs.getInt(1)%> </th>
             <th class="blancos"> <%=rs.getString(2) %> </th>
-            <th class="blancos"> Gonzalo Sandoval Vasquez </th>
-            <th class="blancos"> Antonio Nieves Bartolo </th>
+            <th class="blancos"> <%=status%> </th>
+            <th class="blancos"> <%=yo%> </th>
             <th class="blancos"> En programación</th>
             <th class="blancos"> <%=rs.getString(6) %> </th>
             <th class="blancos"> <%=rs.getString(7) %> </th>
