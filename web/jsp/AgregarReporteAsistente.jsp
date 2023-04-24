@@ -157,7 +157,7 @@ Comer      : siempres
         
         <div class="dash-content">
             <h1>Asistente</h1>
-            <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
+            <h3 class="grismini">Bienvenido</h3>
             <br>
             <h3>Agregar reporte </h3>
             <%
@@ -396,7 +396,7 @@ Comer      : siempres
         
         <div class="dash-content">
             <h1>Asistente</h1>
-            <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
+            <h3 class="grismini">Bienvenido</h3>
             <br>
             <h3>Agregar reporte </h3>
             <%

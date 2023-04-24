@@ -160,15 +160,35 @@ if(nivel.equals("6")){%>
                 String query = "select * from reporte where id_estatus = 3";
                 ResultSet rs = sql.consultar(query);
                 
+                
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==3){
+                    estatus="En Mantenimiento";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("3")){
+                    nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("5")){
+                nombreAsig="Sandoval Vasquez";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -209,14 +229,36 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 5";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==5){
+                    estatus="Programacion finalizada";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("6")){
+                    nombreMa="Nieves Barolo";
+                }
+                else{
+                nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("5")){
+                nombreAsig="Sandoval Vasquez";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -253,14 +295,37 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 4";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==4){
+                    estatus="En programacion";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("5")){
+                    nombreMa="Sandoval Vazques";
+                }
+                else{
+                nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("6")){
+                nombreAsig="Nievez Bartolo";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
+                
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -275,14 +340,31 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 6";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==6){
+                    estatus="Mantenimiento finalizado";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("3")){
+                    nombreMa="Negrete Gonzalez";
+                }
+
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("3")){ 
+              nombreAsig="Negrete Gonzalez";}
+                
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -458,14 +540,33 @@ if(nivel.equals("6")){%>
                 ResultSet rs = sql.consultar(query);
                 
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==3){
+                    estatus="En Mantenimiento";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("3")){
+                    nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("5")){
+                nombreAsig="Sandoval Vasquez";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
             %>
         
             <tr>
-                        <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                       <th><%=rs.getInt(1)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -506,14 +607,36 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 5";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                                String estatus="";
+                if(rs.getInt(5)==5){
+                    estatus="Programacion finalizada";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("6")){
+                    nombreMa="Nieves Barolo";
+                }
+                else{
+                nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("5")){
+                nombreAsig="Sandoval Vasquez";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -550,14 +673,36 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 4";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==4){
+                    estatus="En programacion";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("5")){
+                    nombreMa="Sandoval Vazques";
+                }
+                else{
+                nombreMa="Negrete Gonzalez";
+                }
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("6")){
+                nombreAsig="Nievez Bartolo";
+                }
+                else{
+                nombreAsig="Negrete Gonzalez";
+                }
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>
@@ -572,14 +717,30 @@ if(nivel.equals("6")){%>
                 query = "select * from reporte where id_estatus = 6";
                 rs = sql.consultar(query);
                 while (rs.next()){
+                String estatus="";
+                if(rs.getInt(5)==6){
+                    estatus="Mantenimiento finalizado";
+                }
+                String nombrePS="";
+                if(rs.getString("id_usuario_solicitante").equals("1")){
+                    nombrePS="Varillas Figueroa";
+                }
+                String nombreMa="";
+                if(rs.getString("id_usuario_manipula_reporte").equals("3")){
+                    nombreMa="Negrete Gonzalez";
+                }
+
+                String nombreAsig="";
+                if(rs.getString("id_usuario_asignado_tarea").equals("3")){ 
+              nombreAsig="Negrete Gonzalez";}
             %>
         
             <tr>
                         <th><%=rs.getInt(1)%></th>
-                        <th><%=rs.getString(2)%></th>
-                        <th><%=rs.getString(3)%></th>
-                        <th><%=rs.getString(4)%></th>
-                        <th><%=rs.getInt(5)%></th>
+                        <th><%=nombrePS%></th>
+                        <th><%=nombreMa%></th>
+                        <th><%=nombreAsig%></th>
+                        <th><%=estatus%></th>
                         <th><%=rs.getString(6)%></th>
                         <th><%=rs.getString(7)%></th>
                         <th><%=rs.getString(8)%></th>

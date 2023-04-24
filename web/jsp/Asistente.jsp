@@ -154,7 +154,7 @@ Author     : Isaac
         <br>
         <div class="dash-content">
             <h1>Asistente</h1>
-            <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
+            <h3 class="grismini">Bienvenido</h3>
             <br>
             <div class="nota">
                 Solo podras crear y observar tus reportes con estado "abierto"
@@ -349,7 +349,7 @@ Author     : Isaac
         <br>
         <div class="dash-content">
             <h1>Asistente</h1>
-            <h3 class="grismini">Bienvenido <%out.println(usuario);%></h3>
+            <h3 class="grismini">Bienvenido</h3>
             <br>
             <div class="nota">
                 Solo podras crear y observar tus reportes con estado "abierto"

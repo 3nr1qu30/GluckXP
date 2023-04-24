@@ -17,7 +17,7 @@ if(nivel.equals("8")){%>
         <title>Publicar FAQ's</title>
     </head>
     <body>
-        <h1 align="center">Publicar FAQ's Editor; <%=usuario%></h1>
+        <h1 align="center">Publicar FAQ's Editor</h1>
         <form method="POST" action="ServletPublicarFAQ" name="FAQS" onsubmit="return validar_FAQ()">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
@@ -102,7 +102,7 @@ if(nivel.equals("8")){%>
         <title>Publicar FAQ's</title>
     </head>
     <body>
-        <h1 align="center">Publicar FAQ's Editor; <%=usuario%></h1>
+        <h1 align="center">Publicar FAQ's Editor</h1>
         <form method="POST" action="ServletPublicarFAQ" name="FAQS" onsubmit="return validar_FAQ()">
       <div class="input-group">
         <label for="pregunta">Pregunta</label>
